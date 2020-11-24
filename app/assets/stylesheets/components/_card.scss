@@ -82,7 +82,7 @@
 ul.avatars {
       position: absolute;
       right: 16px;
-      top: -20px;
+      top: -25px;
       display: flex; /* Causes LI items to display in row. */
       list-style-type: none ;
       padding: 0px 7px 0px 0px ;
@@ -90,11 +90,11 @@ ul.avatars {
     }
 
     li.avatars_item {
-      height: 49px ;
+      height: 30px ;
       margin: 0px 0px 0px 0px ;
       padding: 0px 0px 0px 0px ;
       position: relative ;
-      width: 36px ; /* Forces flex items to be smaller than their contents. */
+      width: 30px ; /* Forces flex items to be smaller than their contents. */
     }
 
     /*

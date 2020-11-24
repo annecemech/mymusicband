@@ -7,29 +7,18 @@
 
   <% @bands.each do |band| %>
     <div class="card-band">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <img src="https://raje.fr/media/cache/mycache/uploads/images/articles/5a6205a4a0204_Nirvana.jpg" />
       <div class="card-band-infos">
         <div>
           <h2><%= band.name %></h2>
           <p><%= band.description %></p>
         </div>
-        <% band.users.each do |user| %>
-        <%= user.first_name %>
-
-        <% end %>
         <ul class="avatars">
-          <li class="avatars_item">
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
-          </li>
-          <li class="avatars_item">
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
-          </li>
-          <li class="avatars_item">
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
-          </li>
-           <li class="avatars_item">
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
-          </li>
+          <% band.users.each do |user| %>
+            <li class="avatars_item">
+              <%= cl_image_tag user.avatar.key, crop: :thumb, gravity: :face, :effect=>"grayscale", class: "avatar-bordered" %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

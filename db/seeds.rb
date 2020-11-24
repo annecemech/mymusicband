@@ -18,7 +18,7 @@ user1 = User.new(
   password: "123456",
   instrument: 1 # guitare?
 )
-user1.avatar.attach(io: URI.open('https://i1.wp.com/www.sensationrock.net/wp-content/uploads/2015/10/090218-kurt-cobain-1.jpg'), filename: 'kurt_cobain_photo.jpg', content_type: 'image/jpg')
+user1.avatar.attach(io: URI.open('https://i1.wp.com/www.sensationrock.net/wp-content/uploads/2015/10/090218-kurt-cobain-1.jpg'), filename: 'kurt_cobain_avatar.jpg', content_type: 'image/jpg')
 user1.save!
 
 user2 = User.new(
@@ -28,6 +28,7 @@ user2 = User.new(
   password: "123456",
   instrument: 1 # guitare?
 )
+user2.avatar.attach(io: URI.open('https://img.20mn.fr/6nPiQdDCTw6LhuAFRk-sdA/830x532_leader-foo-fighters-dave-grohl.jpg'), filename: 'dave_grohl_avatar.jpg', content_type: 'image/jpg')
 user2.save!
 
 user3 = User.new(
@@ -37,6 +38,7 @@ user3 = User.new(
   password: "123456",
   instrument: 2 # bass?
 )
+user3.avatar.attach(io: URI.open('https://i.pinimg.com/originals/c5/9b/bb/c59bbb8efbf19154f3dd14fccc501950.jpg'), filename: 'nate_mendel_avatar.jpg', content_type: 'image/jpg')
 user3.save!
 
 user4 = User.new(
@@ -46,6 +48,7 @@ user4 = User.new(
   password: "123456",
   instrument: 3 # batterie?
 )
+user4.avatar.attach(io: URI.open('https://photo1.allfamous.org/public/people/faces/taylor-hawkins-19720217-allfamous.org.jpg'), filename: 'taylor_hawkings_avatar.jpg', content_type: 'image/jpg')
 user4.save!
 
 #--------------------------------------------------------
@@ -76,38 +79,38 @@ band3.save!
 puts "Seeding band members"
 
 member1 = Member.new(
-  band: band1,
-  user: user1,
+  band: band3,
+  user: user2,
 )
 member1.save!
 
 member2 = Member.new(
-  band: band1,
-  user: user2,
+  band: band3,
+  user: user3,
 )
 member2.save!
 
 member3 = Member.new(
-  band: band1,
-  user: user3,
+  band: band3,
+  user: user4,
 )
 member3.save!
 
 member4 = Member.new(
   band: band2,
-  user: user4,
+  user: user1,
 )
 member4.save!
 
 member5 = Member.new(
-  band: band2,
-  user: user3,
+  band: band3,
+  user: user1,
 )
 member5.save!
 
 member6 = Member.new(
   band: band3,
-  user: user3,
+  user: user2,
 )
 member6.save!
 
