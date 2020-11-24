@@ -1,7 +1,27 @@
+<div class="banner-small banner-orange">
+  <h1>My bands</h1>
+</div>
 <div class="container">
+
+<div class="cards">
+
   <% @bands.each do |band| %>
-   <%= band.name %>
-   <%= band.description %>
-   <%= band.creation_year %>
-  <% end %>  %>
+    <div class="card-band">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-band-infos">
+        <div>
+          <h2><%= band.name %></h2>
+          <p><%= band.description %></p>
+        </div>
+        <h2 class="card-band-year">Since :<%= band.creation_year %></h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-band-user avatar-bordered" />
+      </div>
+    </div>
+  <% end %>
+
+
+</div>
+
+
+
 </div>

@@ -1,7 +1,7 @@
 class My::BandsController < ApplicationController
 
   def index
-    @bands = Band.where(user: current_user)
+    @bands = Band.joins(:members).where(members: { user_id: current_user })
   end
 
 end

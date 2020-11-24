@@ -1,5 +1,6 @@
 puts "Start"
 puts "Clean DB"
+Member.destroy_all
 Comment.destroy_all
 Recording.destroy_all
 Partition.destroy_all
@@ -74,44 +75,44 @@ band3.save!
 puts "Seeding band members"
 
 member1 = Member.new(
-  band_id: 1,
-  user_id: 1,
+  band: band1,
+  user: user1,
 )
 member1.save!
 
 member2 = Member.new(
-  band_id: 1,
-  user_id: 2,
+  band: band1,
+  user: user2,
 )
 member2.save!
 
 member3 = Member.new(
-  band_id: 1,
-  user_id: 3,
+  band: band1,
+  user: user3,
 )
 member3.save!
 
 member4 = Member.new(
-  band_id: 2,
-  user_id: 4,
+  band: band2,
+  user: user4,
 )
 member4.save!
 
 member5 = Member.new(
-  band_id: 2,
-  user_id: 3,
+  band: band2,
+  user: user3,
 )
 member5.save!
 
 member6 = Member.new(
-  band_id: 3,
-  user_id: 3,
+  band: band3,
+  user: user3,
 )
 member6.save!
 
 member7 = Member.new(
-  band_id: 1,
-  user_id: 4,
+  band: band1,
+  user: user4,
 )
 member7.save!
 
