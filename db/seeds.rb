@@ -71,6 +71,51 @@ band3 = Band.new(
 band3.save!
 
 #--------------------------------------------------------
+puts "Seeding band members"
+
+member1 = Member.new(
+  band_id: 1,
+  user_id: 1,
+)
+member1.save!
+
+member2 = Member.new(
+  band_id: 1,
+  user_id: 2,
+)
+member2.save!
+
+member3 = Member.new(
+  band_id: 1,
+  user_id: 3,
+)
+member3.save!
+
+member4 = Member.new(
+  band_id: 2,
+  user_id: 4,
+)
+member4.save!
+
+member5 = Member.new(
+  band_id: 2,
+  user_id: 3,
+)
+member5.save!
+
+member6 = Member.new(
+  band_id: 3,
+  user_id: 3,
+)
+member6.save!
+
+member7 = Member.new(
+  band_id: 1,
+  user_id: 4,
+)
+member7.save!
+
+#--------------------------------------------------------
 puts "Seeding tracks..."
 
 track1 = Track.new(
