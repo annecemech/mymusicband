@@ -1,0 +1,40 @@
+<div class="banner-small banner-tracks">
+  <h1>
+    <%= @track.title %>
+  </h1>
+  <a href="#" class="btn btn-orange">Mix Records</a>
+
+</div>
+
+<div class="container pt-3">
+
+  <ul class="nav list-inline tabs-underlined" id="myTab" role="tablist">
+    <li>
+      <a class="tab-underlined active" id="record-tab" data-toggle="tab" href="#record" role="tab" aria-controls="record" aria-selected="true">Sheets & Recordings</a>
+    </li>
+    <li>
+      <a class="tab-underlined" id="inspire-tab" data-toggle="tab" href="#inspire" role="tab" aria-controls="inspire" aria-selected="false">Inspiration</a>
+    </li>
+  </ul>
+
+
+  <div class="tab-content py-4">
+    <div class="tab-pane active" id="record" role="tabpanel" aria-labelledby="record-tab">
+      <div class="d-flex">
+        <div class="col-6">
+          <%= render 'partitions/index' %>
+        </div>
+        <div class="col-6">
+          <%= render 'recordings/index' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="inspire" role="tabpanel" aria-labelledby="inspire-tab">
+      <%= render 'inspirations/index' %>
+    </div>
+  </div>
+
+  <%= render 'comments/index' %>
+
+</div>
