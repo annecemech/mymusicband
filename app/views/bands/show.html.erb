@@ -1,0 +1,38 @@
+<div class="banner-small text-center">
+  <h1><%= @band.name %></h1>
+  <p><%= @band.description %></p>
+</div>
+
+<div class ="container pb-5">
+  <div class="row">
+
+    <div class="col-lg-8">
+      <p class="pt-5 pb-2">Tracks Library</p>
+      <div>
+        <% @track.each do |track| %>
+          <div class="card-product my-3">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+              <h2><%= track.title %></h2>
+              <p><%= track.style %></p>
+              <p><%= track.duration %></p>
+              <p><%= track.tempo %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <h2>Crew</h2>
+      <div>
+        <% @user.each do |user| %>
+          <%= user.avatar %>
+          <%= user.first_name %>
+          <%= user.instrument %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
