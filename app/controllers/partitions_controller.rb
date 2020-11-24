@@ -1,0 +1,2 @@
+class PartitionsController < ApplicationController
+end
