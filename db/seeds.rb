@@ -17,6 +17,7 @@ user1 = User.new(
   password: "123456",
   instrument: 1 # guitare?
 )
+user1.avatar.attach(io: File.open('app/assets/images/kurt.jpg'), filename: 'kurt.jpg', content_type: 'image/jpg')
 user1.save!
 
 user2 = User.new(
@@ -26,6 +27,7 @@ user2 = User.new(
   password: "123456",
   instrument: 1 # guitare?
 )
+user2.avatar.attach(io: File.open('app/assets/images/dave.jpg'), filename: 'dave.jpg', content_type: 'image/jpg')
 user2.save!
 
 user3 = User.new(
@@ -35,6 +37,7 @@ user3 = User.new(
   password: "123456",
   instrument: 2 # bass?
 )
+user3.avatar.attach(io: File.open('app/assets/images/nate.jpg'), filename: 'nate.jpg', content_type: 'image/jpg')
 user3.save!
 
 user4 = User.new(
@@ -44,6 +47,7 @@ user4 = User.new(
   password: "123456",
   instrument: 3 # batterie?
 )
+user4.avatar.attach(io: File.open('app/assets/images/taylor.jpg'), filename: 'taylor.jpg', content_type: 'image/jpg')
 user4.save!
 
 #--------------------------------------------------------
