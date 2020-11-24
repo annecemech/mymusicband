@@ -1,13 +1,15 @@
 <div class="banner-small text-center">
-  <h1><%= @band.name %></h1>
-  <p><%= @band.description %></p>
+  <div class="banner-title-band">
+    <h1><%= @band.name %></h1>
+    <p><%= @band.description %></p>
+  </div>
 </div>
 
 <div class ="container pb-5">
   <div class="row">
 
-    <div class="col-lg-8">
-      <p class="pt-5 pb-2">Tracks Library</p>
+    <div class="col-lg-8 pr-5">
+      <h2 class="pt-5 pb-2">Tracks Library</h2>
       <div>
         <% @track.each do |track| %>
           <div class="card-product my-3">
@@ -24,7 +26,7 @@
     </div>
 
     <div class="col-lg-4">
-      <h2>Crew</h2>
+      <h2 class="pt-5 pb-2">Crew</h2>
       <div>
         <% @user.each do |user| %>
           <%= user.avatar %>
