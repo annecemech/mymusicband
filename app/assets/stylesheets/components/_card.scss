@@ -16,8 +16,21 @@
     object-fit: cover;
     margin-right: 8px;
   }
+
+  a {
+    text-decoration: none;
+
+  }
 }
 
 .open-partition {
   margin-left: auto;
+}
+
+.grow {
+transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+transform: scale(1.04);
 }

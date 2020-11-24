@@ -5,11 +5,13 @@
   </div>
 
   <% @track.partitions.each do |partition| %>
-    <div class="partition">
+    <div class="partition grow">
       <%= image_tag "drums.png" %>
-      <%= partition.name %>
+      <%= link_to partition_path(partition) do %>
+        <%= partition.name %>
+      <% end %>
       <div class="open-partition">
-        <%= link_to "Open", partition_path %>
+        <%= link_to "Open", partition_path(partition), class: "btn btn-outline-warning btn-sm" %>
       </div>
     </div>
   <% end %>
