@@ -81,6 +81,7 @@ track1 = Track.new(
   pattern: 4 # 4/4
 )
 track1.band = band3
+track1.photo.attach(io: File.open('app/assets/images/everlong.jpg'), filename: 'everlong.jpg', content_type: 'image/jpg')
 track1.save!
 
 track2 = Track.new(
@@ -91,6 +92,7 @@ track2 = Track.new(
   pattern: 4 # 4/4
 )
 track2.band = band3
+track2.photo.attach(io: File.open('app/assets/images/the-preventer.jpg'), filename: 'the-pretender.jpg', content_type: 'image/jpg')
 track2.save!
 
 track3 = Track.new(
@@ -101,6 +103,7 @@ track3 = Track.new(
   pattern: 4 # 4/4
 )
 track3.band = band3
+track3.photo.attach(io: File.open('app/assets/images/Best-of-you.jpg'), filename: 'Best-of-you.jpg', content_type: 'image/jpg')
 track3.save!
 
 #--------------------------------------------------------
