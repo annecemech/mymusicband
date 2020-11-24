@@ -1,6 +1,10 @@
 .avatar {
   width: 40px;
   border-radius: 50%;
+  &:hover{
+    opacity: 0.9;
+    cursor: pointer;
+  }
 }
 .avatar-large {
   width: 56px;
