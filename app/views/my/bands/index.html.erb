@@ -1,7 +1,7 @@
 <div class="banner-small banner-orange">
   <h1>My bands</h1>
 </div>
-<div class="container">
+<div class="container mt-5">
 
 <div class="cards">
 
@@ -13,15 +13,29 @@
           <h2><%= band.name %></h2>
           <p><%= band.description %></p>
         </div>
-        <h2 class="card-band-year">Since :<%= band.creation_year %></h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-band-user avatar-bordered" />
+        <% band.users.each do |user| %>
+        <%= user.first_name %>
+
+        <% end %>
+        <ul class="avatars">
+          <li class="avatars_item">
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
+          </li>
+          <li class="avatars_item">
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
+          </li>
+          <li class="avatars_item">
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
+          </li>
+           <li class="avatars_item">
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" />
+          </li>
+        </ul>
       </div>
     </div>
   <% end %>
 
 
 </div>
-
-
 
 </div>

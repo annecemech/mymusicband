@@ -18,6 +18,7 @@ user1 = User.new(
   password: "123456",
   instrument: 1 # guitare?
 )
+user1.avatar.attach(io: URI.open('https://i1.wp.com/www.sensationrock.net/wp-content/uploads/2015/10/090218-kurt-cobain-1.jpg'), filename: 'kurt_cobain_photo.jpg', content_type: 'image/jpg')
 user1.save!
 
 user2 = User.new(
