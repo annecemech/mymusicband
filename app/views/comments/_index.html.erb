@@ -1,3 +1,18 @@
-Comments partial placeholder
-<br>
-comments/_index.html.erb
+<h5>Comments</h5>
+
+<div class="container">
+  <% @track.comments.each do |comment| %>
+    <div class="pt-1">
+      <strong><%= comment.user.first_name %></strong>
+      <em class="text-muted font-weight-light"><%= comment.created_at %></em>
+      <br>
+      <p class="font-weight-light">
+        <%= comment.content %>
+      </p>
+    </div>
+  <% end %>
+
+
+
+
+</div>
