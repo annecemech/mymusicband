@@ -1,1 +1,11 @@
-Partitions partial
+<div class="container">
+  <h3>Sheets and Tabs</h3>
+  <% @track.partitions.each do |partition| %>
+    <div class="track-items">
+      <%= image_tag "partition.png" %>
+      <%= partition.name %>
+      <%= partition.created_at %>
+      <%= link_to "Open", partition_path %>
+    </div>
+  <% end %>
+</div>
