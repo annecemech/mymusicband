@@ -29,9 +29,11 @@
       <h2 class="pt-5 pb-2">Crew</h2>
       <div>
         <% @user.each do |user| %>
-          <%= user.avatar %>
-          <%= user.first_name %>
-          <%= user.instrument %>
+          <ul class='list-inline'>
+            <li class="list-inline-item"><%= cl_image_tag user.avatar.key, class:"avatar-large" %></li>
+            <li class="list-inline-item"><%= user.first_name %></li>
+            <li class="list-inline-item background-instrument-user"><%= user.instrument %></li>
+          </ul>
         <% end %>
       </div>
     </div>
