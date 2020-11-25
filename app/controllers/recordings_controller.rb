@@ -5,6 +5,9 @@ class RecordingsController < ApplicationController
     @recording.user = current_user
     @track = Track.find(params[:track_id])
 
+    @partition = Partition.new
+    @inspiration = Inspiration.new
+
     if @recording.save
       redirect_to track_path(@track)
     else
