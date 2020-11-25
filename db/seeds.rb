@@ -116,8 +116,8 @@ member5 = Member.new(
 member5.save!
 
 member6 = Member.new(
-  band: band3,
-  user: user2,
+  band: band1,
+  user: user3,
 )
 member6.save!
 
