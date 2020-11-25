@@ -1,16 +1,16 @@
-<div class="container">
+<div class="container border rounded py-3">
   <div class="d-flex justify-content-between">
     <h3>Sheets and Tabs</h3>
     <%= image_tag "plus.png", class: "btn-add" %>
   </div>
 
   <% @track.partitions.each do |partition| %>
-    <div class="partition grow">
+    <div class="resource-card grow-resource">
       <%= image_tag "drums.png" %>
       <%= link_to partition_path(partition) do %>
         <%= partition.name %>
       <% end %>
-      <div class="open-partition">
+      <div class="ml-auto">
         <%= link_to "Open", partition_path(partition), class: "btn btn-outline-warning btn-sm" %>
       </div>
     </div>
