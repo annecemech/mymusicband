@@ -29,3 +29,23 @@
   }
 
 }
+
+.container-audio {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: $light-gray;;
+    color: $blue;
+    margin: 20px auto;
+    overflow: hidden;
+}
+audio {
+  width:100%;
+}
+
+.mark-block {
+  background-color: $orange;
+  color: $light-gray;
+}
+
