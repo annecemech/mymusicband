@@ -14,23 +14,7 @@
         <li class="list-inline-item"><button type="button" class="btn btn-danger rounded-circle">+</button></li>
       </ul>
       <div>
-          <% @track.each do |track| %>
-            <%= link_to band_track_path(track) do %>
-              <div class="card-product my-3 grow">
-                <%= cl_image_tag track.photo.key %>
-                <div class="card-product-infos flex-grow-1">
-                  <div class="d-flex justify-content-between">
-                    <h2><%= track.title %></h2>
-                    <p><%= track.style %></p>
-                  </div>
-                  <div class="d-flex justify-content-between">
-                    <p><%= track.duration %></p>
-                    <p><%= track.tempo %></p>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
+        <%= render "tracks-list", track: @track %>
       </div>
     </div>
 
@@ -40,13 +24,7 @@
         <li class="list-inline-item"><button type="button" class="btn btn-danger rounded-circle">+</button></li>
       </ul>
       <div>
-        <% @user.each do |user| %>
-          <ul class='list-inline'>
-            <li class="list-inline-item"><%= cl_image_tag user.avatar.key, class:"avatar-large" %></li>
-            <li class="list-inline-item"><%= user.first_name %></li>
-            <li class="list-inline-item background-instrument-user"><%= user.instrument %></li>
-          </ul>
-        <% end %>
+        <%= render "users-list", user: @user %>
       </div>
     </div>
 
