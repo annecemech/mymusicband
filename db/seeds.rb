@@ -1,5 +1,6 @@
 puts "Start"
 puts "Clean DB"
+Member.destroy_all
 Comment.destroy_all
 Recording.destroy_all
 Partition.destroy_all
@@ -17,6 +18,7 @@ user1 = User.new(
   password: "123456",
   instrument: 1 # guitare?
 )
+
 user1.avatar.attach(io: File.open('app/assets/images/kurt.jpg'), filename: 'kurt.jpg', content_type: 'image/jpg')
 user1.save!
 
@@ -27,6 +29,7 @@ user2 = User.new(
   password: "123456",
   instrument: 1 # guitare?
 )
+
 user2.avatar.attach(io: File.open('app/assets/images/dave.jpg'), filename: 'dave.jpg', content_type: 'image/jpg')
 user2.save!
 
@@ -37,6 +40,7 @@ user3 = User.new(
   password: "123456",
   instrument: 2 # bass?
 )
+
 user3.avatar.attach(io: File.open('app/assets/images/nate.jpg'), filename: 'nate.jpg', content_type: 'image/jpg')
 user3.save!
 
@@ -47,6 +51,7 @@ user4 = User.new(
   password: "123456",
   instrument: 3 # batterie?
 )
+
 user4.avatar.attach(io: File.open('app/assets/images/taylor.jpg'), filename: 'taylor.jpg', content_type: 'image/jpg')
 user4.save!
 
@@ -58,6 +63,7 @@ band1 = Band.new(
   description: "Punk hardcore, post-hardcore, art rock",
   creation_year: "1981",
 )
+band1.photo.attach(io: URI.open('https://metalpapy.fr/album/the%20scream/band.jpg'), filename: 'scream_photo.jpg', content_type: 'image/jpg')
 band1.save!
 
 band2 = Band.new(
@@ -65,6 +71,7 @@ band2 = Band.new(
   description: "Grunge, rock alternatif",
   creation_year: "1987",
 )
+band2.photo.attach(io: URI.open('https://www.onstageweb.com/wp-content/uploads/2013/10/nirvana-interviste-inedite-nevermind.jpg'), filename: 'nirvana_photo.jpg', content_type: 'image/jpg')
 band2.save!
 
 band3 = Band.new(
@@ -72,7 +79,53 @@ band3 = Band.new(
   description: "Hard rock, post-grunge, alternative rock",
   creation_year: "1994"
 )
+band3.photo.attach(io: URI.open('https://hardforce.com/img/uploads/Posts/2020/11/124027070-761571598038809-2894195591075084328-n.jpg'), filename: 'foo_fighters_photo.jpg', content_type: 'image/jpg')
 band3.save!
+
+#--------------------------------------------------------
+puts "Seeding band members"
+
+member1 = Member.new(
+  band: band3,
+  user: user2,
+)
+member1.save!
+
+member2 = Member.new(
+  band: band3,
+  user: user3,
+)
+member2.save!
+
+member3 = Member.new(
+  band: band3,
+  user: user4,
+)
+member3.save!
+
+member4 = Member.new(
+  band: band2,
+  user: user1,
+)
+member4.save!
+
+member5 = Member.new(
+  band: band3,
+  user: user1,
+)
+member5.save!
+
+member6 = Member.new(
+  band: band3,
+  user: user2,
+)
+member6.save!
+
+member7 = Member.new(
+  band: band1,
+  user: user4,
+)
+member7.save!
 
 #--------------------------------------------------------
 puts "Seeding tracks..."

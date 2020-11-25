@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h3>Sheets and Tabs</h3>
+    <%= image_tag "plus.png", class: "btn-add" %>
+  </div>
+
+  <% @track.partitions.each do |partition| %>
+    <div class="partition grow">
+      <%= image_tag "drums.png" %>
+      <%= link_to partition_path(partition) do %>
+        <%= partition.name %>
+      <% end %>
+      <div class="open-partition">
+        <%= link_to "Open", partition_path(partition), class: "btn btn-outline-warning btn-sm" %>
+      </div>
+    </div>
+  <% end %>
+</div>
