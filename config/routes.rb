@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :bands, only:[:index]
   end
 
+  resources :bands, only: [:show]
+
   resources :tracks, only:[:index, :show, :create] do
     resources :comments, only:[:create]
     resources :partitions, only:[:create]

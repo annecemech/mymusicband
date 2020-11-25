@@ -6,7 +6,7 @@
 <div class="cards">
 
   <% @bands.each do |band| %>
-    <%= link_to root_path do %>
+    <%= link_to band_path(band) do %>
       <div class="card-band">
         <div class="card-band-image" style="background-image: linear-gradient(rgba(232,56,26,0.3),rgba(232,56,26,0.3)), url('<%= cl_image_path band.photo.key, height: 300, width: 400, crop: :fill %>')">
           <span class="badge badge-primary ml-3 mt-2"><%= band.creation_year %></span>
