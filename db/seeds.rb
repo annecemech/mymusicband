@@ -1,5 +1,6 @@
 puts "Start"
 puts "Clean DB"
+Instrument.destroy_all
 Member.destroy_all
 Comment.destroy_all
 Recording.destroy_all
@@ -9,16 +10,23 @@ Band.destroy_all
 User.destroy_all
 
 #----------------------------------------------------
+puts "Seeding instruments..."
+instru1 = Instrument.create!(name: "Guitar")
+instru2 = Instrument.create!(name: "Bass")
+instru3 = Instrument.create!(name: "Drums")
+instru4 = Instrument.create!(name: "Vocal")
+
+
+#----------------------------------------------------
 puts "Seeding users..."
 
 user1 = User.new(
   first_name: "Kurt",
   last_name: "Cobain",
   email: "kurt@mymusicband.com",
-  password: "123456",
-  instrument: 1 # guitare?
+  password: "123456"
 )
-
+user1.instrument = instru1
 user1.avatar.attach(io: File.open('app/assets/images/kurt.jpg'), filename: 'kurt.jpg', content_type: 'image/jpg')
 user1.save!
 
@@ -27,9 +35,8 @@ user2 = User.new(
   last_name: "Grohl",
   email: "dave@mymusicband.com",
   password: "123456",
-  instrument: 1 # guitare?
 )
-
+user2.instrument = instru1
 user2.avatar.attach(io: File.open('app/assets/images/dave.jpg'), filename: 'dave.jpg', content_type: 'image/jpg')
 user2.save!
 
@@ -38,8 +45,8 @@ user3 = User.new(
   last_name: "Mendel",
   email: "nate@mymusicband.com",
   password: "123456",
-  instrument: 2 # bass?
 )
+user3.instrument = instru2
 
 user3.avatar.attach(io: File.open('app/assets/images/nate.jpg'), filename: 'nate.jpg', content_type: 'image/jpg')
 user3.save!
@@ -48,9 +55,9 @@ user4 = User.new(
   first_name: "Taylor",
   last_name: "Hawkins",
   email: "taylor@mymusicband.com",
-  password: "123456",
-  instrument: 3 # batterie?
+  password: "123456"
 )
+user4.instrument = instru3
 
 user4.avatar.attach(io: File.open('app/assets/images/taylor.jpg'), filename: 'taylor.jpg', content_type: 'image/jpg')
 user4.save!
@@ -85,39 +92,45 @@ band3.save!
 #--------------------------------------------------------
 puts "Seeding band members"
 
+#Kurt Nirvana
 member1 = Member.new(
-  band: band3,
-  user: user2,
-)
-member1.save!
-
-member2 = Member.new(
-  band: band3,
-  user: user3,
-)
-member2.save!
-
-member3 = Member.new(
-  band: band3,
-  user: user4,
-)
-member3.save!
-
-member4 = Member.new(
   band: band2,
   user: user1,
 )
+member1.save!
+
+#Dave Scream
+member2 = Member.new(
+  band: band1,
+  user: user2,
+)
+member2.save!
+
+#Dave Nirvana
+member3 = Member.new(
+  band: band2,
+  user: user2,
+)
+member3.save!
+
+#Dave Foo Fighters
+member4 = Member.new(
+  band: band3,
+  user: user2,
+)
 member4.save!
 
+#Nate Foo
 member5 = Member.new(
   band: band3,
-  user: user1,
+  user: user3,
 )
 member5.save!
 
+#Taylor Foo
 member6 = Member.new(
-  band: band1,
-  user: user3,
+  band: band3,
+  user: user4,
 )
 member6.save!
 
