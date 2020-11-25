@@ -5,7 +5,7 @@
   </div>
 
   <% @track.partitions.each do |partition| %>
-    <div class="partition grow">
+    <div class="resource-card grow-resource">
       <%= image_tag "drums.png" %>
       <%= link_to partition_path(partition) do %>
         <%= partition.name %>
