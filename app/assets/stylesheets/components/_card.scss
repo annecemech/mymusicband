@@ -1,0 +1,214 @@
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.grow {
+  transition: all .2s ease-in-out;
+  &:hover {
+  transform: scale(1.04);
+  }
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+
+  margin-bottom: 8px;
+  padding-right: 8px;
+  font-size: 12px;
+  border-radius: 5px;
+
+  img {
+    height: 100%;
+    width: 50px;
+    object-fit: cover;
+    margin-right: 8px;
+  }
+
+  a {
+    text-decoration: none;
+
+  }
+}
+
+.partition {
+  overflow: hidden;
+  height: 50px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+
+
+
+.open-partition {
+  margin-left: auto;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+
+      a {
+      text-decoration: none;
+      color: inherit;
+      transition: transform .2s ease-in-out, filter .2s ease-in-out;
+    }
+
+      a:hover {
+      transition: transform .2s ease-in-out, filter .2s ease-in-out;
+      transform: scale(1.05);
+      filter: grayscale(100%);
+    }
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.card-band {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  height: 100%;
+}
+
+.card-band-image {
+  height: 200px;
+  background-size: cover;
+  background-position: top;
+}
+
+.card-band > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-band h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-band p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-band .card-band-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-band-infos .card-band-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+ul.avatars {
+      position: absolute;
+      right: 16px;
+      top: -25px;
+      display: flex; /* Causes LI items to display in row. */
+      list-style-type: none ;
+      padding: 0px 7px 0px 0px ;
+      z-index: 1 ; /* Sets up new stack-container. */
+    }
+
+    li.avatars_item {
+      height: 30px ;
+      margin: 0px 0px 0px 0px ;
+      padding: 0px 0px 0px 0px ;
+      position: relative ;
+      width: 30px ; /* Forces flex items to be smaller than their contents. */
+    }
+
+    /*
+      These zIndex values will only be relative to the contents of the UL element,
+      which sets up its own stack container. As such, these will only be relevant
+      to each other, not to the page at large.
+      --
+      NOTE: We could theoretically get around having to set explicit zIndex values
+      by using "flex-direction: row-reverse" and using the natural stacking order
+      of the DOM; however, to do that, we'd have to reverse the order of the HTML
+      elements, which feels janky and unnatural.
+    */
+    li.avatars_item:nth-child( 1 ) { z-index: 9 ; }
+    li.avatars_item:nth-child( 2 ) { z-index: 8 ; }
+    li.avatars_item:nth-child( 3 ) { z-index: 7 ; }
+    li.avatars_item:nth-child( 4 ) { z-index: 6 ; }
+    li.avatars_item:nth-child( 5 ) { z-index: 5 ; }
+    li.avatars_item:nth-child( 6 ) { z-index: 4 ; }
+    li.avatars_item:nth-child( 7 ) { z-index: 3 ; }
+    li.avatars_item:nth-child( 8 ) { z-index: 2 ; }
+    li.avatars_item:nth-child( 9 ) { z-index: 1 ; }
+
+    /*
+      These items are all 49px wide while the flex-item (in which they live) is
+      only 42px wide. As such, there will be several pixels of overflow content,
+      which will be displayed in a reverse-stacking order based on above zIndex.
+    */
+    img.avatars_img {
+      display: block ;
+    }
+
