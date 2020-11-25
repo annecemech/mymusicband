@@ -18,8 +18,8 @@
         <%= simple_form_for [@track, @recording] do |f| %>
           <%= f.input :name %>
           <%= f.input :resource, as: :file %>
-          <%= f.input :is_lead %>
-          <%= f.input :partition, collection: @track.partitions.map{|partition| partition.name} %>
+          <%= f.input :is_lead, label: 'Lead rhythm track', input_html: { class: "toggle" } %>
+          <%= f.association :partition, collection: @track.partitions, input_html: { class: 'select2' } %>
 
           <div class="d-flex justify-content-end mt-4">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

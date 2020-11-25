@@ -2,6 +2,7 @@ class RecordingsController < ApplicationController
 
   def create
     @recording = Recording.new(recording_params)
+    @track = @recording.track
 
     @recording.user = current_user
     if @recording.save
