@@ -12,7 +12,7 @@
       <div class="modal-body">
         <%= simple_form_for [@track, @partition] do |f| %>
           <%= f.input :name %>
-          <%= f.input :instrument, collection: ['Mix', 'Guitar', 'Bass', 'Drums', 'Vocals']%>
+          <%= f.association :instrument, collection: Instrument.all %>
           <%= f.input :resource, as: :file %>
 
           <div class="text-center mt-4">
