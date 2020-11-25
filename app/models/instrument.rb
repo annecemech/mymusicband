@@ -1,4 +1,4 @@
 class Instrument < ApplicationRecord
   has_many :users
-  has_many :partition
+  has_many :partitions
 end
