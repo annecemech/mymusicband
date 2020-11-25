@@ -8,13 +8,28 @@
 
   <% @track.partitions.each do |partition| %>
     <div class="resource-card grow-resource">
-      <%= image_tag "drums.png" %>
-      <%= link_to partition_path(partition) do %>
-        <%= partition.name %>
+
+      <%= link_to partition_path(partition), class: "", 'data-toggle' => 'modal' do %>
+        <div class="d-flex align-items-center">
+          <% case partition.instrument.name %>
+          <% when "Guitar" %>
+            <%= image_tag "icon_acoustic_guitar.svg", class: "resource-card-icon" %>
+          <% when "Bass" %>
+            <%= image_tag "icon_electric_bass.svg", class: "resource-card-icon" %>
+          <% when "Drums" %>
+            <%= image_tag "icon_drums.svg", class: "resource-card-icon" %>
+          <% when "Guitar" %>
+            <%= image_tag "icon_microphone.svg", class: "resource-card-icon" %>
+          <% else %>
+            <%= image_tag "icon_music.svg", class: "resource-card-icon" %>
+          <% end %>
+
+          <p>
+            <%= partition.name %>
+          </p>
+        </div>
       <% end %>
-      <div class="ml-auto">
-        <%= link_to "Open", partition_path(partition), class: "btn btn-outline-warning btn-sm" %>
-      </div>
+
     </div>
   <% end %>
 </div>
