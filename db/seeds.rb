@@ -18,7 +18,8 @@ user1 = User.new(
   password: "123456",
   instrument: 1 # guitare?
 )
-user1.avatar.attach(io: URI.open('https://i1.wp.com/www.sensationrock.net/wp-content/uploads/2015/10/090218-kurt-cobain-1.jpg'), filename: 'kurt_cobain_avatar.jpg', content_type: 'image/jpg')
+
+user1.avatar.attach(io: File.open('app/assets/images/kurt.jpg'), filename: 'kurt.jpg', content_type: 'image/jpg')
 user1.save!
 
 user2 = User.new(
@@ -28,7 +29,8 @@ user2 = User.new(
   password: "123456",
   instrument: 1 # guitare?
 )
-user2.avatar.attach(io: URI.open('https://img.20mn.fr/6nPiQdDCTw6LhuAFRk-sdA/830x532_leader-foo-fighters-dave-grohl.jpg'), filename: 'dave_grohl_avatar.jpg', content_type: 'image/jpg')
+
+user2.avatar.attach(io: File.open('app/assets/images/dave.jpg'), filename: 'dave.jpg', content_type: 'image/jpg')
 user2.save!
 
 user3 = User.new(
@@ -38,7 +40,8 @@ user3 = User.new(
   password: "123456",
   instrument: 2 # bass?
 )
-user3.avatar.attach(io: URI.open('https://i.pinimg.com/originals/c5/9b/bb/c59bbb8efbf19154f3dd14fccc501950.jpg'), filename: 'nate_mendel_avatar.jpg', content_type: 'image/jpg')
+
+user3.avatar.attach(io: File.open('app/assets/images/nate.jpg'), filename: 'nate.jpg', content_type: 'image/jpg')
 user3.save!
 
 user4 = User.new(
@@ -48,7 +51,8 @@ user4 = User.new(
   password: "123456",
   instrument: 3 # batterie?
 )
-user4.avatar.attach(io: URI.open('https://photo1.allfamous.org/public/people/faces/taylor-hawkins-19720217-allfamous.org.jpg'), filename: 'taylor_hawkings_avatar.jpg', content_type: 'image/jpg')
+
+user4.avatar.attach(io: File.open('app/assets/images/taylor.jpg'), filename: 'taylor.jpg', content_type: 'image/jpg')
 user4.save!
 
 #--------------------------------------------------------
@@ -134,6 +138,7 @@ track1 = Track.new(
   pattern: 4 # 4/4
 )
 track1.band = band3
+track1.photo.attach(io: File.open('app/assets/images/everlong.jpg'), filename: 'everlong.jpg', content_type: 'image/jpg')
 track1.save!
 
 track2 = Track.new(
@@ -144,6 +149,7 @@ track2 = Track.new(
   pattern: 4 # 4/4
 )
 track2.band = band3
+track2.photo.attach(io: File.open('app/assets/images/the-preventer.jpg'), filename: 'the-pretender.jpg', content_type: 'image/jpg')
 track2.save!
 
 track3 = Track.new(
@@ -154,6 +160,7 @@ track3 = Track.new(
   pattern: 4 # 4/4
 )
 track3.band = band3
+track3.photo.attach(io: File.open('app/assets/images/Best-of-you.jpg'), filename: 'Best-of-you.jpg', content_type: 'image/jpg')
 track3.save!
 
 #--------------------------------------------------------

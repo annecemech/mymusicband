@@ -1,0 +1,17 @@
+<% @track.each do |track| %>
+  <%= link_to band_track_path(track) do %>
+    <div class="card-product my-3 grow">
+      <%= cl_image_tag track.photo.key %>
+      <div class="card-product-infos flex-grow-1">
+        <div class="d-flex justify-content-between">
+          <h2><%= track.title %></h2>
+          <p><%= track.style %></p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <p><%= track.duration %></p>
+          <p><%= track.tempo %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
