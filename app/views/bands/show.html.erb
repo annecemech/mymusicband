@@ -14,17 +14,19 @@
         <li class="list-inline-item"><button type="button" class="btn btn-danger rounded-circle">+</button></li>
       </ul>
       <div>
-        <% @track.each do |track| %>
-          <div class="card-product my-3">
-            <%= cl_image_tag track.photo.key %>
-            <div class="card-product-infos">
-              <h2><%= track.title %></h2>
-              <p><%= track.style %></p>
-              <p><%= track.duration %></p>
-              <p><%= track.tempo %></p>
-            </div>
-          </div>
-        <% end %>
+          <% @track.each do |track| %>
+            <%= link_to band_track_path(track) do %>
+              <div class="card-product my-3">
+                <%= cl_image_tag track.photo.key %>
+                <div class="card-product-infos">
+                  <h2><%= track.title %></h2>
+                  <p><%= track.style %></p>
+                  <p><%= track.duration %></p>
+                  <p><%= track.tempo %></p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
       </div>
     </div>
 
