@@ -7,9 +7,11 @@
   <% @track.recordings.each do |recording| %>
     <div class="resource-card grow-resource">
       <%= image_tag "play.png" %>
-      <%= recording.name %>
+      <%= link_to track_recordings_path(recording) do %>
+        <%= recording.name %>
+      <% end %>
       <div class="ml-auto">
-        <%= link_to "Play", class: "btn btn-outline-warning btn-sm" %>
+        <%= link_to "Play", track_recordings_path(recording), class: "btn btn-outline-warning btn-sm" %>
       </div>
     </div>
   <% end %>
