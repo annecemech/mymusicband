@@ -30,7 +30,10 @@
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.avatar.key, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My bands", my_bands_path, class: "dropdown-item" %>
+            <%= link_to "All my bands", my_bands_path, class: "dropdown-item" %>
+            <% current_user.bands.each do |band| %>
+            <%= link_to "-#{band.name}", band_path(band), class: "dropdown-item" %>
+            <% end %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
