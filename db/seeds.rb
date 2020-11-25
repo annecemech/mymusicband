@@ -181,24 +181,24 @@ puts "Seeding partitions"
 
 partition1 = Partition.new(
   name: "Best drum tab I found so far",
-  instrument: 3 #drums
 )
+partition1.instrument = instru3
 partition1.track = track2
 partition1.user = user2
 partition1.save!
 
 partition2 = Partition.new(
   name: "Guitar tab by Tokyo Hotel",
-  instrument: 1 #guitar
 )
+partition2.instrument = instru1
 partition2.track = track2
 partition2.user = user2
 partition2.save!
 
 partition3 = Partition.new(
   name: "Goes like dom doum dom dom",
-  instrument: 2 #bass
 )
+partition3.instrument = instru2
 partition3.track = track2
 partition3.user = user2
 partition3.save!
