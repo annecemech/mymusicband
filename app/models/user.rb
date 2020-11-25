@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :recordings
   has_many :comments
   has_many :bands, through: :members
+  belongs_to :instrument
 
   has_one_attached :avatar
 
