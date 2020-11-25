@@ -1,14 +1,16 @@
 .footer {
   background: $blue;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   height: 100px;
-  padding: 0px 50px;
   color: $light-gray;
-  position: absolute;
   bottom: 0;
   width: 100%;
+  display: flex;
+  margin-top: 50px;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 .footer-links {
   display: flex;
