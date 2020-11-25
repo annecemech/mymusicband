@@ -14,10 +14,10 @@
         <%= recording.name %>
       <% end %>
       <div class="ml-auto dropdown">
-        <%= link_to "Play", track_recordings_path(recording), class: "btn btn-outline-warning btn-sm", :'data-toggle' => 'modal', :'data-target' => '#musicPlayer' %>
+        <%= link_to "Play", track_recordings_path(recording), class: "btn btn-outline-warning btn-sm", :'data-toggle' => 'modal', :'data-target' => "#musicPlayer-#{recording.id}" %>
       </div>
     </div>
-    <div class="modal fade" id="musicPlayer" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="musicPlayer-<%= recording.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header">
