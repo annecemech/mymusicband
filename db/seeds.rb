@@ -1,6 +1,5 @@
 puts "Start"
 puts "Clean DB"
-Instrument.destroy_all
 Member.destroy_all
 Comment.destroy_all
 Recording.destroy_all
@@ -8,6 +7,7 @@ Partition.destroy_all
 Track.destroy_all
 Band.destroy_all
 User.destroy_all
+Instrument.destroy_all
 
 #----------------------------------------------------
 puts "Seeding instruments..."
