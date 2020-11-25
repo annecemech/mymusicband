@@ -9,7 +9,10 @@
   <div class="row">
 
     <div class="col-lg-8 pr-5">
-      <h2 class="pt-5 pb-2">Tracks Library</h2>
+      <ul class="list-inline">
+        <li class="list-inline-item"><h2 class="pt-5 pb-2">Tracks Library</h2></li>
+        <li class="list-inline-item"><button type="button" class="btn btn-danger rounded-circle">+</button></li>
+      </ul>
       <div>
         <% @track.each do |track| %>
           <div class="card-product my-3">
@@ -26,7 +29,10 @@
     </div>
 
     <div class="col-lg-4">
-      <h2 class="pt-5 pb-2">Crew</h2>
+       <ul class="list-inline">
+        <li class="list-inline-item"><h2 class="pt-5 pb-2 text-right">Crew</h2></li>
+        <li class="list-inline-item"><button type="button" class="btn btn-danger rounded-circle">+</button></li>
+      </ul>
       <div>
         <% @user.each do |user| %>
           <ul class='list-inline'>
