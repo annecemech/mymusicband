@@ -2,6 +2,18 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+
+      a {
+      text-decoration: none;
+      color: inherit;
+      transition: transform .2s ease-in-out, filter .2s ease-in-out;
+    }
+
+      a:hover {
+      transition: transform .2s ease-in-out, filter .2s ease-in-out;
+      transform: scale(1.05);
+      filter: grayscale(100%);
+    }
 }
 
 // Smallest device
@@ -44,6 +56,13 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
+  height: 100%;
+}
+
+.card-band-image {
+  height: 200px;
+  background-size: cover;
+  background-position: top;
 }
 
 .card-band > img {

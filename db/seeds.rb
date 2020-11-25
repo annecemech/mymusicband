@@ -59,6 +59,7 @@ band1 = Band.new(
   description: "Punk hardcore, post-hardcore, art rock",
   creation_year: "1981",
 )
+band1.photo.attach(io: URI.open('https://metalpapy.fr/album/the%20scream/band.jpg'), filename: 'scream_photo.jpg', content_type: 'image/jpg')
 band1.save!
 
 band2 = Band.new(
@@ -66,6 +67,7 @@ band2 = Band.new(
   description: "Grunge, rock alternatif",
   creation_year: "1987",
 )
+band2.photo.attach(io: URI.open('https://www.onstageweb.com/wp-content/uploads/2013/10/nirvana-interviste-inedite-nevermind.jpg'), filename: 'nirvana_photo.jpg', content_type: 'image/jpg')
 band2.save!
 
 band3 = Band.new(
@@ -73,6 +75,7 @@ band3 = Band.new(
   description: "Hard rock, post-grunge, alternative rock",
   creation_year: "1994"
 )
+band3.photo.attach(io: URI.open('https://hardforce.com/img/uploads/Posts/2020/11/124027070-761571598038809-2894195591075084328-n.jpg'), filename: 'foo_fighters_photo.jpg', content_type: 'image/jpg')
 band3.save!
 
 #--------------------------------------------------------
