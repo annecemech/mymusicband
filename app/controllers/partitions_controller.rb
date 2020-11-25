@@ -23,6 +23,6 @@ class PartitionsController < ApplicationController
   private
 
   def partition_params
-    params.require(:partition).permit(:name, :instrument, :resource)
+    params.require(:partition).permit(:name, :instrument_id, :resource)
   end
 end
