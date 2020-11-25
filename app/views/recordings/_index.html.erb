@@ -1,3 +1,16 @@
-Recordings partial
-<br>
-recordings.hrml.erb
+<div class="container border rounded py-3">
+  <div class="d-flex justify-content-between">
+    <h3>Recordings</h3>
+    <%= image_tag "plus.png", class: "btn-add" %>
+  </div>
+
+  <% @track.recordings.each do |recording| %>
+    <div class="resource-card grow-resource">
+      <%= image_tag "play.png" %>
+      <%= recording.name %>
+      <div class="ml-auto">
+        <%= link_to "Play", class: "btn btn-outline-warning btn-sm" %>
+      </div>
+    </div>
+  <% end %>
+</div>
