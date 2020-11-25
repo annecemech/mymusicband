@@ -1,7 +1,10 @@
 <div class="container border rounded py-3">
   <div class="d-flex justify-content-between">
     <h3>Recordings</h3>
-    <%= image_tag "plus.png", class: "btn-add" %>
+
+    <%= link_to "#recordingModal", :class => "btn", "data-toggle" => "modal" do %>
+      <%= image_tag "plus.png", class: "btn-add"%>
+    <% end %>
   </div>
 
   <% @track.recordings.each do |recording| %>
