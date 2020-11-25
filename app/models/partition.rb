@@ -5,4 +5,6 @@ class Partition < ApplicationRecord
 
   validates :name, presence: true
   validates :instrument, presence: true
+
+  has_one_attached :resource
 end
