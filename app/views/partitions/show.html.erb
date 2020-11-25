@@ -2,8 +2,7 @@
   <div class="banner-small banner-transparent text-center banner-orange">
     <div class="banner-title-band">
       <h1><%= @partition.track.title %></h1>
-      <p><%= @partition.instrument %></p>
-      <div class="card-buttons-sound d-flex justify-content-center">
+      <div class="card-buttons-sound d-flex justify-content-center mt-4">
         <a class="btn-sound mx-5"><i class="fas fa-play"></i></a>
         <a class="btn-sound mx-5"><i class="fas fa-record-vinyl"></i></a>
         <a class="btn-sound mx-5"><i class="fas fa-stop"></i></i></a>
@@ -11,10 +10,13 @@
         <a class="btn-sound mx-5"><i class="fas fa-undo-alt"></i></a>
         <a class="btn-sound mx-5"><i class="fas fa-save"></i></a>
       </div>
+        <select class="dropdown-recordings text-center">
+          <option>Select a Recording buddy </option>
+          <% @recording.each do |record| %>
+            <option><%= record.name %></option>
+          <% end %>
+        </select>
       <div>
-        <%= simple_form_for [@partition] do |f| %>
-          <%= f.association :recording, as: :checkboxe%>
-        <% end %>
       </div>
     </div>
   </div>

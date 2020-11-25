@@ -1,2 +1,3 @@
 class RecordingsController < ApplicationController
+
 end
