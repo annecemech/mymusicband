@@ -14,7 +14,7 @@
           <%= f.input :name %>
           <%= f.input :resource, as: :file %>
           <%= f.input :is_lead, label: 'Lead rhythm track', input_html: { class: "toggle" } %>
-          <%= f.association :partition, collection: @track.partitions, input_html: { class: 'select2' } %>
+          <%= f.association :partition, collection: @track.partitions%>
 
           <div class="text-center mt-4">
             <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
