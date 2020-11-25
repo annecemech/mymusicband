@@ -1,8 +1,8 @@
 <% @track.each do |track| %>
   <%= link_to track_path(track) do %>
-    <div class="card-product my-3 grow">
+    <div class="card-track my-3 grow">
       <%= cl_image_tag track.photo.key %>
-      <div class="card-product-infos flex-grow-1">
+      <div class="card-track-infos flex-grow-1">
         <div class="d-flex justify-content-between">
           <h2><%= track.title %></h2>
           <p><%= track.style %></p>
