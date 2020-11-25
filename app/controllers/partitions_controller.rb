@@ -15,7 +15,6 @@ class PartitionsController < ApplicationController
     if @partition.save
       redirect_to track_path(@track)
     else
-      raise
       @comment = Comment.new
       render 'tracks/show'
     end
