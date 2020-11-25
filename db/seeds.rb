@@ -199,6 +199,7 @@ recording1 = Recording.new(
 )
 recording1.partition = partition1
 recording1.user = user4
+recording1.resource.attach(io: File.open('app/assets/sounds/foo-fighters-the-pretender-guitar-tracks.mp3'), filename: 'pretender-guitar-track-1.mp3', content_type: 'video/mp3')
 recording1.save!
 
 recording2 = Recording.new(
@@ -207,6 +208,7 @@ recording2 = Recording.new(
 )
 recording2.partition = partition1
 recording2.user = user4
+recording2.resource.attach(io: File.open('app/assets/sounds/foo-fighters-the-pretender-guitar-tracks.mp3'), filename: 'pretender-guitar-track-2.mp3', content_type: 'video/mp3')
 recording2.save!
 
 recording3 = Recording.new(
@@ -215,6 +217,7 @@ recording3 = Recording.new(
 )
 recording3.partition = partition2
 recording3.user = user2
+recording3.resource.attach(io: File.open('app/assets/sounds/foo-fighters-the-pretender-guitar-tracks.mp3'), filename: 'pretender-guitar-track-3.mp3', content_type: 'video/mp3')
 recording3.save!
 
 #-------------------------------------------------------
