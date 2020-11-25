@@ -16,7 +16,7 @@
       <div>
           <% @track.each do |track| %>
             <%= link_to band_track_path(track) do %>
-              <div class="card-product my-3">
+              <div class="card-product my-3 grow">
                 <%= cl_image_tag track.photo.key %>
                 <div class="card-product-infos flex-grow-1">
                   <div class="d-flex justify-content-between">
