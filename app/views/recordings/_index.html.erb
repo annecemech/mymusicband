@@ -9,14 +9,36 @@
 
   <% @track.recordings.each do |recording| %>
     <div class="resource-card grow-resource">
-      <%= image_tag "play.png" %>
-      <%= link_to track_recordings_path(recording) do %>
-        <%= recording.name %>
+      <%= link_to "#musicPlayer-#{recording.id}", class: "", 'data-toggle' => 'modal' do %>
+        <div class="d-flex align-items-center">
+          <i class="far fa-play-circle text-orange resource-play ml-2"></i>
+
+          <% case recording.instrument.name %>
+          <% when "Guitar" %>
+            <%= image_tag "icon_acoustic_guitar.svg", class: "resource-card-icon" %>
+          <% when "Bass" %>
+            <%= image_tag "icon_electric_bass.svg", class: "resource-card-icon" %>
+          <% when "Drums" %>
+            <%= image_tag "icon_drums.svg", class: "resource-card-icon" %>
+          <% when "Vocals" %>
+            <%= image_tag "icon_microphone.svg", class: "resource-card-icon" %>
+          <% else %>
+            <%= image_tag "icon_music.svg", class: "resource-card-icon" %>
+          <% end %>
+
+
+          <p>
+            <%= recording.name %>
+          </p>
+        </div>
       <% end %>
-      <div class="ml-auto dropdown">
-        <%= link_to "Play", track_recordings_path(recording), class: "btn btn-outline-warning btn-sm", :'data-toggle' => 'modal', :'data-target' => "#musicPlayer-#{recording.id}" %>
-      </div>
+
+      <% if recording.is_lead %>
+        <i class="fas fa-star ml-auto mr-3 text-orange resource-star"></i>
+      <% end %>
     </div>
+
+
     <div class="modal fade" id="musicPlayer-<%= recording.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
