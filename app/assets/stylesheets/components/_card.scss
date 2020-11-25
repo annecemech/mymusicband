@@ -1,3 +1,41 @@
+<<<<<<< HEAD
+.partition {
+  overflow: hidden;
+  height: 50px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-right: 8px;
+  font-size: 12px;
+  border-radius: 5px;
+
+  img {
+    height: 100%;
+    width: 50px;
+    object-fit: cover;
+    margin-right: 8px;
+  }
+
+  a {
+    text-decoration: none;
+
+  }
+}
+
+.open-partition {
+  margin-left: auto;
+}
+
+.grow {
+transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+transform: scale(1.04);
+}
+=======
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -145,3 +183,4 @@ ul.avatars {
       display: block ;
     }
 
+>>>>>>> master
