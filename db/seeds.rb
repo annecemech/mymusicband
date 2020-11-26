@@ -185,6 +185,7 @@ partition1 = Partition.new(
 partition1.instrument = instru3
 partition1.track = track2
 partition1.user = user2
+partition1.photo.attach(io: File.open('app/assets/images/tab-pretender.jpg'), filename: 'tab-pretender.jpg', content_type: 'image/jpg')
 partition1.save!
 
 partition2 = Partition.new(
@@ -193,6 +194,7 @@ partition2 = Partition.new(
 partition2.instrument = instru1
 partition2.track = track2
 partition2.user = user2
+partition2.photo.attach(io: File.open('app/assets/images/tab-pretender.jpg'), filename: 'tab-pretender.jpg', content_type: 'image/jpg')
 partition2.save!
 
 partition3 = Partition.new(
@@ -201,6 +203,7 @@ partition3 = Partition.new(
 partition3.instrument = instru2
 partition3.track = track2
 partition3.user = user2
+partition3.photo.attach(io: File.open('app/assets/images/tab-pretender.jpg'), filename: 'tab-pretender.jpg', content_type: 'image/jpg')
 partition3.save!
 
 #--------------------------------------------------------
