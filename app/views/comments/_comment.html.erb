@@ -1,0 +1,7 @@
+<div class="comments-container" id="comment-<%= comment.id %>">
+  <i class="author">
+    <span><%= comment.user.first_name %></span>
+    <small><%= comment.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+  </i>
+  <p><%= comment.content %></p>
+</div>
