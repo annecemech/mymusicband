@@ -11,7 +11,6 @@
     <div class="resource-card grow-resource">
       <%= link_to "#musicPlayer-#{recording.id}", class: "", 'data-toggle' => 'modal' do %>
         <div class="d-flex align-items-center">
-          <i class="far fa-play-circle text-orange resource-play ml-2"></i>
 
           <% case recording.instrument.name %>
           <% when "Guitar" %>
@@ -33,9 +32,14 @@
         </div>
       <% end %>
 
-      <% if recording.is_lead %>
-        <i class="fas fa-star ml-auto mr-3 text-orange resource-star"></i>
-      <% end %>
+      <div class="d-flex ml-auto align-items-center">
+        <% if recording.is_lead %>
+          <i class="fas fa-star text-orange resource-star mr-3"></i>
+        <% end %>
+        <%= link_to "#musicPlayer-#{recording.id}", class: "", 'data-toggle' => 'modal' do %>
+          <i class="far fa-play-circle text-orange resource-play ml-auto mr-1"></i>
+        <% end %>
+      </div>
     </div>
 
 
