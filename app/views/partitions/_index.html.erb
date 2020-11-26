@@ -9,7 +9,7 @@
   <% @track.partitions.each do |partition| %>
     <div class="resource-card grow-resource">
 
-      <%= link_to partition_path(partition), class: "", 'data-toggle' => 'modal' do %>
+      <%= link_to partition_path(partition) do %>
         <div class="d-flex align-items-center">
           <% case partition.instrument.name %>
           <% when "Guitar" %>
