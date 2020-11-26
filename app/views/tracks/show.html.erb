@@ -21,11 +21,11 @@
 
   <div class="tab-content py-4">
     <div class="tab-pane active" id="record" role="tabpanel" aria-labelledby="record-tab">
-      <div class="d-flex">
-        <div class="col-6">
+      <div class="row">
+        <div class="col-xs-12 col-md-6 mb-2">
           <%= render 'partitions/index' %>
         </div>
-        <div class="col-6">
+        <div class="col-xs-12 col-md-6 mb-1">
           <%= render 'recordings/index' %>
         </div>
       </div>
@@ -36,19 +36,18 @@
     </div>
   </div>
 
-  <%#= render 'comments/index' %>
+  <h5>Comments</h5>
+  <div class="container" id="comments" data-track-id="<%= @track.id %>">
+    <% @track.comments.each do |comment| %>
+      <%= render "comments/comment", comment: comment %>
+    <% end %>
+  </div>
+
+  <%= simple_form_for([ @track, @comment ], remote: true) do |f| %>
+    <%= f.input :content, as: :string, label: false %>
+  <% end %>
 
   <%= render 'shared/modal_add_resource' %>
   <%= render 'shared/modal_add_partition' %>
 
 </div>
-
-<div id="comments" data-track-id="<%= @track.id %>">
-  <% @track.comments.each do |comment| %>
-    <%= render "comments/comment", comment: comment %>
-  <% end %>
-</div>
-
-<%= simple_form_for([ @track, @comment ], remote: true) do |f| %>
-  <%= f.input :content, as: :string, label: false %>
-<% end %>
