@@ -21,4 +21,5 @@ class RecordingsController < ApplicationController
   def recording_params
     params.require(:recording).permit(:name, :partition_id, :resource, :is_lead)
   end
+
 end
