@@ -1,0 +1,5 @@
+meta_product_name: "My Music Band"
+meta_title: "My Music Band - You'll never play alone !"
+meta_description: "Join a band or create your own, invite other musicians, record your tracks and start playing!"
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
+twitter_account: "@my_music_band"   # required for Twitter Cards

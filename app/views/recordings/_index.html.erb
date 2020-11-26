@@ -1,3 +1,67 @@
-Recordings partial
-<br>
-recordings.hrml.erb
+<div class="container border rounded py-3">
+  <div class="d-flex justify-content-between">
+    <h3>Recordings</h3>
+
+    <%= link_to "#recordingModal", class: "btn p-0", "data-toggle" => "modal" do %>
+      <%= image_tag "plus.png", class: "btn-add"%>
+    <% end %>
+  </div>
+
+  <% @track.recordings.each do |recording| %>
+    <div class="resource-card grow-resource">
+      <%= link_to "#musicPlayer-#{recording.id}", class: "", 'data-toggle' => 'modal' do %>
+        <div class="d-flex align-items-center">
+          <i class="far fa-play-circle text-orange resource-play ml-2"></i>
+
+          <% case recording.instrument.name %>
+          <% when "Guitar" %>
+            <%= image_tag "icon_acoustic_guitar.svg", class: "resource-card-icon" %>
+          <% when "Bass" %>
+            <%= image_tag "icon_electric_bass.svg", class: "resource-card-icon" %>
+          <% when "Drums" %>
+            <%= image_tag "icon_drums.svg", class: "resource-card-icon" %>
+          <% when "Vocals" %>
+            <%= image_tag "icon_microphone.svg", class: "resource-card-icon" %>
+          <% else %>
+            <%= image_tag "icon_music.svg", class: "resource-card-icon" %>
+          <% end %>
+
+
+          <p>
+            <%= recording.name %>
+          </p>
+        </div>
+      <% end %>
+
+      <% if recording.is_lead %>
+        <i class="fas fa-star ml-auto mr-3 text-orange resource-star"></i>
+      <% end %>
+    </div>
+
+
+    <div class="modal fade" id="musicPlayer-<%= recording.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="exampleModalLongTitle">You're listening to <strong class="mark-block"> <%= recording.name %> </strong></h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-audio">
+              <audio src="<%= cloudinary_url(recording.resource.key, resource_type: :video)  %>" controls></audio>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+</div>
+
+

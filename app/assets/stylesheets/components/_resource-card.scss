@@ -1,0 +1,70 @@
+.text-orange {
+  color: $orange;
+}
+
+.grow-resource {
+  transition: all .2s ease-in-out;
+  &:hover {
+  transform: scale(1.04);
+  }
+}
+
+
+.resource-card {
+  overflow: hidden;
+  height: 36px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  padding-right: 5px;
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .resource-card-icon {
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+    margin: 0 15px 0 7px;
+  }
+
+  .resource-play {
+    font-size: 24px;
+  }
+  .resource-star {
+    font-size: 16px;
+  }
+}
+
+.container-audio {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: $light-gray;;
+    color: $blue;
+    margin: 20px auto;
+    overflow: hidden;
+}
+audio {
+  width:100%;
+}
+
+.mark-block {
+  background-color: $orange;
+  color: $light-gray;
+}
+

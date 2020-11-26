@@ -7,6 +7,15 @@ Partition.destroy_all
 Track.destroy_all
 Band.destroy_all
 User.destroy_all
+Instrument.destroy_all
+
+#----------------------------------------------------
+puts "Seeding instruments..."
+instru1 = Instrument.create!(name: "Guitar")
+instru2 = Instrument.create!(name: "Bass")
+instru3 = Instrument.create!(name: "Drums")
+instru4 = Instrument.create!(name: "Vocal")
+
 
 #----------------------------------------------------
 puts "Seeding users..."
@@ -15,10 +24,9 @@ user1 = User.new(
   first_name: "Kurt",
   last_name: "Cobain",
   email: "kurt@mymusicband.com",
-  password: "123456",
-  instrument: 1 # guitare?
+  password: "123456"
 )
-
+user1.instrument = instru1
 user1.avatar.attach(io: File.open('app/assets/images/kurt.jpg'), filename: 'kurt.jpg', content_type: 'image/jpg')
 user1.save!
 
@@ -27,9 +35,8 @@ user2 = User.new(
   last_name: "Grohl",
   email: "dave@mymusicband.com",
   password: "123456",
-  instrument: 1 # guitare?
 )
-
+user2.instrument = instru1
 user2.avatar.attach(io: File.open('app/assets/images/dave.jpg'), filename: 'dave.jpg', content_type: 'image/jpg')
 user2.save!
 
@@ -38,8 +45,8 @@ user3 = User.new(
   last_name: "Mendel",
   email: "nate@mymusicband.com",
   password: "123456",
-  instrument: 2 # bass?
 )
+user3.instrument = instru2
 
 user3.avatar.attach(io: File.open('app/assets/images/nate.jpg'), filename: 'nate.jpg', content_type: 'image/jpg')
 user3.save!
@@ -48,9 +55,9 @@ user4 = User.new(
   first_name: "Taylor",
   last_name: "Hawkins",
   email: "taylor@mymusicband.com",
-  password: "123456",
-  instrument: 3 # batterie?
+  password: "123456"
 )
+user4.instrument = instru3
 
 user4.avatar.attach(io: File.open('app/assets/images/taylor.jpg'), filename: 'taylor.jpg', content_type: 'image/jpg')
 user4.save!
@@ -85,39 +92,45 @@ band3.save!
 #--------------------------------------------------------
 puts "Seeding band members"
 
+#Kurt Nirvana
 member1 = Member.new(
-  band: band3,
-  user: user2,
-)
-member1.save!
-
-member2 = Member.new(
-  band: band3,
-  user: user3,
-)
-member2.save!
-
-member3 = Member.new(
-  band: band3,
-  user: user4,
-)
-member3.save!
-
-member4 = Member.new(
   band: band2,
   user: user1,
 )
+member1.save!
+
+#Dave Scream
+member2 = Member.new(
+  band: band1,
+  user: user2,
+)
+member2.save!
+
+#Dave Nirvana
+member3 = Member.new(
+  band: band2,
+  user: user2,
+)
+member3.save!
+
+#Dave Foo Fighters
+member4 = Member.new(
+  band: band3,
+  user: user2,
+)
 member4.save!
 
+#Nate Foo
 member5 = Member.new(
   band: band3,
-  user: user1,
+  user: user3,
 )
 member5.save!
 
+#Taylor Foo
 member6 = Member.new(
-  band: band1,
-  user: user3,
+  band: band3,
+  user: user4,
 )
 member6.save!
 
@@ -168,24 +181,24 @@ puts "Seeding partitions"
 
 partition1 = Partition.new(
   name: "Best drum tab I found so far",
-  instrument: 3 #drums
 )
+partition1.instrument = instru3
 partition1.track = track2
 partition1.user = user2
 partition1.save!
 
 partition2 = Partition.new(
   name: "Guitar tab by Tokyo Hotel",
-  instrument: 1 #guitar
 )
+partition2.instrument = instru1
 partition2.track = track2
 partition2.user = user2
 partition2.save!
 
 partition3 = Partition.new(
   name: "Goes like dom doum dom dom",
-  instrument: 2 #bass
 )
+partition3.instrument = instru2
 partition3.track = track2
 partition3.user = user2
 partition3.save!
@@ -199,6 +212,7 @@ recording1 = Recording.new(
 )
 recording1.partition = partition1
 recording1.user = user4
+recording1.resource.attach(io: File.open('app/assets/sounds/foo-fighters-the-pretender-guitar-tracks.mp3'), filename: 'pretender-guitar-track-1.mp3', content_type: 'video/mp3')
 recording1.save!
 
 recording2 = Recording.new(
@@ -207,6 +221,7 @@ recording2 = Recording.new(
 )
 recording2.partition = partition1
 recording2.user = user4
+recording2.resource.attach(io: File.open('app/assets/sounds/foo-fighters-the-pretender-guitar-tracks.mp3'), filename: 'pretender-guitar-track-2.mp3', content_type: 'video/mp3')
 recording2.save!
 
 recording3 = Recording.new(
@@ -215,6 +230,7 @@ recording3 = Recording.new(
 )
 recording3.partition = partition2
 recording3.user = user2
+recording3.resource.attach(io: File.open('app/assets/sounds/foo-fighters-the-pretender-guitar-tracks.mp3'), filename: 'pretender-guitar-track-3.mp3', content_type: 'video/mp3')
 recording3.save!
 
 #-------------------------------------------------------

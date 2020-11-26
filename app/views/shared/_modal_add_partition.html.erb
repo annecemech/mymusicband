@@ -1,0 +1,26 @@
+<div class="modal fade" id="partitionModal" tabindex="-1" role="dialog" aria-labelledby="partitionModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h6 class="modal-title">Add a new Sheet</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <%= simple_form_for [@track, @partition] do |f| %>
+          <%= f.input :name %>
+          <%= f.association :instrument, collection: Instrument.all %>
+          <%= f.input :resource, as: :file %>
+
+          <div class="text-center mt-4">
+            <%= f.button :submit, label: 'Add Sheet', class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
