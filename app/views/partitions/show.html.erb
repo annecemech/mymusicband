@@ -17,7 +17,7 @@
           <div class="list-recordings">
             <ul class="list-unstyled">
               <% @recording.each do |record| %>
-                <li><input type="checkbox" id ="<%= record.id %>" name="recording"/><%= record.name %></input></li>
+                <li><input type="checkbox" data-recordurl="<%= cloudinary_url(record.resource.key, resource_type: :video) %>" class="checkrecording" name="recording"/><%= record.name %></input></li>
               <% end %>
             </ul>
           </div>
