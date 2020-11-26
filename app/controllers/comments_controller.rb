@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @comment.track = @track
     @comment.user = current_user
     if @comment.save
-      redirect_to track_path(@track, anchor: "#comment_content")
+      redirect_to track_path(@track, anchor: "comment-#{@comment.id}")
     else
       render 'tracks/show'
     end

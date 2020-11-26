@@ -6,7 +6,7 @@
       <strong><%= comment.user.first_name %></strong>
       <em class="text-muted font-weight-light"><%= comment.created_at %></em>
       <br>
-      <p class="font-weight-light">
+      <p class="font-weight-light" id="comment-<%= comment.id %>">
         <%= comment.content %>
       </p>
     </div>
