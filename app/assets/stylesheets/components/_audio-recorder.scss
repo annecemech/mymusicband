@@ -1,4 +1,4 @@
-.wrapper {
+.audio-wrapper {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -15,37 +15,39 @@ canvas {
   width: 100%;
 }
 
-#buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+// #buttons {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+// }
 
-#buttons button {
-  font-size: 1rem;
-  padding: 1rem;
-  width: calc(50% - 0.25rem);
-}
+// #buttons button {
+//   font-size: 1rem;
+//   padding: 1rem;
+//   width: 50px;
+//   border-radius: 5px;
+//   margin: 5px;
+// }
 
-button {
-  font-size: 1rem;
-  background: #0088cc;
-  text-align: center;
-  color: white;
-  border: none;
-  transition: all 0.2s;
-  padding: 0.5rem;
-}
+// button {
+//   font-size: 1rem;
+//   background: $orange;
+//   text-align: center;
+//   color: white;
+//   border: none;
+//   transition: all 0.2s;
+//   padding: 0.5rem;
+// }
 
-button:hover, button:focus {
-  box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 1);
-  background: #0ae;
-}
+// button:hover, button:focus {
+//   background: $orange;
+//   opacity: 0.8;
+// }
 
-button:active {
-  box-shadow: inset 0px 0px 20px rgba(0,0,0,0.5);
-  transform: translateY(2px);
-}
+// button:active {
+//   box-shadow: inset 0px 0px 20px rgba(0,0,0,0.5);
+//   transform: translateY(2px);
+// }
 
 
 /* Make the clips use as much space as possible, and
@@ -86,49 +88,6 @@ button.delete {
   font-size: 0.8rem;
 }
 
-/* Checkbox hack to control information box display */
-
-label {
-  font-size: 3rem;
-  position: absolute;
-  top: 2px;
-  right: 3px;
-  z-index: 5;
-  cursor: pointer;
-  background-color: black;
-  border-radius: 10px;
-}
-
-input[type=checkbox] {
-   position: absolute;
-   top: -100px;
-}
-
-aside {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateX(100%);
-  transition: 0.3s all ease-out;
-  background-color: #efefef;
-  padding: 1rem;
-}
-
-aside p {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-}
-
-aside a {
-  color: #666;
-}
-
-/* Toggled State of information box */
-input[type=checkbox]:checked ~ aside {
-  transform: translateX(0);
-}
 
 /* Cursor when clip name is clicked over */
 

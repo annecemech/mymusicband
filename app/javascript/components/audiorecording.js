@@ -71,15 +71,21 @@ const loadAudioRecording = () => {
           clipLabel.textContent = clipName;
         }
 
+        document.getElementById("name-field").value = clipName;
+
         clipContainer.appendChild(audio);
         clipContainer.appendChild(clipLabel);
         clipContainer.appendChild(deleteButton);
         soundClips.appendChild(clipContainer);
 
         audio.controls = true;
-        const blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
+        const blob = new Blob(chunks, { 'type' : 'audio/mpeg-3' });
+          console.log(blob);
         chunks = [];
         const audioURL = window.URL.createObjectURL(blob);
+          console.log(audioURL);
+          document.getElementById("audio-field").value = audioURL;
+          console.log(mainSection.dataset.partitionid);
         audio.src = audioURL;
         console.log("recorder stopped");
 
