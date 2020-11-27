@@ -85,14 +85,11 @@ const loadAudioRecording = () => {
         const audioURL = window.URL.createObjectURL(blob);
           console.log(audioURL);
 
-        let file = new File([blob], 'testaudio.mp3', {type: 'audio/mpeg-3'});
+        const file = new File([blob], 'testaudio.mp3', {type: 'audio/mpeg-3'});
         console.log(file);
 
-          document.getElementById("partition-field").value = mainSection.dataset.partitionid;
 
-          const recordingForm = document.getElementById('new_recording');
-          const formData = new FormData(recordingForm);
-          console.log(formData);
+          document.getElementById("partition-field").value = mainSection.dataset.partitionid;
           formData.append('name-field', clipName);
           console.log(formData);
 
