@@ -14,7 +14,7 @@ puts "Seeding instruments..."
 instru1 = Instrument.create!(name: "Guitar")
 instru2 = Instrument.create!(name: "Bass")
 instru3 = Instrument.create!(name: "Drums")
-instru4 = Instrument.create!(name: "Vocal")
+instru4 = Instrument.create!(name: "Vocals")
 
 
 #----------------------------------------------------
