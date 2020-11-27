@@ -36,16 +36,7 @@
     </div>
   </div>
 
-  <h5>Comments</h5>
-  <div class="container" id="comments" data-track-id="<%= @track.id %>">
-    <% @track.comments.each do |comment| %>
-      <%= render "comments/comment", comment: comment %>
-    <% end %>
-  </div>
-
-  <%= simple_form_for([ @track, @comment ], remote: true) do |f| %>
-    <%= f.input :content, as: :string, label: false %>
-  <% end %>
+  <%= render 'comments/index' %>
 
   <%= render 'shared/modal_add_resource' %>
   <%= render 'shared/modal_add_partition' %>
