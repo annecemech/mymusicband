@@ -27,12 +27,12 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
 import {playcheckbox} from '../components/buttons-music.js'
-
+import { init_autoscroll, pageScroll } from '../partition/scroll_auto'
+import { initTrackCable } from '../channels/track_channel';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
+  init_autoscroll();
+  initTrackCable();
   playcheckbox();
 });

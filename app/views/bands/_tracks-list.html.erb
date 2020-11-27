@@ -5,11 +5,11 @@
       <div class="card-track-infos flex-grow-1">
         <div class="d-flex justify-content-between">
           <h2><%= track.title %></h2>
-          <p><%= track.style %></p>
+          <p class="m-0"><%= track.style %></p>
         </div>
         <div class="d-flex justify-content-between">
-          <p><%= track.duration %></p>
-          <p><%= track.tempo %></p>
+          <p><%= track.duration / 60 %>m<%= track.duration % 60 %>s</p>
+          <p><%= track.tempo %> bpm</p>
         </div>
       </div>
     </div>
