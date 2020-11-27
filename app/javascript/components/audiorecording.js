@@ -86,14 +86,13 @@ const loadAudioRecording = () => {
           console.log(audioURL);
 
         const file = new File([blob], 'testaudio.mp3', {type: 'audio/mpeg-3'});
-        console.log(file);
-
+        const mp3URL = window.URL.createObjectURL(file);
+        console.log(mp3URL);
 
           document.getElementById("partition-field").value = mainSection.dataset.partitionid;
-          formData.append('name-field', clipName);
-          console.log(formData);
 
-        audio.src = audioURL;
+        audio.src = mp3URL;
+        // audio.src = audioURL;
         console.log("recorder stopped");
 
         deleteButton.onclick = function(e) {
