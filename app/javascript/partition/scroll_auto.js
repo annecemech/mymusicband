@@ -1,8 +1,8 @@
 const init_autoscroll = () => {
-  const play = document.querySelector(".fa-play");
+  const record = document.querySelector(".fa-record-vinyl");
 
-  if (play) {
-    play.addEventListener('click', (event) => {
+  if (record) {
+    record.addEventListener('click', (event) => {
       pageScroll();
     });
   }
