@@ -1,18 +1,3 @@
-// body {
-//   margin: 0;
-//   padding: 0;
-// }
-
-// #main-container {
-//   position: relative;
-//   min-height: 100%;
-// }
-
-// #content-wrap {
-//   padding-bottom: 2.5rem;    /* Footer height */
-// }
-
-
 html {
   height: 100%;
   box-sizing: border-box;
@@ -31,6 +16,12 @@ body {
   min-height: 100%;
 }
 
+
 a:hover {
   text-decoration: none !important;
+}
+
+.no-pm-bottom{
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
