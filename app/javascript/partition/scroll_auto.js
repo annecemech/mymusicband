@@ -1,9 +1,11 @@
 const init_autoscroll = () => {
   const play = document.querySelector(".fa-play");
 
-  play.addEventListener('click', (event) => {
-    pageScroll();
-  });
+  if (play) {
+    play.addEventListener('click', (event) => {
+      pageScroll();
+    });
+  }
 }
 
 const pageScroll = async () => {
