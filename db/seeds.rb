@@ -66,7 +66,7 @@ user4.save!
 puts "Seeding bands"
 
 band1 = Band.new(
-  name: "Scream",
+  name: "I Scream",
   description: "Punk hardcore, post-hardcore, art rock",
   creation_year: "1981",
 )
@@ -74,7 +74,7 @@ band1.photo.attach(io: URI.open('https://metalpapy.fr/album/the%20scream/band.jp
 band1.save!
 
 band2 = Band.new(
-  name: "Nirvana",
+  name: "Nirvono",
   description: "Grunge, rock alternatif",
   creation_year: "1987",
 )
@@ -82,7 +82,7 @@ band2.photo.attach(io: URI.open('https://www.onstageweb.com/wp-content/uploads/2
 band2.save!
 
 band3 = Band.new(
-  name: "Foo fighters",
+  name: "Flou fighters",
   description: "Hard rock, post-grunge, alternative rock",
   creation_year: "1994"
 )
