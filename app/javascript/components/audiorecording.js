@@ -85,6 +85,9 @@ const loadAudioRecording = () => {
         const audioURL = window.URL.createObjectURL(blob);
           console.log(audioURL);
 
+        let file = new File([blob], 'testaudio.mp3', {type: 'audio/mpeg-3'});
+        console.log(file);
+
           document.getElementById("partition-field").value = mainSection.dataset.partitionid;
 
           const recordingForm = document.getElementById('new_recording');
