@@ -45,7 +45,7 @@
   <div>
     <%= simple_form_for [@track, @new_recording] do |f| %>
       <%= f.input :name, input_html: { :id => "name-field" } %>
-      <%= f.input :resource, as: :file, input_html: { :id => "audio-field" } %>
+      <%= f.input :resource, input_html: { :id => "hidden" } %>
       <%= f.input :is_lead, label: 'Lead rhythm track' %>
       <%= f.input :partition, input_html: { :id => "partition-field" } %>
 

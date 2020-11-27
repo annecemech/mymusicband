@@ -71,7 +71,7 @@ const loadAudioRecording = () => {
           clipLabel.textContent = clipName;
         }
 
-        document.getElementById("name-field").value = clipName;
+        // document.getElementById("name-field").value = clipName;
 
         clipContainer.appendChild(audio);
         clipContainer.appendChild(clipLabel);
@@ -84,8 +84,15 @@ const loadAudioRecording = () => {
         chunks = [];
         const audioURL = window.URL.createObjectURL(blob);
           console.log(audioURL);
-          document.getElementById("audio-field").value = audioURL;
-          console.log(mainSection.dataset.partitionid);
+
+          document.getElementById("partition-field").value = mainSection.dataset.partitionid;
+
+          const recordingForm = document.getElementById('new_recording');
+          const formData = new FormData(recordingForm);
+          console.log(formData);
+          formData.append('name-field', clipName);
+          console.log(formData);
+
         audio.src = audioURL;
         console.log("recorder stopped");
 
