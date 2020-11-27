@@ -3,12 +3,12 @@
     <div class="banner-title-band">
       <h1><%= @partition.track.title %></h1>
       <div class="card-buttons-sound d-flex justify-content-center mt-4">
-        <a class="btn-sound mx-5"><i class="fas fa-play"></i></a>
-        <a class="btn-sound mx-5"><i class="fas fa-record-vinyl"></i></a>
-        <a class="btn-sound mx-5"><i class="fas fa-stop"></i></i></a>
-        <a class="btn-sound mx-5"><i class="fas fa-pause"></i></a>
-        <a class="btn-sound mx-5"><i class="fas fa-undo-alt"></i></a>
-        <a class="btn-sound mx-5"><i class="fas fa-save"></i></a>
+        <a class="btn-sound mx-5 btn-play"><i class="fas fa-play"></i></a>
+        <a class="btn-sound mx-5 btn-record"><i class="fas fa-record-vinyl"></i></a>
+        <a class="btn-sound mx-5 btn-stop"><i class="fas fa-stop"></i></i></a>
+        <a class="btn-sound mx-5 btn-pause"><i class="fas fa-pause"></i></a>
+        <a class="btn-sound mx-5 btn-back"><i class="fas fa-undo-alt"></i></a>
+        <a class="btn-sound mx-5 btn-save"><i class="fas fa-save"></i></a>
       </div>
       <div>
         <button class="dropdown-recordings" type="button" data-toggle="collapse" data-target="#collapseRecordings" aria-expanded="false" aria-controls="collapseExample">
@@ -16,9 +16,8 @@
         <div class="collapse" id="collapseRecordings">
           <div class="list-recordings">
             <ul class="list-unstyled">
-              <% @recording.each do |record| %>
-                <li><input type="checkbox" id ="<%= record.id %>" name="recording"/><%= record.name %></input></li>
-              <% end %>
+                <li><input id="audio1" type="checkbox" data-recordurl="<%= cloudinary_url(@recording.first.resource.key, resource_type: :video) %>" class="checkrecording" name="recording"/><%= @recording.first.name %></input></li>
+                <li><input id="audio2" type="checkbox" data-recordurl="<%= cloudinary_url(@recording.last.resource.key, resource_type: :video) %>" class="checkrecording" name="recording"/><%= @recording.last.name %></input></li>
             </ul>
           </div>
         </div>
