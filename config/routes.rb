@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  root to: 'my/bands#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   namespace :my do
@@ -19,3 +19,5 @@ Rails.application.routes.draw do
   resources :partitions, only: [:show]
 
 end
+
+
