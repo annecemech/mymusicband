@@ -1,5 +1,5 @@
 <div class="partition-show">
-  <div class="banner-small banner-transparent text-center banner-orange">
+  <div class="banner-small banner-transparent text-center banner-orange fixed-top">
     <div class="banner-title-band">
       <h1><%= @partition.track.title %></h1>
       <div class="card-buttons-sound d-flex justify-content-center mt-4">
@@ -25,10 +25,14 @@
       </div>
     </div>
   </div>
-  <div class="container">
+  <div class="container container-partition">
     <div class="text-center">
       <%= cl_image_tag @partition.photo.key, width: 800 %>
     </div>
   </div>
 </div>
 
+<script>
+
+
+</script>
