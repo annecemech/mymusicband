@@ -1,12 +1,32 @@
+// body {
+//   margin: 0;
+//   padding: 0;
+// }
+
+// #main-container {
+//   position: relative;
+//   min-height: 100%;
+// }
+
+// #content-wrap {
+//   padding-bottom: 2.5rem;    /* Footer height */
+// }
+
+
 html {
   height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
+  position: relative;
   margin: 0;
-  padding: 0;
-}
-
-.main-container {
-  height:100%;
+  padding-bottom: 6rem;
+  min-height: 100%;
 }
