@@ -2,10 +2,7 @@ const init_autoscroll = () => {
   const play = document.querySelector(".fa-play");
 
   play.addEventListener('click', (event) => {
-    console.log("Starting scrolling");
     pageScroll();
-
-    console.log("Scrolling finished")
   });
 }
 
