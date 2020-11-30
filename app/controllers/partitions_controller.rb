@@ -2,6 +2,8 @@ class PartitionsController < ApplicationController
   def show
     @partition = Partition.find(params[:id])
     @recording = Recording.all
+    @new_recording = Recording.new
+    @track = @partition.track
   end
 
   def create
