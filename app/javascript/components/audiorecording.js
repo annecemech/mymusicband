@@ -1,7 +1,7 @@
 const loadAudioRecording = () => {
 
-  const record = document.querySelector('.record');
-  const stop = document.querySelector('.stop');
+  const record = document.querySelector('.btn-record');
+  const stop = document.querySelector('.btn-stop');
   const soundClips = document.querySelector('.sound-clips');
   const canvas = document.querySelector('.visualizer');
   const mainSection = document.querySelector('.main-controls');
@@ -32,7 +32,7 @@ const loadAudioRecording = () => {
         mediaRecorder.start();
         console.log(mediaRecorder.state);
         console.log("recorder started");
-        record.style.background = "red";
+        // record.style.background = "red"; A modifier par un autre style
 
         stop.disabled = false;
         record.disabled = true;
@@ -161,7 +161,7 @@ const loadAudioRecording = () => {
 
       analyser.getByteTimeDomainData(dataArray);
 
-      canvasCtx.fillStyle = 'rgb(56, 40, 120)';
+      canvasCtx.fillStyle = 'rgb(249, 249, 249)';
       canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
 
       canvasCtx.lineWidth = 2;
