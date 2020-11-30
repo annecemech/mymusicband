@@ -28,10 +28,12 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import {playcheckbox} from '../components/buttons-music.js'
+import { mixRecordings } from '../components/buttons-recordings.js'
 import { initTrackCable } from '../channels/track_channel';
 
 
 document.addEventListener('turbolinks:load', () => {
   initTrackCable();
   playcheckbox();
+  mixRecordings();
 });

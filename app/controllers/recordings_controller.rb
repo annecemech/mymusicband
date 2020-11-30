@@ -1,5 +1,9 @@
 class RecordingsController < ApplicationController
 
+  def index
+    @track = Track.find(params[:track_id])
+  end
+
   def create
     @recording = Recording.new(recording_params)
     @recording.user = current_user

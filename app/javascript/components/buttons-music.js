@@ -13,6 +13,7 @@ const playcheckbox = () => {
 
   if (buttonRecord)
   {
+
     checkbox.forEach(element => {
       element.addEventListener('change', (event) => {
         if(element.checked) {
@@ -25,7 +26,7 @@ const playcheckbox = () => {
 
     buttonPlay.addEventListener('click', (event) => {
       audioarray.forEach(element => {
-          element.volume = 0.1;
+          element.volume = 0.9;
           element.play();
       });
     });
@@ -34,6 +35,7 @@ const playcheckbox = () => {
       audioarray.forEach(element => {
           element.pause();
       });
+
       // if recording ongoing, we stop the scrolling
       if ( abortController ) {
         abortController.abort();
@@ -45,6 +47,7 @@ const playcheckbox = () => {
       abortController = new AbortController();
       initCountdown(audioarray, abortController.signal);
     });
+
   }
 
 }
