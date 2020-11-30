@@ -22,11 +22,19 @@
   margin: 3px;
 }
 
-.btn-sound{
+.btn-record{
   color: $orange;
-  font-size: 30px;
+  font-size: 50px;
+  // top: 30px;
+  // left: 500px;
 }
 
+.btn-sound-record{
+  color: $gray;
+  font-size: 23px;
+  // top: 30px;
+  // left: 500px;
+}
 .card-buttons-sound {
   background-color: rgba(236, 240, 241, 1);
   border-radius: 30px;
