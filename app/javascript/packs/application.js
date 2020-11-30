@@ -32,7 +32,7 @@ import { init_autoscroll, pageScroll } from '../partition/scroll_auto'
 import { initTrackCable } from '../channels/track_channel';
 
 document.addEventListener('turbolinks:load', () => {
-  init_autoscroll();
+  // init_autoscroll();
   initTrackCable();
   playcheckbox();
 });

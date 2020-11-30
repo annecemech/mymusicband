@@ -1,3 +1,5 @@
+import { pageScroll } from '../partition/scroll_auto'
+
 
 const playcheckbox = () => {
   const buttonPlay = document.querySelector('.btn-play');
@@ -5,6 +7,9 @@ const playcheckbox = () => {
   const buttonRecord = document.querySelector('.btn-record');
   const checkbox = document.querySelectorAll('.checkrecording');
   const audioarray = [];
+
+  let abortController = null;
+
 
   checkbox.forEach(element => {
     element.addEventListener('change', (event) => {
@@ -27,6 +32,25 @@ const playcheckbox = () => {
     audioarray.forEach(element => {
         element.pause();
     });
+    console.log("Pause button pushed")
+    // if recording ongoing, we stop the scrolling
+    if ( abortController ) {
+      console.log("trying to abort")
+      abortController.abort();
+      abortController = null;
+    }
+  });
+
+  buttonRecord.addEventListener('click', (event) => {
+    abortController = new AbortController();
+    console.log(abortController);
+    try {
+      pageScroll(abortController.signal);
+    } catch {
+      alert( 'WHY DID YOU DO THAT?!' );
+      abortController = null;
+    }
+    console.log(abortController);
   });
 }
 
