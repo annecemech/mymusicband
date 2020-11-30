@@ -1,3 +1,4 @@
+import { initCountdown } from '../components/countdown';
 
 const playcheckbox = () => {
   const button = document.querySelector('.btn-play');
@@ -31,11 +32,18 @@ const playcheckbox = () => {
 
 
   buttonRecord.addEventListener('click', (event) =>{
+
+
     if (document.querySelector('#audio1').checked) {
-      audio1.play();
+      initCountdown(audio1);
+      //audio1.play();
     }
     else if (document.querySelector('#audio2').checked) {
-      audio2.play();
+      initCountdown(audio2);
+      //audio2.play();
+    }
+    else{
+      initCountdown();
     }
   });
 
@@ -64,4 +72,4 @@ const playcheckbox = () => {
 //   });
 }
 
-export {playcheckbox};
+export {playcheckbox };
