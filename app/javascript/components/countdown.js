@@ -1,6 +1,6 @@
 import { pageScroll } from '../partition/scroll_auto'
 
-const initCountdown = (audio = null) => {
+const initCountdown = (audioarray) => {
 
   const nums = document.querySelectorAll('.nums span');
   const counter = document.querySelector('.counter');
@@ -25,12 +25,12 @@ const initCountdown = (audio = null) => {
         }
 
         if (num == last){
-          console.log("animation end");
           // After the and of the animation, launch auto scroll and playing tracks
           pageScroll();
-          if (audio){
-            audio.play();
-          }
+          audioarray.forEach(element => {
+              element.volume = 0.1;
+              element.play();
+          });
         }
       });
 
