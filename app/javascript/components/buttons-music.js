@@ -1,4 +1,4 @@
-import { pageScroll } from '../partition/scroll_auto'
+import { initCountdown } from '../components/countdown';
 
 
 const playcheckbox = () => {
@@ -32,10 +32,8 @@ const playcheckbox = () => {
     audioarray.forEach(element => {
         element.pause();
     });
-    console.log("Pause button pushed")
     // if recording ongoing, we stop the scrolling
     if ( abortController ) {
-      console.log("trying to abort")
       abortController.abort();
       abortController = null;
     }
@@ -43,15 +41,8 @@ const playcheckbox = () => {
 
   buttonRecord.addEventListener('click', (event) => {
     abortController = new AbortController();
-    console.log(abortController);
-    try {
-      pageScroll(abortController.signal);
-    } catch {
-      alert( 'WHY DID YOU DO THAT?!' );
-      abortController = null;
-    }
-    console.log(abortController);
+    initCountdown(audioarray, abortController.signal);
   });
 }
 
-export {playcheckbox};
+export {playcheckbox };
