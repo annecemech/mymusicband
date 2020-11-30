@@ -59,6 +59,7 @@ const loadAudioRecording = () => {
         const clipLabel = document.createElement('p');
         const audio = document.createElement('audio');
         const deleteButton = document.createElement('button');
+        const saveForm = document.createElement('div');
 
         clipContainer.classList.add('clip');
         audio.setAttribute('controls', '');
@@ -79,7 +80,6 @@ const loadAudioRecording = () => {
 
         audio.controls = true;
         const blob = new Blob(chunks, { 'type' : 'audio/mpeg-3' });
-          console.log(blob);
         chunks = [];
         const audioURL = window.URL.createObjectURL(blob);
 
@@ -95,7 +95,8 @@ const loadAudioRecording = () => {
 
           xhr.open('POST', form.getAttribute('action'), true);
           xhr.send(formData);
-        return false;
+          location.reload();
+          return false;
         }
 
         audio.src = audioURL;
