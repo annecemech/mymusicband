@@ -82,32 +82,25 @@ const loadAudioRecording = () => {
           console.log(blob);
         chunks = [];
         const audioURL = window.URL.createObjectURL(blob);
-          console.log(audioURL);
 
-          const file = new File([blob], 'testaudio.mp3', {type: 'audio/mpeg-3'});
-          const audiofileURL = window.URL.createObjectURL(file);
-          console.log(audiofileURL);
+        const form = document.getElementById('new_recording');
 
-        const name = document.getElementById("name-field").value = clipName;
-        console.log(name);
-        const partitionId = document.getElementById("partition-field").value = mainSection.dataset.partitionid;
-        console.log(partitionId);
+        form.onsubmit = function() {
+          const formData = new FormData(form);
+          const xhr = new XMLHttpRequest();
+
+          formData.append('recording[name]', clipName);
+          formData.append('recording[resource]', blob, 'myfilename');
+          formData.append('recording[partition_id]', mainSection.dataset.partitionid);
+
+          xhr.open('POST', form.getAttribute('action'), true);
+          xhr.send(formData);
+        return false;
+        }
 
         audio.src = audioURL;
-        // audio.src = audioURL;
 
-        // const recordingData = new FormData()
-        //   recordingData.append("name", this.state.name)
-        //   recordingData.append("partition_id", this.state.partitionId)
-        //   recordingData.append("resource", this.props.blob)
 
-        // createRecording(formData) {
-        //   const options = {
-        //     method: 'POST',
-        //     body: formData
-        //   }
-        //   return fetch(`http://localhost:3000/tracks/70`, options).then(resp => resp.json())
-        // }
 
         console.log("recorder stopped");
 
