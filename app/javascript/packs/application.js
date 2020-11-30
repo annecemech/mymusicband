@@ -28,12 +28,11 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import {playcheckbox} from '../components/buttons-music.js'
-import { init_autoscroll, pageScroll } from '../partition/scroll_auto'
 import { initTrackCable } from '../channels/track_channel';
 // import { mixRecordings } from '../components/buttons-recordings.js'
 
+
 document.addEventListener('turbolinks:load', () => {
-  init_autoscroll();
   initTrackCable();
   playcheckbox();
   // mixRecordings();
