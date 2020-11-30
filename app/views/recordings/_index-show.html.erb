@@ -1,29 +1,11 @@
-<div class="container">
-  <div class="d-flex justify-content-between align-items-center">
-    <h3>All recordings for <%= @track.title %></h3>
-  </div>
 
-  <% @track.recordings.each do |recording| %>
-    <div class="d-flex">
-      <div class="m-auto" style= "width: 50%">
-        <input type="checkbox" class="checkrecording" data-recordurl="<%= cloudinary_url(recording.resource.key, resource_type: :video) %>"><%= recording.name %></input>
-      </div>
-      <div class="m-auto" style="width: 50%">
-        <audio src="<%= cloudinary_url(recording.resource.key, resource_type: :video)  %>" controls></audio>
-      </div>
+<% @track.recordings.each do |recording| %>
+  <div class="d-flex">
+    <div class="m-auto" style= "width: 50%">
+      <input type="checkbox" class="checkrecording" data-recordurl="<%= cloudinary_url(recording.resource.key, resource_type: :video) %>"><%= recording.name %></input>
     </div>
-  <% end %>
-
-
-  <div class="text-center">
-    <div class="btn btn-blue btn-play">
-      Mix Selected Recordings
-    </div>
-    <div class="btn btn-blue btn-pause">
-      Pause
+    <div class="m-auto" style="width: 50%">
+      <audio src="<%= cloudinary_url(recording.resource.key, resource_type: :video)  %>" controls></audio>
     </div>
   </div>
-
-</div>
-
-
+<% end %>

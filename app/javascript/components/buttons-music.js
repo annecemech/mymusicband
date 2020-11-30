@@ -2,6 +2,7 @@
 const playcheckbox = () => {
   const buttonPlay = document.querySelector('.btn-play');
   const buttonPause = document.querySelector('.btn-pause');
+  const buttonStop = document.querySelector('.btn-stop');
   const buttonRecord = document.querySelector('.btn-record');
   const checkbox = document.querySelectorAll('.checkrecording');
   const audioarray = [];
@@ -18,7 +19,7 @@ const playcheckbox = () => {
 
   buttonPlay.addEventListener('click', (event) => {
     audioarray.forEach(element => {
-        element.volume = 0.1;
+        element.volume = 0.9;
         element.play();
     });
   });
@@ -26,6 +27,12 @@ const playcheckbox = () => {
   buttonPause.addEventListener('click', (event) => {
     audioarray.forEach(element => {
         element.pause();
+    });
+  });
+
+  buttonStop.addEventListener('click', (event) => {
+    audioarray.forEach(element => {
+        element.load();
     });
   });
 }
