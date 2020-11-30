@@ -13,7 +13,11 @@ const pageScroll = async (abortSignal) => {
         clearTimeout( timeout );
       } );
     });
-    window.scrollBy(0,1);
+
+    // scroll only if we are still on the page with button record
+    if (document.querySelector('.btn-record')){
+      window.scrollBy(0,1);
+    }
   }
 };
 
