@@ -1,67 +1,33 @@
 
 const playcheckbox = () => {
-  const button = document.querySelector('.btn-play');
+  const buttonPlay = document.querySelector('.btn-play');
   const buttonPause = document.querySelector('.btn-pause');
   const buttonRecord = document.querySelector('.btn-record');
   const checkbox = document.querySelectorAll('.checkrecording');
-  const audio1 = new Audio(document.querySelector('#audio1').dataset.recordurl);
-  const audio2 = new Audio(document.querySelector('#audio2').dataset.recordurl);
-  console.log(audio1);
-  console.log(audio2);
+  const audioarray = [];
 
-
-
-  button.addEventListener('click', (event) =>{
-    if (document.querySelector('#audio1').checked) {
-      audio1.play();
-    }
-    else if (document.querySelector('#audio2').checked) {
-      audio2.play();
-    }
+  checkbox.forEach(element => {
+    element.addEventListener('change', (event) => {
+      if(element.checked) {
+        audioarray.push(new Audio(element.dataset.recordurl));
+      } else {
+        audioarray.splice(new Audio(element.dataset.recordurl), 1)
+      }
+    });
   });
 
-  buttonPause.addEventListener('click', (event) =>{
-    if (document.querySelector('#audio1').checked) {
-      audio1.pause();
-    }
-    else if (document.querySelector('#audio2').checked) {
-      audio2.pause();
-    }
+  buttonPlay.addEventListener('click', (event) => {
+    audioarray.forEach(element => {
+        element.volume = 0.1;
+        element.play();
+    });
   });
 
-
-  buttonRecord.addEventListener('click', (event) =>{
-    if (document.querySelector('#audio1').checked) {
-      audio1.play();
-    }
-    else if (document.querySelector('#audio2').checked) {
-      audio2.play();
-    }
+  buttonPause.addEventListener('click', (event) => {
+    audioarray.forEach(element => {
+        element.pause();
+    });
   });
-
-  buttonPause.addEventListener('click', (event) =>{
-    if (document.querySelector('#audio1').checked) {
-      audio1.pause();
-    }
-    else if (document.querySelector('#audio2').checked) {
-      audio2.pause();
-    }
-  });
-
-
-
-//   button.addEventListener('click', (event) =>{
-//     const baliseaudio = document.querySelectorAll('.audio-test');
-//     console.log(baliseaudio);
-//     checkbox.forEach(element => {
-//       if(element.checked) {
-//         const audio = new Audio(element.dataset.recordurl);
-//         audio.classList.add('audio-test')
-//         audio.volume = 0.1;
-//         audio.play();
-//       }
-//     });
-//   });
 }
 
 export {playcheckbox};

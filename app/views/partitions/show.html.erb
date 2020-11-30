@@ -16,8 +16,9 @@
         <div class="collapse" id="collapseRecordings">
           <div class="list-recordings">
             <ul class="list-unstyled">
-                <li><input id="audio1" type="checkbox" data-recordurl="<%= cloudinary_url(@recording.first.resource.key, resource_type: :video) %>" class="checkrecording" name="recording"/><%= @recording.first.name %></input></li>
-                <li><input id="audio2" type="checkbox" data-recordurl="<%= cloudinary_url(@recording.last.resource.key, resource_type: :video) %>" class="checkrecording" name="recording"/><%= @recording.last.name %></input></li>
+             <% @recording.each do |record| %>
+                <li><input class="audio checkrecording" type="checkbox" data-recordurl="<%= cloudinary_url(record.resource.key, resource_type: :video) %>" name="recording"/><%= record.name %></input></li>
+             <% end %>
             </ul>
           </div>
         </div>
