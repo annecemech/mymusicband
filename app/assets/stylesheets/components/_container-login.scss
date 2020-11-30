@@ -1,0 +1,14 @@
+.wrap-login {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 377px;
+  margin: 15px auto;
+  padding: 40px 30px;
+  background-color: white;
+  border: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px 10px $orange;
+}
