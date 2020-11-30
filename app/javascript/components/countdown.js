@@ -1,19 +1,16 @@
 import { pageScroll } from '../partition/scroll_auto'
 
-const initCountdown = (audioarray) => {
+const initCountdown = (audioarray, abortSignal) => {
 
   const nums = document.querySelectorAll('.nums span');
   const counter = document.querySelector('.counter');
 
-  // const record = document.querySelector('.btn-record');
-
   runAnimation();
 
   function runAnimation() {
-    console.log(nums);
 
     const last = nums[nums.length - 1];
-              nums[0].classList.add('in');
+    nums[0].classList.add('in');
     nums.forEach((num, idx) => {
       const penultimate = nums.length - 1;
       num.addEventListener('animationend', (e) => {
@@ -25,24 +22,22 @@ const initCountdown = (audioarray) => {
         }
 
         if (num == last){
-          // After the and of the animation, launch auto scroll and playing tracks
-          pageScroll();
+          // After the and of the animation, launch auto scroll
+          try {
+            pageScroll(abortSignal);
+          } catch {
+            alert( 'WHY DID YOU DO THAT?!' );
+            abortController = null;
+          }
+          // play tracks
           audioarray.forEach(element => {
               element.volume = 0.1;
               element.play();
           });
         }
       });
-
     });
-
   }
-
-  // record.addEventListener('click', () => {
-  //   runAnimation();
-  // });
-
 }
-
 
 export{ initCountdown }
