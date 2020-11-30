@@ -8,10 +8,9 @@ const initCountdown = (audioarray, abortSignal) => {
   runAnimation();
 
   function runAnimation() {
-    console.log(nums);
 
     const last = nums[nums.length - 1];
-              nums[0].classList.add('in');
+    nums[0].classList.add('in');
     nums.forEach((num, idx) => {
       const penultimate = nums.length - 1;
       num.addEventListener('animationend', (e) => {
