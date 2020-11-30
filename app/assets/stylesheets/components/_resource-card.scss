@@ -4,8 +4,25 @@
 
 .grow-resource {
   transition: all .2s ease-in-out;
+
+  .icon-display-hover{
+    color: silver;
+    transform: scale(0);
+
+    .fas:hover, .far:hover {
+      color: dimgrey;
+    }
+  }
+
+
+
   &:hover {
   transform: scale(1.04);
+
+  .icon-display-hover{
+    transition: .2s ease;
+    transform: scale(1);
+  }
   }
 }
 
