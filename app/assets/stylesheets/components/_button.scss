@@ -5,8 +5,13 @@
 
 
 .btn-blue {
-  background-color: $blue;
-  color:white;
+  background-color: $light-gray;
+  border: 2px solid $blue;
+  color: $blue;
+  &:hover {
+    background-color: $blue;
+    color: $light-gray;
+  }
 }
 
 .btn-plus{
