@@ -3,6 +3,39 @@
     <div class="banner-title-band">
       <h1><%= @partition.track.title %></h1>
     </div>
+    <div class="audio-wrapper container pb-3">
+      <div class="main-controls" data-trackid="<%= @partition.track.id %>" data-partitionid="<%= @partition.id %>" data-userid="<%= current_user.id %>">
+        <canvas class="visualizer" height="60px"></canvas>
+<!--         <div id="buttons">
+          <button class="record"><i class="fas fa-record-vinyl"></i></button>
+          <button class="stop"><i class="fas fa-stop"></i></button>
+        </div> -->
+      </div>
+      <div class="sound-clips">
+
+          <%= simple_form_for [@track, @new_recording] do |f| %>
+            <%= f.hidden_field :name, input_html: { :id => "name-field" } %>
+            <%= f.hidden_field :resource, as: :file, input_html: { :id => "resource-field" } %>
+            <%= f.hidden_field :is_lead, label: 'Lead rhythm track' %>
+            <%= f.hidden_field :partition, label_method: :name, value_method: :id, include_blank: false, input_html: { :id => "partition-field" } %>
+
+            <div class="text-center mt-4">
+              <%= f.button :submit, 'Add Recording', class: "btn btn-primary" %>
+            </div>
+          <% end %>
+
+      </div>
+    </div>
+  </div>
+  <div class="counter">
+    <div class="nums">
+      <span class="double">1</span>
+      <span class="double">2</span>
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+      <span>4</span>
+    </div>
   </div>
   <div class="container container-partition">
     <div class="text-center">
@@ -45,3 +78,4 @@
         <a class="btn-sound mx-5 btn-pause"><i class="fas fa-pause"></i></a>
         <a class="btn-sound mx-5 btn-back"><i class="fas fa-undo-alt"></i></a>
         <a class="btn-sound mx-5 btn-save"><i class="fas fa-save"></i></a> -->
+
