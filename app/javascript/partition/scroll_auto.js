@@ -11,7 +11,6 @@ const init_autoscroll = () => {
 const pageScroll = async (abortSignal) => {
   const body = document.body,
         html = document.documentElement;
-
   const pageHeight = Math.max( body.scrollHeight, body.offsetHeight,
                          html.clientHeight, html.scrollHeight, html.offsetHeight );
   const windowHeight = window.innerHeight;
@@ -21,11 +20,8 @@ const pageScroll = async (abortSignal) => {
     await new Promise((resolve, reject) => {
       const timeout = setTimeout(resolve, 20);
 
-      abortSignal.addEventListener( 'abort', () => { // 6
-        const error = new DOMException( 'Calculation aborted by the user', 'AbortError' );
-
-        clearTimeout( timeout ); // 7
-        reject( error ); // 8
+      abortSignal.addEventListener( 'abort', () => {
+        clearTimeout( timeout );
       } );
     });
     window.scrollBy(0,1);
