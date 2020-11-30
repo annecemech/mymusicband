@@ -1,0 +1,7 @@
+<div class="comments-container" id="comment-<%= comment.id %>">
+  <i class="author">
+    <strong><%= comment.user.first_name %></strong>
+    <small class="text-muted font-weight-light"><%= comment.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+  </i>
+  <p class="font-weight-light"><%= comment.content %></p>
+</div>

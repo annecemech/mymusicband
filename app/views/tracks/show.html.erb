@@ -2,7 +2,7 @@
   <h1>
     <%= @track.title %>
   </h1>
-  <a href="#" class="btn btn-orange">Mix Records</a>
+  <a href="#" class="btn btn-blue">Mix Records</a>
 
 </div>
 <br>
@@ -21,11 +21,11 @@
 
   <div class="tab-content py-4">
     <div class="tab-pane active" id="record" role="tabpanel" aria-labelledby="record-tab">
-      <div class="d-flex">
-        <div class="col-6">
+      <div class="row">
+        <div class="col-xs-12 col-md-6 mb-2">
           <%= render 'partitions/index' %>
         </div>
-        <div class="col-6">
+        <div class="col-xs-12 col-md-6 mb-1">
           <%= render 'recordings/index' %>
         </div>
       </div>

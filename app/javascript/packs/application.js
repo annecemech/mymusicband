@@ -27,7 +27,10 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
+
 import { loadAudioRecording } from '../components/audiorecording';
+import {playcheckbox} from '../components/buttons-music.js'
+import { initTrackCable } from '../channels/track_channel';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
@@ -35,8 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   // set up basic variables for app
   loadAudioRecording();
-
-
-
+  initTrackCable();
+  playcheckbox();
 
 });

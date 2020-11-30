@@ -1,17 +1,15 @@
 <div class="banner-small text-center banner-orange">
-  <div class="banner-title-band">
-    <h1><%= @band.name %></h1>
-    <p><%= @band.description %></p>
-  </div>
+  <h1><%= @band.name %></h1>
+  <p><%= @band.description %></p>
 </div>
 
 <div class ="container pb-5">
   <div class="row">
 
     <div class="col-lg-8 pr-5">
-      <ul class="list-inline">
-        <li class="list-inline-item"><h2 class="pt-5 pb-2">Tracks Library</h2></li>
-        <li class="list-inline-item"><button type="button" class="btn btn-danger rounded-circle">+</button></li>
+      <ul class="list-inline justify-content-center pt-5 pb-3">
+        <li class="list-inline-item"><h2 class="no-pm-bottom">Tracks Library</h2></li>
+        <li class="list-inline-item"><button type="button" class="btn btn-plus"><h2><i class="fas fa-plus-circle"></i></h2></button></li>
       </ul>
       <div>
         <%= render "tracks-list", track: @track %>
@@ -19,9 +17,9 @@
     </div>
 
     <div class="col-lg-4">
-       <ul class="list-inline">
-        <li class="list-inline-item"><h2 class="pt-5 pb-2 text-right">Crew</h2></li>
-        <li class="list-inline-item"><button type="button" class="btn btn-danger rounded-circle">+</button></li>
+       <ul class="list-inline pt-5 pb-3">
+        <li class="list-inline-item"><h2 class="no-pm-bottom">Crew</h2></li>
+        <li class="list-inline-item"><button type="button" class="btn btn-plus"><h2><i class="fas fa-plus-circle"></i></h2></button></li>
       </ul>
       <div>
         <%= render "users-list", user: @user %>

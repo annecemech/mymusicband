@@ -1,9 +1,9 @@
 <div class="container border rounded py-3">
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-between align-items-center">
     <h3>Recordings</h3>
 
-    <%= link_to "#recordingModal", class: "btn p-0", "data-toggle" => "modal" do %>
-      <%= image_tag "plus.png", class: "btn-add"%>
+    <%= link_to "#recordingModal", class: "btn btn-plus pr-1", "data-toggle" => "modal" do %>
+      <h3><i class="fas fa-plus-circle"></i></h3>
     <% end %>
   </div>
 
@@ -11,7 +11,6 @@
     <div class="resource-card grow-resource">
       <%= link_to "#musicPlayer-#{recording.id}", class: "", 'data-toggle' => 'modal' do %>
         <div class="d-flex align-items-center">
-          <i class="far fa-play-circle text-orange resource-play ml-2"></i>
 
           <% case recording.instrument.name %>
           <% when "Guitar" %>
@@ -33,9 +32,14 @@
         </div>
       <% end %>
 
-      <% if recording.is_lead %>
-        <i class="fas fa-star ml-auto mr-3 text-orange resource-star"></i>
-      <% end %>
+      <div class="d-flex ml-auto align-items-center">
+        <% if recording.is_lead %>
+          <i class="fas fa-star text-orange resource-star mr-3"></i>
+        <% end %>
+        <%= link_to "#musicPlayer-#{recording.id}", class: "", 'data-toggle' => 'modal' do %>
+          <i class="far fa-play-circle text-orange resource-play ml-auto mr-1"></i>
+        <% end %>
+      </div>
     </div>
 
 

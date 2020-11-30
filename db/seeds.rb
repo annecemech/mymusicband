@@ -14,7 +14,7 @@ puts "Seeding instruments..."
 instru1 = Instrument.create!(name: "Guitar")
 instru2 = Instrument.create!(name: "Bass")
 instru3 = Instrument.create!(name: "Drums")
-instru4 = Instrument.create!(name: "Vocal")
+instru4 = Instrument.create!(name: "Vocals")
 
 
 #----------------------------------------------------
@@ -66,7 +66,7 @@ user4.save!
 puts "Seeding bands"
 
 band1 = Band.new(
-  name: "Scream",
+  name: "I Scream",
   description: "Punk hardcore, post-hardcore, art rock",
   creation_year: "1981",
 )
@@ -74,7 +74,7 @@ band1.photo.attach(io: URI.open('https://metalpapy.fr/album/the%20scream/band.jp
 band1.save!
 
 band2 = Band.new(
-  name: "Nirvana",
+  name: "Nirvono",
   description: "Grunge, rock alternatif",
   creation_year: "1987",
 )
@@ -82,7 +82,7 @@ band2.photo.attach(io: URI.open('https://www.onstageweb.com/wp-content/uploads/2
 band2.save!
 
 band3 = Band.new(
-  name: "Foo fighters",
+  name: "Flou fighters",
   description: "Hard rock, post-grunge, alternative rock",
   creation_year: "1994"
 )
@@ -185,7 +185,7 @@ partition1 = Partition.new(
 partition1.instrument = instru3
 partition1.track = track2
 partition1.user = user2
-partition1.photo.attach(io: File.open('app/assets/images/tab-pretender.jpg'), filename: 'tab-pretender.jpg', content_type: 'image/jpg')
+partition1.resource.attach(io: File.open('app/assets/images/tab-pretender.jpg'), filename: 'tab-pretender.jpg', content_type: 'image/jpg')
 partition1.save!
 
 partition2 = Partition.new(
@@ -194,7 +194,7 @@ partition2 = Partition.new(
 partition2.instrument = instru1
 partition2.track = track2
 partition2.user = user2
-partition2.photo.attach(io: File.open('app/assets/images/tab-pretender.jpg'), filename: 'tab-pretender.jpg', content_type: 'image/jpg')
+partition2.resource.attach(io: File.open('app/assets/images/tab-pretender.jpg'), filename: 'tab-pretender.jpg', content_type: 'image/jpg')
 partition2.save!
 
 partition3 = Partition.new(
@@ -203,7 +203,7 @@ partition3 = Partition.new(
 partition3.instrument = instru2
 partition3.track = track2
 partition3.user = user2
-partition3.photo.attach(io: File.open('app/assets/images/tab-pretender.jpg'), filename: 'tab-pretender.jpg', content_type: 'image/jpg')
+partition3.resource.attach(io: File.open('app/assets/images/tab-pretender.jpg'), filename: 'tab-pretender.jpg', content_type: 'image/jpg')
 partition3.save!
 
 #--------------------------------------------------------
