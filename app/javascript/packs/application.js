@@ -29,6 +29,7 @@ import "bootstrap";
 // Internal imports, e.g:
 
 import { loadAudioRecording } from '../components/audiorecording';
+import { AudioPlayer } from '../components/audio-player';
 import {playcheckbox} from '../components/buttons-music.js'
 import { mixRecordings } from '../components/buttons-recordings.js'
 import { initTrackCable } from '../channels/track_channel';
@@ -38,6 +39,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   // set up basic variables for app
+  AudioPlayer();
   loadAudioRecording();
   initTrackCable();
   playcheckbox();
