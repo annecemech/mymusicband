@@ -64,20 +64,11 @@
   .resource-star {
     font-size: 16px;
   }
+
 }
 
-.container-audio {
-    width: 90%;
-    height: auto;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: $light-gray;;
-    color: $blue;
-    margin: 20px auto;
-    overflow: hidden;
-}
 audio {
-  width:100%;
+  margin-top: 0px;
 }
 
 .mark-block {

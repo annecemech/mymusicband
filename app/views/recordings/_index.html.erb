@@ -9,7 +9,7 @@
 
   <% @track.recordings.each do |recording| %>
     <div class="resource-card grow-resource">
-      <%= link_to "#musicPlayer-#{recording.id}", class: "", 'data-toggle' => 'modal' do %>
+      <%= link_to "#musicPlayer-#{recording.id}", class: "", 'data-toggle' => 'collapse', 'data-target' => "#audio-player-#{recording.id}" do %>
         <div class="d-flex align-items-center">
 
           <% case recording.instrument.name %>
@@ -40,36 +40,15 @@
         <% if recording.is_lead %>
           <i class="fas fa-star text-orange resource-star mr-3"></i>
         <% end %>
-        <%= link_to "#musicPlayer-#{recording.id}", class: "", 'data-toggle' => 'modal' do %>
+        <%= link_to "#musicPlayer-#{recording.id}", class: "", 'data-toggle' => 'collapse', 'data-target' => "#audio-player-#{recording.id}" do %>
           <i class="far fa-play-circle text-orange resource-play ml-auto mr-1"></i>
         <% end %>
       </div>
     </div>
-
-
-    <div class="modal fade" id="musicPlayer-<%= recording.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title" id="exampleModalLongTitle">You're listening to <strong class="mark-block"> <%= recording.name %> </strong></h3>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="container-audio">
-              <audio src="<%= cloudinary_url(recording.resource.key, resource_type: :video)  %>" controls></audio>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
+    <div id="audio-player-<%= recording.id %>" class="collapse">
+      <audio src="<%= cloudinary_url(recording.resource.key, resource_type: :video)  %>" controls></audio>
     </div>
   <% end %>
-
-
 </div>
 
 
