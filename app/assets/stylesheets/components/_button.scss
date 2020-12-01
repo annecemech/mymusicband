@@ -7,6 +7,9 @@
 .btn-blue {
   background-color: $blue;
   color: white;
+  &:hover {
+    color: #ce0000;
+  }
 }
 
 .btn-plus{
