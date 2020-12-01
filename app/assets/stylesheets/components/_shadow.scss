@@ -1,0 +1,11 @@
+.shadow-orange {
+  box-shadow: 8px 6px $orange;
+  border-radius: 5px;
+}
+
+.text-shadow-orange {
+  text-shadow: 4px 3px $orange;
+  font-family: "Rubik", "Helvetica", "sans-serif";
+  font-weight: bold;
+  text-transform: uppercase;
+}
