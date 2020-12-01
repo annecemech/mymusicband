@@ -1,6 +1,6 @@
 <% @band.tracks.each do |track| %>
   <%= link_to track_path(track) do %>
-    <div class="card-track my-3 grow">
+    <div class="card-track my-3 grow shadow-orange">
       <%= cl_image_tag track.photo.key %>
       <div class="card-track-infos flex-grow-1">
         <div class="d-flex justify-content-between">
