@@ -32,7 +32,7 @@ import Crunker from 'crunker';
 import { loadAudioRecording } from '../components/audiorecording';
 import {playcheckbox} from '../components/buttons-music.js'
 import { mixRecordings } from '../components/buttons-recordings.js'
-import { downloadMix } from '../components/download-mix.js'
+// import { downloadMix } from '../components/download-mix.js'
 import { initTrackCable } from '../channels/track_channel';
 // import { initSelect2 } from '../components/init_select2';
 
@@ -44,5 +44,5 @@ document.addEventListener('turbolinks:load', () => {
   initTrackCable();
   playcheckbox();
   mixRecordings();
-  downloadMix();
+  // downloadMix();
 });
