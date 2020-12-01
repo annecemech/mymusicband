@@ -1,7 +1,8 @@
-<div class="banner-small banner-orange">
-  <h1>
-    <%= @track.title %>
-  </h1>
+<div class="banner-small">
+  <div class="banner-slanted"></div>
+  <%= image_tag "rocks.png", alt: "Rock on hand sign" ,id: "rocks" %>
+
+  <h1><%= @track.title %></h1>
   <%= link_to "Mix Records", track_recordings_path(@track), class: "btn btn-blue" %>
   <%= render "shared/button_back"%>
 </div>

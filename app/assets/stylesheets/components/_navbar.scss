@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background-color: $light-gray;
+  background-color: transparent;
   width: 100%;
   z-index:1031;
 
@@ -13,6 +13,10 @@
     margin-top: 0px;
     margin-bottom: 0px;
     padding-bottom: 0px;
+  }
+
+  .avatar{
+    border: none;
   }
 }
 
