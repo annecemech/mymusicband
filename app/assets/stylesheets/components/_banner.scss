@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   justify-content:center;
-  align-items:center
+  align-items:center;
 }
 
 .banner-orange{
@@ -23,24 +23,34 @@
 }
 
 .banner-slanted {
-  z-index: -1;
-  position: absolute;
-  width: 110%;
-  height: 202px;
-  left: 0;
-  top: 0;
-
-  background: $orange;
-  transform-origin: bottom left;
-  transform: rotate(3.57deg);
-}
-
-.banner-slanted-top {
-  z-index: -1;
+  z-index: -10;
   position: absolute;
   top:0;
   width: 100%;
   height: 202px;
 
   background: $orange;
+
+}
+
+.banner-slanted:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background: $orange;
+  transform: skew(87deg);
+}
+
+#rocks {
+  position: absolute;
+  width: 24%;
+  right: -25.5%;
+  top: calc(172px - 10vw);
+  transform-origin: bottom left;
+  transform: rotate(-65.78deg);
+  overflow-x: hidden;
+  z-index:-1;
 }
