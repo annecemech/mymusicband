@@ -22,7 +22,7 @@
   margin: 3px;
 }
 
-.btn-record{
+.btn-main{
   color: $orange;
   font-size: 50px;
   // top: 30px;
@@ -39,5 +39,9 @@
   background-color: rgba(236, 240, 241, 1);
   border-radius: 30px;
   padding: 5px 10px 5px 10px;
+}
+
+.button-inactive {
+  display: none;
 }
 
