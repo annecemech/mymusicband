@@ -1,18 +1,25 @@
 .card-player{
   width: 100%;
-  height: 220px;
+  height: 186px;
   background-color: $light-gray;
   display:flex;
   align-items:center;
 }
 
+.card-player-grow{
+  height: 300px;
+}
 
 .card-record{
   background-color: rgba(236, 240, 241, 1);
   border-radius: 100px;
   width: 780px;
-  height: 110px;
+  height: 75px;
   margin: 0 auto;
+}
+
+.card-record-grow{
+  height: 110px;
 }
 
 .card-player-listen{

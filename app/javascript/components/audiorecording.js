@@ -5,6 +5,8 @@ const loadAudioRecording = () => {
   const soundClips = document.querySelector('.sound-clips');
   const canvas = document.querySelector('.visualizer');
   const mainSection = document.querySelector('.main-controls');
+  const buttonsave = document.querySelector('.btn-save');
+  const cardPillule = document.querySelector('.card-record');
 
   // disable stop button while not recording
 
@@ -58,7 +60,7 @@ const loadAudioRecording = () => {
         const clipContainer = document.createElement('div');
         const clipLabel = document.createElement('p');
         const audio = document.createElement('audio');
-        const deleteButton = document.createElement('a');
+        const deleteButton = document.createElement('button');
         const saveForm = document.createElement('div');
 
         clipContainer.classList.add('clip');
@@ -108,6 +110,10 @@ const loadAudioRecording = () => {
         deleteButton.onclick = function(e) {
           let evtTgt = e.target;
           evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
+          buttonsave.classList.add("d-none");
+          console.log(cardPillule);
+          cardPillule.classList.remove("card-record-grow");
+          console.log(cardPillule);
         }
 
         clipLabel.onclick = function() {

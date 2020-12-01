@@ -93,11 +93,18 @@ audio {
   float: right;
 }
 
-a.delete {
+button.delete {
   // background: #f00;
   padding: 0.5rem 0.75rem;
   font-size: 20px;
   margin-top: 2px;
+  color: $gray;
+  cursor: pointer;
+  border: none;
+  &:hover{
+    color:black;
+    font-size: 21px;
+  }
 }
 
 

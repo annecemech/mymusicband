@@ -23,8 +23,8 @@
   <div class= "card-player fixed-bottom d-flex flex-column">
     <div class="card-record mt-4 d-flex flex-column">
       <div class="d-flex flex-row justify-content-center" style="height:60px">
-        <a class="mx-3 btn-record btn-main"><i class="fas fa-record-vinyl"></i></a>
-        <a class="mx-3 btn-stop btn-main button-inactive"><i class="far fa-stop-circle"></i></a>
+        <button class="btn-record btn-main"><i class="fas fa-record-vinyl"></i></button>
+        <button class="btn-stop btn-main button-inactive"><i class="far fa-stop-circle"></i></button>
         <div class="main-controls" data-trackid="<%= @partition.track.id %>" data-partitionid="<%= @partition.id %>" data-userid="<%= current_user.id %>">
             <canvas class="visualizer" height="37px"></canvas>
     <!--         <div id="buttons">
@@ -46,7 +46,7 @@
             <%= f.hidden_field :partition, label_method: :name, value_method: :id, include_blank: false, input_html: { :id => "partition-field" } %>
 
             <div class="text-center">
-              <%= f.button :submit, 'Save', class: "btn-save button-inactive" %>
+              <%= f.button :submit, 'Save', class: "btn-save d-none" %>
             </div>
           <% end %>
         </div>
@@ -65,13 +65,15 @@
     </div>
     <div>
       <a class="dropdown-recordings" data-toggle="collapse" data-target="#collapseRecordings" aria-expanded="false" aria-controls="collapseExample">
-    Select your recordings buddy <i class="fas fa-angle-down"></i>
+    Select your recordings buddy <i class="fas fa-angle-down icon-dropdown"></i>
       </a>
       <div class="collapse" id="collapseRecordings">
         <div class="list-recordings">
           <ul class="list-unstyled">
+            <li class="text-center"><button class="btn-checkbox btn-checkbox-play"><i class="fas fa-play"></i></button></li>
+            <li class="text-center"><button class="btn-checkbox btn-checkbox-pause button-inactive"><i class="fas fa-pause"></i></button></li>
             <% @recording.each do |record| %>
-              <li><input class="audio checkrecording" type="checkbox" data-recordurl="<%= cloudinary_url(record.resource.key, resource_type: :video) %>" name="recording"/><%= record.name %></input></li>
+              <li class="text-center"><input class="audio checkrecording" type="checkbox" data-recordurl="<%= cloudinary_url(record.resource.key, resource_type: :video) %>" name="recording"/><%= record.name %></input></li>
             <% end %>
           </ul>
         </div>
