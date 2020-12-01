@@ -58,7 +58,7 @@
           <ul class="list-unstyled">
             <li class="text-center"><button class="btn-checkbox btn-checkbox-play"><i class="fas fa-play"></i></button></li>
             <li class="text-center"><button class="btn-checkbox btn-checkbox-pause button-inactive"><i class="fas fa-pause"></i></button></li>
-            <% @recording.each do |record| %>
+            <% @track.recordings.each do |record| %>
               <li class="text-center"><input class="audio checkrecording" type="checkbox" data-recordurl="<%= cloudinary_url(record.resource.key, resource_type: :video) %>" name="recording"/><%= record.name %></input></li>
             <% end %>
           </ul>
