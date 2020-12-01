@@ -55,16 +55,16 @@ const loadAudioRecording = () => {
 
         const clipName = prompt('Enter a name for your sound clip?','My unnamed clip');
 
-        const clipContainer = document.createElement('article');
+        const clipContainer = document.createElement('div');
         const clipLabel = document.createElement('p');
         const audio = document.createElement('audio');
-        const deleteButton = document.createElement('button');
+        const deleteButton = document.createElement('a');
         const saveForm = document.createElement('div');
 
         clipContainer.classList.add('clip');
         audio.setAttribute('controls', '');
-        deleteButton.textContent = 'Delete';
-        deleteButton.className = 'delete';
+        // deleteButton.textContent = 'Delete';
+        deleteButton.className = 'btn-trash delete fas fa-trash';
 
         if(clipName === null) {
           clipLabel.textContent = 'My unnamed clip';
