@@ -21,3 +21,26 @@
 .banner-transparent{
   background-color: transparent;
 }
+
+.banner-slanted {
+  z-index: -1;
+  position: absolute;
+  width: 110%;
+  height: 202px;
+  left: 0;
+  top: 0;
+
+  background: $orange;
+  transform-origin: bottom left;
+  transform: rotate(3.57deg);
+}
+
+.banner-slanted-top {
+  z-index: -1;
+  position: absolute;
+  top:0;
+  width: 100%;
+  height: 202px;
+
+  background: $orange;
+}
