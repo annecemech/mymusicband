@@ -1,6 +1,13 @@
 const loadAudioRecording = () => {
 
-   const partitionShow = document.querySelector(".partition-show");
+  const record = document.querySelector('.btn-record');
+  const stop = document.querySelector('.btn-stop');
+  const soundClips = document.querySelector('.sound-clips');
+  const canvas = document.querySelector('.visualizer');
+  const mainSection = document.querySelector('.main-controls');
+  const buttonsave = document.querySelector('.btn-save');
+  const cardPillule = document.querySelector('.card-record');
+  const partitionShow = document.querySelector(".partition-show");
 
     if (partitionShow) {
 
@@ -59,7 +66,7 @@ const loadAudioRecording = () => {
 
             const clipName = prompt('Enter a name for your sound clip?','My unnamed clip');
 
-            const clipContainer = document.createElement('article');
+            const clipContainer = document.createElement('div');
             const clipLabel = document.createElement('p');
             const audio = document.createElement('audio');
             const deleteButton = document.createElement('button');
@@ -67,8 +74,8 @@ const loadAudioRecording = () => {
 
             clipContainer.classList.add('clip');
             audio.setAttribute('controls', '');
-            deleteButton.textContent = 'Delete';
-            deleteButton.className = 'delete';
+            // deleteButton.textContent = 'Delete';
+            deleteButton.className = 'btn-trash delete fas fa-trash';
 
             if(clipName === null) {
               clipLabel.textContent = 'My unnamed clip';
@@ -105,13 +112,15 @@ const loadAudioRecording = () => {
 
             audio.src = audioURL;
 
-
-
             console.log("recorder stopped");
 
             deleteButton.onclick = function(e) {
               let evtTgt = e.target;
               evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
+              buttonsave.classList.add("d-none");
+              console.log(cardPillule);
+              cardPillule.classList.remove("card-record-grow");
+              console.log(cardPillule);
             }
 
             clipLabel.onclick = function() {

@@ -47,14 +47,61 @@
   margin: 3px;
 }
 
-.btn-sound{
+.btn-main{
   color: $orange;
-  font-size: 30px;
+  font-size: 50px;
+  border:none;
+  // top: 30px;
+  // left: 500px;
+  &:hover {
+    font-size: 51px;
+    color: $orange;
+  }
 }
 
+.btn-stop{
+  color: $green;
+  font-size: 50px;
+  border:none;
+  // top: 30px;
+  // left: 500px;
+  &:hover {
+    font-size: 51px;
+    color: $green;
+  }
+}
+
+.btn-sound-record{
+  color: $gray;
+  font-size: 23px;
+  // top: 30px;
+  // left: 500px;
+}
 .card-buttons-sound {
   background-color: rgba(236, 240, 241, 1);
   border-radius: 30px;
   padding: 5px 10px 5px 10px;
 }
 
+.button-inactive {
+  display: none;
+}
+
+.btn-save {
+  background-color: #c7cbcc;
+  color: white;
+  border-radius: 30px;
+  padding: 5px 10px;
+}
+
+.btn-checkbox{
+  border:none;
+  background-color: rgba(236, 240, 241, 1);
+  padding: 0px 100px;
+  margin-top: 3px;
+  border-radius: 0px 0px 30px 30px;
+}
+
+.icon-dropdown{
+  cursor: pointer;
+}
