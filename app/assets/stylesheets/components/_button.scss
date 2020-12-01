@@ -9,12 +9,33 @@
   color: white;
 }
 
+.btn-back {
+  position: absolute;
+  left: 30px;
+  background-color: #382878;
+  color: lightgray;
+  border-radius: 50%;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: #ce0000;
+    color: lightgray;
+  }
+}
+
 .btn-plus{
   color: $blue;
   &:hover {
     color: #ce0000;
   }
 }
+
+
 
 .btn-add {
   height: 24px;
