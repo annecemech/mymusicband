@@ -6,12 +6,19 @@
 .banner-small{
   width: 100%;
   height: 240px;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content:center;
-  align-items:center;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content:center;
+  // align-items:center;
+
+  h1 {
+    position: relative;
+    top: 6%;
+  }
+  p{
+    position: relative;
+    top: 5%;
+  }
 }
 
 .banner-orange{

@@ -1,3 +1,8 @@
 .shadow-orange {
-  box-shadow: 10px 10px $orange;
+  box-shadow: 8px 6px $orange;
+}
+
+.text-shadow-orange {
+  text-shadow: 4px 3px $orange;
+  font-size: 40px;
 }
