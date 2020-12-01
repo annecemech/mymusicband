@@ -8,7 +8,8 @@
   background-color: $blue;
   color: white;
   &:hover {
-    color: #ce0000;
+    background-color: #ce0000;
+    color:white;
   }
 }
 
