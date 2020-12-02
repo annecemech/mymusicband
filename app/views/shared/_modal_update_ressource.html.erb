@@ -13,7 +13,7 @@
         <%= simple_form_for [track, recording] do |f| %>
           <%= f.input :name %>
           <%= f.input :resource, as: :file %>
-          <%= f.input :is_lead, label: 'Lead rhythm track', input_html: { class: "toggle" } %>
+          <%= f.input :is_lead, label: 'Lead rhythm track', input_html: { class: "toggle", id: "recording-is-lead-#{recording.id}" } %>
           <%= f.association :partition, collection: track.partitions%>
 
           <div class="text-center mt-4">
