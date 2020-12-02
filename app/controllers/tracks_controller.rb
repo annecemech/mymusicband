@@ -9,5 +9,4 @@ class TracksController < ApplicationController
     @partition = Partition.new
     @inspiration = Inspiration.new
   end
-
 end

@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   resources :tracks, only:[:index, :show, :create] do
     resources :comments, only:[:create]
-    resources :partitions, only:[:create, :show]
-    resources :recordings, only:[:index, :create]
+    resources :partitions, only:[:create, :show, :destroy, :update]
+    resources :recordings, only:[:index, :create, :destroy, :update]
     resources :inspirations, only:[:create]
   end
 
