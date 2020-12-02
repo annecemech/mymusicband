@@ -31,7 +31,7 @@
   overflow: hidden;
   height: 36px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 4px 3px $orange;
   display: flex;
   align-items: center;
   border-radius: 5px;
@@ -64,20 +64,11 @@
   .resource-star {
     font-size: 16px;
   }
+
 }
 
-.container-audio {
-    width: 90%;
-    height: auto;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: $light-gray;;
-    color: $blue;
-    margin: 20px auto;
-    overflow: hidden;
-}
 audio {
-  width:100%;
+  margin-top: 0px;
 }
 
 .mark-block {

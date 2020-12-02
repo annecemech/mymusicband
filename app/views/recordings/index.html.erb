@@ -2,6 +2,7 @@
   <%= link_to "Back to track", track_path(@track), class: "btn btn-blue" %>
   <div class="align-items-center">
     <h3>All recordings for <%= @track.title %></h3>
+    <%= render "shared/button_back"%>
   </div>
 
   <%= render 'recordings/index-show' %>
