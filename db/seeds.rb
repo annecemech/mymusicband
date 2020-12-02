@@ -165,7 +165,7 @@ brownsugar = Track.new(
   pattern: 4 # 4/4
 )
 brownsugar.band = whocares
-brownsugar.photo.attach(io: URI.open('http://images.45cat.com/the-rolling-stones-brown-sugar-1971-24-s.jpg'), filename: 'brown-sugar.jpg', content_type: 'image/jpg')
+brownsugar.photo.attach(io: File.open('app/assets/images/brown-sugar-track.jpg'), filename: 'brown-sugar.jpg', content_type: 'image/jpg')
 brownsugar.save!
 
 raspberryjam = Track.new(
