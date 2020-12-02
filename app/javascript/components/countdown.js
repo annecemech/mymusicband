@@ -1,6 +1,6 @@
 import { pageScroll } from '../partition/scroll_auto'
 
-const initCountdown = (audioarray, abortSignal, mediarecorder) => {
+const initCountdown = (audioarray, abortSignal, mediaRecorder) => {
 
   const nums = document.querySelectorAll('.nums span');
   const counter = document.querySelector('.counter');

@@ -2,17 +2,38 @@ import { initCountdown } from '../components/countdown';
 
 const loadAudioRecording = () => {
 
+  //HTML Elements
+  const partitionShow = document.querySelector(".partition-show");
+  const cardPillule = document.querySelector('.card-record');
+  const cardRecord = document.querySelector('.card-record');
+  // Recorder (upper part)
   const record = document.querySelector('.btn-record');
   const stop = document.querySelector('.btn-stop');
-  const soundClips = document.querySelector('.sound-clips');
   const canvas = document.querySelector('.visualizer');
   const mainSection = document.querySelector('.main-controls');
+  // Recorded audioclip
+  const soundClips = document.querySelector('.sound-clips');
   const buttonsave = document.querySelector('.btn-save');
-  const cardPillule = document.querySelector('.card-record');
-  const partitionShow = document.querySelector(".partition-show");
+  // Playbacks
+  const checkbox = document.querySelectorAll('.checkrecording');
+
+
   let abortController = null;
+  const audioarray = [];
+
 
     if (partitionShow) {
+
+      // create an array with of selected audio tracks
+      checkbox.forEach(element => {
+        element.addEventListener('change', (event) => {
+          if(element.checked) {
+            audioarray.push(new Audio(element.dataset.recordurl));
+          } else {
+            audioarray.splice(new Audio(element.dataset.recordurl), 1)
+          }
+        });
+      });
 
       // disable stop button while not recording
       stop.disabled = true;
@@ -29,30 +50,42 @@ const loadAudioRecording = () => {
         let chunks = [];
 
         let onSuccess = function(stream) {
-          const mediaRecorder = new MediaRecorder(stream);
 
+          const mediaRecorder = new MediaRecorder(stream);
           visualize(stream);
 
           record.onclick = function() {
             abortController = new AbortController();
-            initCountdown(audioarray, abortController.signal, mediarecorder);
-            // event.currentTarget.classList.add("button-inactive");
-            // buttonRecordStop.classList.remove("button-inactive");
+            initCountdown(audioarray, abortController.signal, mediaRecorder);
 
-            stop.disabled = false;
+            record.classList.add("button-inactive");
             record.disabled = true;
+            stop.classList.remove("button-inactive");
+            stop.disabled = false;
           }
 
           stop.onclick = function() {
             mediaRecorder.stop();
             console.log(mediaRecorder.state);
             console.log("recorder stopped");
-            record.style.background = "";
-            record.style.color = "";
-            // mediaRecorder.requestData();
 
+            audioarray.forEach(element => {
+                element.pause();
+            });
+
+            stop.classList.add("button-inactive");
             stop.disabled = true;
+            record.classList.remove("button-inactive");
             record.disabled = false;
+
+            cardRecord.classList.add("card-record-grow");
+            buttonsave.classList.remove("d-none");
+
+            // if recording ongoing, we stop the scrolling
+            if ( abortController ) {
+              abortController.abort();
+              abortController = null;
+            }
           }
 
           mediaRecorder.onstop = function(e) {
