@@ -43,4 +43,7 @@ document.addEventListener('turbolinks:load', () => {
   playcheckbox();
   mixRecordings();
 
+  /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+  particlesJS.load('particles-js', '/particlesConfig.json');
+
 });
