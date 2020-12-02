@@ -1,9 +1,12 @@
+import Crunker from 'crunker';
+
 const mixRecordings = () => {
 
+  const downloadButton = document.querySelector('.download-mix');
+  const checkRecordings = document.querySelectorAll('.check-recordings');
   const playRecordings = document.querySelector('.play-recordings');
   const pauseRecordings = document.querySelector('.pause-recordings');
   const stopRecordings = document.querySelector('.stop-recordings');
-  const checkRecordings = document.querySelectorAll('.check-recordings');
   const recordingsArray = [];
 
   if (playRecordings)
@@ -37,6 +40,20 @@ const mixRecordings = () => {
           element.load();
       });
     });
+
+    downloadButton.addEventListener("click", (e) => {
+      let audio = new Crunker();
+
+      audio
+        .fetchAudio(recordingsArray[0].currentSrc, recordingsArray[1].currentSrc, recordingsArray[2].currentSrc, recordingsArray[3].currentSrc)
+        .then(buffers => audio.mergeAudio(buffers))
+        .then(merged => audio.export(merged, "audio/mp3"))
+        .then(output => audio.download(output.blob))
+        .catch(error => {
+          throw new Error(error);
+        });
+
+    })
 
   }
 
