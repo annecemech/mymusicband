@@ -41,6 +41,12 @@
   &:hover {
     color: #ce0000;
   }
+  transition-duration:  0.5s;
+}
+
+.btn-90degrees{
+  transform: rotate(90deg);
+  transition-duration:  0.5s;
 }
 
 

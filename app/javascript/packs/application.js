@@ -32,6 +32,7 @@ import { loadAudioRecording } from '../components/audiorecording';
 import {playcheckbox} from '../components/buttons-music.js'
 import { mixRecordings } from '../components/buttons-recordings.js'
 import { initTrackCable } from '../channels/track_channel';
+import { initTrackShowButtons } from '../components/track-show-buttons.js'
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
@@ -42,5 +43,6 @@ document.addEventListener('turbolinks:load', () => {
   initTrackCable();
   playcheckbox();
   mixRecordings();
+  initTrackShowButtons();
 
 });
