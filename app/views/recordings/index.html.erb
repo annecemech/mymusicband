@@ -1,6 +1,7 @@
 <div id="particles-js"></div>
 <div class="container">
-  <div class="d-flex justify-content-between align-items-center">
+  <%= link_to "Back to track", track_path(@track), class: "btn btn-blue" %>
+  <div class="align-items-center">
     <h3>All recordings for <%= @track.title %></h3>
     <%= render "shared/button_back"%>
   </div>
@@ -16,6 +17,9 @@
     </div>
     <div class="btn btn-blue stop-recordings">
       Stop
+    </div>
+    <div class="btn btn-blue download-mix">
+      Download Mix
     </div>
   </div>
 
