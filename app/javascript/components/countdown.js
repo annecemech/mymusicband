@@ -14,6 +14,7 @@ const initCountdown = (audioarray, abortSignal) => {
     const last = nums[nums.length - 1];
     nums[0].classList.add('in');
     drumsticks.play();
+
     nums.forEach((num, idx) => {
       const penultimate = nums.length - 1;
       num.addEventListener('animationend', (e) => {
