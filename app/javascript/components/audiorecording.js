@@ -1,3 +1,5 @@
+import { initCountdown } from '../components/countdown';
+
 const loadAudioRecording = () => {
 
   const record = document.querySelector('.btn-record');
@@ -8,26 +10,18 @@ const loadAudioRecording = () => {
   const buttonsave = document.querySelector('.btn-save');
   const cardPillule = document.querySelector('.card-record');
   const partitionShow = document.querySelector(".partition-show");
+  let abortController = null;
 
     if (partitionShow) {
 
-      const record = document.querySelector('.btn-record');
-      const stop = document.querySelector('.btn-stop');
-      const soundClips = document.querySelector('.sound-clips');
-      const canvas = document.querySelector('.visualizer');
-      const mainSection = document.querySelector('.main-controls');
-
       // disable stop button while not recording
-
       stop.disabled = true;
 
       // visualiser setup - create web audio api context and canvas
-
       let audioCtx;
       const canvasCtx = canvas.getContext("2d");
 
       //main block for doing the audio recording
-
       if (navigator.mediaDevices.getUserMedia) {
         console.log('getUserMedia supported.');
 
@@ -40,10 +34,10 @@ const loadAudioRecording = () => {
           visualize(stream);
 
           record.onclick = function() {
-            mediaRecorder.start();
-            console.log(mediaRecorder.state);
-            console.log("recorder started");
-            // record.style.background = "red"; A modifier par un autre style
+            abortController = new AbortController();
+            initCountdown(audioarray, abortController.signal, mediarecorder);
+            // event.currentTarget.classList.add("button-inactive");
+            // buttonRecordStop.classList.remove("button-inactive");
 
             stop.disabled = false;
             record.disabled = true;

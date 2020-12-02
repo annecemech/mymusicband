@@ -28,16 +28,12 @@ const playcheckbox = () => {
     });
   });
 
-    buttonRecordPlay.addEventListener('click', (event) => {
-      abortController = new AbortController();
-      initCountdown(audioarray, abortController.signal);
-      // audioarray.forEach(element => {
-      //     element.volume = 0.9;
-      //     element.play();
-      // });
-      event.currentTarget.classList.add("button-inactive");
-      buttonRecordStop.classList.remove("button-inactive");
-    });
+    // buttonRecordPlay.addEventListener('click', (event) => {
+    //   abortController = new AbortController();
+    //   initCountdown(audioarray, abortController.signal);
+    //   event.currentTarget.classList.add("button-inactive");
+    //   buttonRecordStop.classList.remove("button-inactive");
+    // });
 
     buttonRecordStop.addEventListener('click', (event) => {
       audioarray.forEach(element => {
