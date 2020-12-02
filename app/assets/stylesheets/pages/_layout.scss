@@ -27,3 +27,46 @@ a:hover {
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
+
+.text-highlight {
+  position: relative;
+  display: inline-block;
+  margin: .3em .85ch .3em 1.15ch;
+  font-size: 0.7em;
+  color: #191919;
+}
+
+.text-highlight span {
+  position: relative;
+  z-index: 100;
+}
+
+.text-highlight:before,
+.text-highlight:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  display: inline-block;
+  width: 114%;
+  height: 128%;
+  background-color: $green;
+  content: "";
+  transform: translate(-.5em, .02em) rotate(-.06deg);
+  border-radius: 2px;
+}
+
+/* Bottom */
+.text-highlight:before {
+  opacity: .3;
+}
+
+/* Top */
+.text-highlight:after {
+  width: 114%;
+  height: 120%;
+  background-color: $green;
+  content: "";
+  transform: translate(-0.8em, -8%) rotate(0.3deg);
+  opacity: .7;
+}
