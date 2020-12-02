@@ -2,7 +2,7 @@
 <% @track.recordings.each do |recording| %>
   <div class="d-flex card-recording shadow-orange">
     <div class="m-auto" style= "width: 50%">
-      <input type="checkbox" class="check-recordings" data-recordurl="<%= cloudinary_url(recording.resource.key, resource_type: :video) %>"> <%= recording.name %> - recorded by <%= recording.user.first_name %></input>
+      <input type="checkbox" class="check-recordings" data-recordurl="<%= cloudinary_url(recording.resource.key, resource_type: :video) %>"> <%= recording.name %> <span class="badge badge-primary">recorded by <%= recording.user.first_name %></span></input>
     </div>
     <div class="m-auto" style="width: 50%">
       <audio src="<%= cloudinary_url(recording.resource.key, resource_type: :video)  %>" controls></audio>
