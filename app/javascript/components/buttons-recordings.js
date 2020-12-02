@@ -43,15 +43,6 @@ const mixRecordings = () => {
 
     downloadButton.addEventListener("click", (e) => {
       let audio = new Crunker({ sampleRate: 48000 });
-      // debugger;
-      const audioPath = () => {
-        let recordings = [];
-        recordingsArray.forEach((recording) => {
-          recordings.push(recording.currentSrc)
-          // return '"url"
-        });
-        return recordings
-      };
 
       audio
         .fetchAudio(...(recordingsArray.map((recording) => {
