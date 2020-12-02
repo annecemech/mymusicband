@@ -51,6 +51,7 @@
   width: 100%;
   background: $light-gray;
   transform: skew(87deg);
+  z-index: -1000;
 }
 
 #rocks {
