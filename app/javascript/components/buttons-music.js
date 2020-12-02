@@ -28,24 +28,6 @@ const playcheckbox = () => {
       });
     });
 
-    // buttonRecordPlay.addEventListener('click', (event) => {
-    //   abortController = new AbortController();
-    //   initCountdown(audioarray, abortController.signal);
-    //   event.currentTarget.classList.add("button-inactive");
-    //   buttonRecordStop.classList.remove("button-inactive");
-    // });
-
-    // buttonRecordStop.addEventListener('click', (event) => {
-    //   audioarray.forEach(element => {
-    //       element.pause();
-    //   });
-    //   event.currentTarget.classList.add("button-inactive");
-    //   cardRecord.classList.add("card-record-grow");
-    //   buttonRecordPlay.classList.remove("button-inactive");
-    //   buttonsave.classList.remove("d-none");
-    //   console.log(buttonTrash);
-    // });
-
     buttonPlayCheckbox.addEventListener('click', (event) => {
       audioarray.forEach(element => {
           element.volume = 0.9;

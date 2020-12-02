@@ -44,13 +44,10 @@ const loadAudioRecording = () => {
 
       //main block for doing the audio recording
       if (navigator.mediaDevices.getUserMedia) {
-        console.log('getUserMedia supported.');
-
         const constraints = { audio: true };
         let chunks = [];
 
         let onSuccess = function(stream) {
-
           const mediaRecorder = new MediaRecorder(stream);
           visualize(stream);
 
@@ -66,8 +63,6 @@ const loadAudioRecording = () => {
 
           stop.onclick = function() {
             mediaRecorder.stop();
-            console.log(mediaRecorder.state);
-            console.log("recorder stopped");
 
             audioarray.forEach(element => {
                 element.pause();
@@ -89,8 +84,6 @@ const loadAudioRecording = () => {
           }
 
           mediaRecorder.onstop = function(e) {
-            console.log("data available after MediaRecorder.stop() called.");
-
             const clipName = prompt('Enter a name for your sound clip?','My unnamed clip');
 
             const clipContainer = document.createElement('div');
@@ -139,15 +132,11 @@ const loadAudioRecording = () => {
 
             audio.src = audioURL;
 
-            console.log("recorder stopped");
-
             deleteButton.onclick = function(e) {
               let evtTgt = e.target;
               evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
               buttonsave.classList.add("d-none");
-              console.log(cardPillule);
               cardPillule.classList.remove("card-record-grow");
-              console.log(cardPillule);
             }
 
             clipLabel.onclick = function() {
