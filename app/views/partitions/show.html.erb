@@ -1,6 +1,8 @@
 <div class="partition-show">
   <div class="banner-small banner-transparent text-center">
-    <%= render "shared/button_back"%>
+    <%= link_to  track_path(@track), class: "btn btn-back" do %>
+      <i class="fas fa-fast-backward"></i>
+    <% end %>
     <div class="banner-title-band">
       <h1 class="text-shadow-orange"><%= @partition.track.title %></h1>
     </div>
