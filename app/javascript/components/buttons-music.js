@@ -12,10 +12,13 @@ const playcheckbox = () => {
   const cardRecord = document.querySelector('.card-record');
   const cardRedCheckbox = document.querySelector('.dropdown-recordings');
   const cardPlayer = document.querySelector('.card-player');
+  const partitionShow = document.querySelector(".partition-show");
   let abortController = null;
   const audioarray = [];
 
-  checkbox.forEach(element => {
+  if (partitionShow) {
+
+    checkbox.forEach(element => {
     element.addEventListener('change', (event) => {
       if(element.checked) {
         audioarray.push(new Audio(element.dataset.recordurl));
@@ -25,56 +28,57 @@ const playcheckbox = () => {
     });
   });
 
-  buttonRecordPlay.addEventListener('click', (event) => {
-    abortController = new AbortController();
-    initCountdown(audioarray, abortController.signal);
-    // audioarray.forEach(element => {
-    //     element.volume = 0.9;
-    //     element.play();
-    // });
-    event.currentTarget.classList.add("button-inactive");
-    buttonRecordStop.classList.remove("button-inactive");
-  });
-
-  buttonRecordStop.addEventListener('click', (event) => {
-    audioarray.forEach(element => {
-        element.pause();
+    buttonRecordPlay.addEventListener('click', (event) => {
+      abortController = new AbortController();
+      initCountdown(audioarray, abortController.signal);
+      // audioarray.forEach(element => {
+      //     element.volume = 0.9;
+      //     element.play();
+      // });
+      event.currentTarget.classList.add("button-inactive");
+      buttonRecordStop.classList.remove("button-inactive");
     });
-    event.currentTarget.classList.add("button-inactive");
-    cardRecord.classList.add("card-record-grow");
-    buttonRecordPlay.classList.remove("button-inactive");
-    buttonsave.classList.remove("d-none");
-    console.log(buttonTrash);
-  });
 
-  buttonPlayCheckbox.addEventListener('click', (event) => {
-    audioarray.forEach(element => {
-        element.volume = 0.9;
-        element.play();
+    buttonRecordStop.addEventListener('click', (event) => {
+      audioarray.forEach(element => {
+          element.pause();
+      });
+      event.currentTarget.classList.add("button-inactive");
+      cardRecord.classList.add("card-record-grow");
+      buttonRecordPlay.classList.remove("button-inactive");
+      buttonsave.classList.remove("d-none");
+      console.log(buttonTrash);
     });
-    event.currentTarget.classList.add("button-inactive");
-    buttonPauseCheckbox.classList.remove("button-inactive");
-  });
 
-  buttonPauseCheckbox.addEventListener('click', (event) => {
-    audioarray.forEach(element => {
-        element.pause();
+    buttonPlayCheckbox.addEventListener('click', (event) => {
+      audioarray.forEach(element => {
+          element.volume = 0.9;
+          element.play();
+      });
+      event.currentTarget.classList.add("button-inactive");
+      buttonPauseCheckbox.classList.remove("button-inactive");
     });
-    event.currentTarget.classList.add("button-inactive");
-    buttonPlayCheckbox.classList.remove("button-inactive");
-  });
 
-  cardRedCheckbox.addEventListener('click', (event) => {
-    cardPlayer.classList.toggle("card-player-grow");
-  });
+    buttonPauseCheckbox.addEventListener('click', (event) => {
+      audioarray.forEach(element => {
+          element.pause();
+      });
+      event.currentTarget.classList.add("button-inactive");
+      buttonPlayCheckbox.classList.remove("button-inactive");
+    });
 
-  // if (buttonTrash) {
-  //   console.log(buttonTrash);
-  //   console.log(buttonSave);
-  //   buttonTrash.addEventListener('click', (event) => {
-  //     buttonsave.classList.add("d-none");
-  //   });
-  // }
+    cardRedCheckbox.addEventListener('click', (event) => {
+      cardPlayer.classList.toggle("card-player-grow");
+    });
+
+    // if (buttonTrash) {
+    //   console.log(buttonTrash);
+    //   console.log(buttonSave);
+    //   buttonTrash.addEventListener('click', (event) => {
+    //     buttonsave.classList.add("d-none");
+    //   });
+    // }
+  }
 }
 
 
