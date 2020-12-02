@@ -42,5 +42,11 @@
 
   <%= render 'shared/modal_add_resource' %>
   <%= render 'shared/modal_add_partition' %>
+  <% @track.recordings.each do |recording| %>
+    <%= render partial:'shared/modal_update_ressource', locals: {track: @track, recording: recording}  %>
+  <% end %>
+  <% @track.partitions.each do |partition| %>
+    <%= render partial:'shared/modal_update_partition', locals: {track: @track, partition: partition}  %>
+  <% end %>
 
 </div>

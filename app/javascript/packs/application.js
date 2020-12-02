@@ -33,20 +33,14 @@ import { loadAudioRecording } from '../components/audiorecording';
 import {playcheckbox} from '../components/buttons-music.js'
 import { mixRecordings } from '../components/buttons-recordings.js'
 import { initTrackCable } from '../channels/track_channel';
+import { initParticles} from '../plugins/particles.js'
 import { initTrackShowButtons } from '../components/track-show-buttons.js'
-// import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-  // set up basic variables for app
   loadAudioRecording();
   initTrackCable();
   playcheckbox();
   mixRecordings();
+  initParticles();
   initTrackShowButtons();
-
-  /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-  particlesJS.load('particles-js', '/particlesConfig.json');
-
 });
