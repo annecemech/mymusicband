@@ -39,15 +39,13 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   // set up basic variables for app
-  // AudioPlayer();
-  // loadAudioRecording();
-  // initTrackCable();
-  // playcheckbox();
-  // mixRecordings();
+  AudioPlayer();
+  loadAudioRecording();
+  initTrackCable();
+  playcheckbox();
+  mixRecordings();
 
   /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-  particlesJS.load('particles-js', '/particlesConfig.json', function() {
-    console.log('callback - particles.js config loaded');
-  });
+  particlesJS.load('particles-js', '/particlesConfig.json');
 
 });
