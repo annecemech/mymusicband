@@ -9,16 +9,17 @@ const initCountdown = (audioarray, abortSignal) => {
 
   function runAnimation() {
 
-    //const drumsticks = new Audio('sounds/drumsticks');
+    const drumsticks = new Audio('/sounds/drumsticks.m4a');
 
     const last = nums[nums.length - 1];
     nums[0].classList.add('in');
-    //drumsticks.play();
+    drumsticks.play();
+
     nums.forEach((num, idx) => {
       const penultimate = nums.length - 1;
       num.addEventListener('animationend', (e) => {
         if(e.animationName === 'goIn' && idx !== penultimate){
-          //drumsticks.play();
+          drumsticks.play();
           num.classList.remove('in');
           num.nextElementSibling.classList.add('in');
         } else {
