@@ -23,6 +23,12 @@ class PartitionsController < ApplicationController
     end
   end
 
+  def destroy
+    @partition = Partition.find(params[:id])
+    @partition.destroy
+    redirect_to track_path(params[:track_id])
+  end
+
   private
 
   def partition_params

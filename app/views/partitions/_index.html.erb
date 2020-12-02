@@ -33,7 +33,9 @@
       <div class="d-flex ml-auto align-items-center">
         <div class="icon-display-hover">
           <i class="fas fa-pencil-alt mr-2"></i>
-          <i class="far fa-trash-alt mr-3"></i>
+          <%= link_to track_partition_path(@track, partition), method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="far fa-trash-alt mr-3"></i>
+          <% end %>
         </div>
       </div>
 
