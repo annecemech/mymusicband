@@ -47,6 +47,6 @@ document.addEventListener('turbolinks:load', () => {
   initTrackShowButtons();
 
   /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-  particlesJS.load('particles-js', '/particlesConfig.json');
+  //particlesJS.load('particles-js', '/particlesConfig.json');
 
 });
