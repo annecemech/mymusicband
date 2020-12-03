@@ -15,24 +15,17 @@ const mixRecordings = () => {
     checkRecordings.forEach(element => {
       element.addEventListener('change', (event) => {
         recordingsArray = [];
-        test();
+        buildArray();
       });
     });
 
-    const test = () => {
+    const buildArray = () => {
       checkRecordings.forEach(element => {
         if (element.checked) {
           recordingsArray.push(new Audio(element.dataset.recordurl));
         }
       });
     };
-    // if (element.checked) {
-    //   recordingsArray.push(new Audio(element.dataset.recordurl));
-    // } else {
-    //   recordingsArray.splice(new Audio(element.dataset.recordurl), 1);
-    //   console.log(new Audio(element.dataset.recordurl));
-    //   console.log(recordingsArray);
-    // }
 
     playRecordings.addEventListener('click', (event) => {
       recordingsArray.forEach(element => {
@@ -74,4 +67,3 @@ const mixRecordings = () => {
 }
 
 export { mixRecordings };
-
