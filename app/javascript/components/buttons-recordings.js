@@ -7,20 +7,32 @@ const mixRecordings = () => {
   const playRecordings = document.querySelector('.play-recordings');
   const pauseRecordings = document.querySelector('.pause-recordings');
   const stopRecordings = document.querySelector('.stop-recordings');
-  const recordingsArray = [];
+  let recordingsArray = [];
 
   if (playRecordings)
   {
 
     checkRecordings.forEach(element => {
       element.addEventListener('change', (event) => {
-        if (element.checked) {
-          recordingsArray.push(new Audio(element.dataset.recordurl));
-        } else {
-          recordingsArray.splice(new Audio(element.dataset.recordurl), 1)
-        }
+        recordingsArray = [];
+        test();
       });
     });
+
+    const test = () => {
+      checkRecordings.forEach(element => {
+        if (element.checked) {
+          recordingsArray.push(new Audio(element.dataset.recordurl));
+        }
+      });
+    };
+    // if (element.checked) {
+    //   recordingsArray.push(new Audio(element.dataset.recordurl));
+    // } else {
+    //   recordingsArray.splice(new Audio(element.dataset.recordurl), 1);
+    //   console.log(new Audio(element.dataset.recordurl));
+    //   console.log(recordingsArray);
+    // }
 
     playRecordings.addEventListener('click', (event) => {
       recordingsArray.forEach(element => {
