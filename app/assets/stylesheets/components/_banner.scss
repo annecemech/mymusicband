@@ -64,3 +64,26 @@
   overflow-x: hidden;
   z-index:-1;
 }
+
+.banner-home-page{
+  z-index: -10;
+  position: absolute;
+  top:0;
+  width: 100%;
+  height: 550px;
+  background: radial-gradient(circle, rgba(249,70,108,1) 0%, rgba(232,56,24,1) 99%);
+  padding: 120px 0px 70px 0px;
+  height: 100vh;
+  background-size: cover;
+}
+
+.photo-banner{
+  border-radius: 5px;
+  box-shadow: 9px 9px 0px white;
+}
+
+.guitar{
+  position: absolute;
+  left: 164px;
+  top: 149px;
+}
