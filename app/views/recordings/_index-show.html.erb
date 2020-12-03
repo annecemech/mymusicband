@@ -2,8 +2,20 @@
 <% @track.recordings.each do |recording| %>
   <div class="d-flex card-recording shadow-orange">
     <div class="d-flex align-items-center m-auto" style= "width: 50%">
-      <input type="checkbox" class="check-recordings mr-1" data-recordurl="<%= cloudinary_url(recording.resource.key, resource_type: :video) %>"> <%= recording.name %> <span class="text-highlight text-badge ml-3"><span>recorded by <%= recording.user.first_name %></span></span></input>
-      <div class="instrument mr-2">
+      <input type="checkbox" class="toggle check-recordings" data-recordurl="<%= cloudinary_url(recording.resource.key, resource_type: :video) %>" id=<%= "select-recording-#{recording.id}" %> >
+      </input>
+      <label class="mb-0" for=<%= "select-recording-#{recording.id}" %> >
+        <%= recording.name %>
+
+        <span class="text-highlight text-badge ml-3">
+          <span>
+            recorded by <%= recording.user.first_name %>
+          </span>
+        </span>
+      </label>
+
+    </div>
+    <div class="instrument mr-2">
         <% case recording.instrument.name %>
           <% when "Guitar" %>
             <%= image_tag "icon_acoustic_guitar.svg", class: "resource-card-icon" %>
@@ -17,9 +29,7 @@
             <%= image_tag "icon_music.svg", class: "resource-card-icon" %>
           <% end %>
       </div>
-    </div>
-
-    <div class="m-auto" style="width: 50%">
+    <div class="m-auto" style="width: 40%">
       <audio src="<%= cloudinary_url(recording.resource.key, resource_type: :video)  %>" controls></audio>
     </div>
   </div>
