@@ -1,22 +1,21 @@
-<div class="modal fade" id="partitionModalUpdate-<%= partition.id %>" tabindex="-1" role="dialog" aria-labelledby="partitionModalLabel" aria-hidden="true">
+<div class="modal fade" id="inspirationModal" tabindex="-1" role="dialog" aria-labelledby="partitionModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
       <div class="modal-header">
-        <h6 class="modal-title">Update your Sheet</h6>
+        <h6 class="modal-title">Add a new source of inspiration</h6>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
 
       <div class="modal-body">
-        <%= simple_form_for [track, partition] do |f| %>
+        <%= simple_form_for [@track, @inspiration] do |f| %>
           <%= f.input :name %>
-          <%= f.association :instrument, collection: Instrument.all %>
           <%= f.input :resource, as: :file %>
 
           <div class="text-center mt-4">
-            <%= f.button :submit, label: 'Update', class: "btn btn-blue" %>
+            <%= f.button :submit, label: 'Add inspiration', class: "btn btn-blue" %>
           </div>
         <% end %>
       </div>

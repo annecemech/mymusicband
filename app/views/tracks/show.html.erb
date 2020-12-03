@@ -5,7 +5,7 @@
 
   <h1><%= @track.title %></h1>
   <%= link_to "Mix Records", track_recordings_path(@track), class: "btn btn-blue" %>
-  <%= render "shared/button_back"%>
+  <%= render "shared/button_back_to_band"%>
 </div>
 <br>
 
@@ -34,7 +34,9 @@
     </div>
 
     <div class="tab-pane" id="inspire" role="tabpanel" aria-labelledby="inspire-tab">
-      <%= render 'inspirations/index' %>
+      <div class="col-xs-12 col-md-6 mb-2">
+        <%= render 'inspirations/index' %>
+      </div>
     </div>
   </div>
 
@@ -42,11 +44,16 @@
 
   <%= render 'shared/modal_add_resource' %>
   <%= render 'shared/modal_add_partition' %>
+  <%= render 'shared/modal_add_inspiration' %>
   <% @track.recordings.each do |recording| %>
     <%= render partial:'shared/modal_update_ressource', locals: {track: @track, recording: recording}  %>
   <% end %>
   <% @track.partitions.each do |partition| %>
     <%= render partial:'shared/modal_update_partition', locals: {track: @track, partition: partition}  %>
   <% end %>
+  <% @track.inspirations.each do |inspiration| %>
+    <%= render partial:'shared/modal_update_inspiration', locals: {track: @track, inspiration: inspiration}  %>
+  <% end %>
+
 
 </div>
