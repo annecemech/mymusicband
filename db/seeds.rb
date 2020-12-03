@@ -4,6 +4,7 @@ Member.destroy_all
 Comment.destroy_all
 Recording.destroy_all
 Partition.destroy_all
+Inspiration.destroy_all
 Track.destroy_all
 Band.destroy_all
 User.destroy_all
@@ -341,5 +342,20 @@ comment2 = Comment.new(
 comment2.user = mickael
 comment2.track = goodtimes
 comment2.save!
+
+#-------------------------------------------------------
+puts "Seeding inspirations"
+inspiration1 = Inspiration.new(name: "that's the emotion we want")
+inspiration1.user = claire
+inspiration1.track = goodtimes
+inspiration1.resource.attach(io: File.open('app/assets/images/freddy.jpeg'), filename: 'freddy.jpeg', content_type: 'image/jpg')
+inspiration1.save!
+
+inspiration2 = Inspiration.new(name: "great drum pattern")
+inspiration2.user = mickael
+inspiration2.track = goodtimes
+inspiration2.resource.attach(io: File.open('app/assets/sounds/louiscressy-drums.mp3'), filename: 'louiscressy-drums.mp3', content_type: 'video/mp3')
+inspiration2.save!
+
 
 puts "Finished"

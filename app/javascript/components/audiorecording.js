@@ -1,4 +1,6 @@
 import { initCountdown } from '../components/countdown';
+import swal from 'sweetalert';
+
 
 const loadAudioRecording = () => {
 
@@ -84,7 +86,19 @@ const loadAudioRecording = () => {
           }
 
           mediaRecorder.onstop = function(e) {
-            const clipName = prompt('Enter a name for your sound clip?','My unnamed clip');
+            // const clipName = prompt('Enter a name for your sound clip?','My unnamed clip');
+            const clipName = "Your recording";
+            swal("Enter a name for your recording:", {
+              content: "input",
+            })
+            .then((value) => {
+              if(value === "") {
+                clipLabel.textContent = clipName;
+              } else {
+                clipLabel.textContent = value;
+              }
+            });
+
 
             const clipContainer = document.createElement('div');
             const clipLabel = document.createElement('p');
@@ -120,7 +134,7 @@ const loadAudioRecording = () => {
               const formData = new FormData(form);
               const xhr = new XMLHttpRequest();
 
-              formData.append('recording[name]', clipName);
+              formData.append('recording[name]', clipLabel.textContent);
               formData.append('recording[resource]', blob, 'myfilename');
               formData.append('recording[partition_id]', mainSection.dataset.partitionid);
 
@@ -149,14 +163,25 @@ const loadAudioRecording = () => {
 
             clipLabel.onclick = function() {
               const existingName = clipLabel.textContent;
-              const newClipName = prompt('Enter a new name for your sound clip?');
-              if(newClipName === null) {
-                clipLabel.textContent = existingName;
-              } else {
-                clipLabel.textContent = newClipName;
+              swal("Enter a new name for your recording:", {
+                content: "input",
+              })
+                .then((value) => {
+                  if(value === "") {
+                    clipLabel.textContent = existingName;
+                  } else {
+                    clipLabel.textContent = value;
+                  }
+                });
               }
-            }
           }
+
+              // const newClipName = prompt('Enter a new name for your sound clip?');
+              // if(newClipName === null) {
+              //   clipLabel.textContent = existingName;
+              // } else {
+              //   clipLabel.textContent = newClipName;
+              // }
 
           mediaRecorder.ondataavailable = function(e) {
             chunks.push(e.data);
