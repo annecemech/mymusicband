@@ -1,69 +1,89 @@
+import { initCountdown } from '../components/countdown';
+
 const loadAudioRecording = () => {
 
+  //HTML Elements
+  const partitionShow = document.querySelector(".partition-show");
+  const cardPillule = document.querySelector('.card-record');
+  const cardRecord = document.querySelector('.card-record');
+  // Recorder (upper part)
   const record = document.querySelector('.btn-record');
   const stop = document.querySelector('.btn-stop');
-  const soundClips = document.querySelector('.sound-clips');
   const canvas = document.querySelector('.visualizer');
   const mainSection = document.querySelector('.main-controls');
+  // Recorded audioclip
+  const soundClips = document.querySelector('.sound-clips');
   const buttonsave = document.querySelector('.btn-save');
-  const cardPillule = document.querySelector('.card-record');
-  const partitionShow = document.querySelector(".partition-show");
+  // Playbacks
+  const checkbox = document.querySelectorAll('.checkrecording');
+
+
+  let abortController = null;
+  const audioarray = [];
+
 
     if (partitionShow) {
 
-      const record = document.querySelector('.btn-record');
-      const stop = document.querySelector('.btn-stop');
-      const soundClips = document.querySelector('.sound-clips');
-      const canvas = document.querySelector('.visualizer');
-      const mainSection = document.querySelector('.main-controls');
+      // create an array with of selected audio tracks
+      checkbox.forEach(element => {
+        element.addEventListener('change', (event) => {
+          if(element.checked) {
+            audioarray.push(new Audio(element.dataset.recordurl));
+          } else {
+            audioarray.splice(new Audio(element.dataset.recordurl), 1)
+          }
+        });
+      });
 
       // disable stop button while not recording
-
       stop.disabled = true;
 
       // visualiser setup - create web audio api context and canvas
-
       let audioCtx;
       const canvasCtx = canvas.getContext("2d");
 
       //main block for doing the audio recording
-
       if (navigator.mediaDevices.getUserMedia) {
-        console.log('getUserMedia supported.');
-
         const constraints = { audio: true };
         let chunks = [];
 
         let onSuccess = function(stream) {
           const mediaRecorder = new MediaRecorder(stream);
-
           visualize(stream);
 
           record.onclick = function() {
-            mediaRecorder.start();
-            console.log(mediaRecorder.state);
-            console.log("recorder started");
-            // record.style.background = "red"; A modifier par un autre style
+            abortController = new AbortController();
+            initCountdown(audioarray, abortController.signal, mediaRecorder);
 
-            stop.disabled = false;
+            record.classList.add("button-inactive");
             record.disabled = true;
+            stop.classList.remove("button-inactive");
+            stop.disabled = false;
           }
 
           stop.onclick = function() {
             mediaRecorder.stop();
-            console.log(mediaRecorder.state);
-            console.log("recorder stopped");
-            record.style.background = "";
-            record.style.color = "";
-            // mediaRecorder.requestData();
 
+            audioarray.forEach(element => {
+                element.pause();
+            });
+
+            stop.classList.add("button-inactive");
             stop.disabled = true;
+            record.classList.remove("button-inactive");
             record.disabled = false;
+
+            cardRecord.classList.add("card-record-grow");
+            buttonsave.classList.remove("d-none");
+
+            // if recording ongoing, we stop the scrolling
+            if ( abortController ) {
+              abortController.abort();
+              abortController = null;
+            }
           }
 
           mediaRecorder.onstop = function(e) {
-            console.log("data available after MediaRecorder.stop() called.");
-
             const clipName = prompt('Enter a name for your sound clip?','My unnamed clip');
 
             const clipContainer = document.createElement('div');
@@ -112,15 +132,11 @@ const loadAudioRecording = () => {
 
             audio.src = audioURL;
 
-            console.log("recorder stopped");
-
             deleteButton.onclick = function(e) {
               let evtTgt = e.target;
               evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
               buttonsave.classList.add("d-none");
-              console.log(cardPillule);
               cardPillule.classList.remove("card-record-grow");
-              console.log(cardPillule);
             }
 
             clipLabel.onclick = function() {
