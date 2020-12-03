@@ -9,7 +9,7 @@ const mixRecordings = () => {
   const stopRecordings = document.querySelector('.stop-recordings');
   const recordingsArray = [];
 
-  if (playRecordings)
+  if (downloadButton)
   {
 
     checkRecordings.forEach(element => {
