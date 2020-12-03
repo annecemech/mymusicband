@@ -42,10 +42,12 @@ const mixRecordings = () => {
     });
 
     downloadButton.addEventListener("click", (e) => {
-      let audio = new Crunker();
+      let audio = new Crunker({ sampleRate: 48000 });
 
       audio
-        .fetchAudio(recordingsArray[0].currentSrc, recordingsArray[1].currentSrc, recordingsArray[2].currentSrc, recordingsArray[3].currentSrc)
+        .fetchAudio(...(recordingsArray.map((recording) => {
+          return recording.currentSrc
+        })) )
         .then(buffers => audio.mergeAudio(buffers))
         .then(merged => audio.export(merged, "audio/mp3"))
         .then(output => audio.download(output.blob))
