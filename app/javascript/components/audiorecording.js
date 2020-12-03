@@ -240,11 +240,11 @@ const loadAudioRecording = () => {
 
           analyser.getByteTimeDomainData(dataArray);
 
-          canvasCtx.fillStyle = 'rgb(249, 249, 249)';
+          canvasCtx.fillStyle = 'rgb(236, 240, 241)';
           canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
 
           canvasCtx.lineWidth = 2;
-          canvasCtx.strokeStyle = 'rgb(232, 56, 26)';
+          canvasCtx.strokeStyle = 'rgb(249, 56, 26)';
 
           canvasCtx.beginPath();
 
