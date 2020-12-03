@@ -1,3 +1,13 @@
 // .container-partition {
-//   padding-top: 260px;
+//   position: relative;
 // }
+
+#plug {
+  position: absolute;
+    width: 25%;
+    right: -10px;
+    top: 40px;
+    transform: rotate(21deg);
+    overflow-x: hidden;
+    z-index: -2;
+}

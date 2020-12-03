@@ -3,9 +3,10 @@
     <%= link_to  track_path(@track), class: "btn btn-back" do %>
       <i class="fas fa-fast-backward"></i>
     <% end %>
-    <div class="banner-title-band">
+
       <h1 class="text-shadow-orange"><%= @partition.track.title %></h1>
-    </div>
+
+      <%= image_tag "plug.png", alt: "Recording cable" ,id: "plug" %>
   </div>
   <div class="counter">
     <div class="nums">
