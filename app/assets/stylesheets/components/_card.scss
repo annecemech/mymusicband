@@ -119,6 +119,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.1);
   height: 100%;
 }
 
@@ -138,6 +139,7 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  color: $blue;
 }
 
 .card-band p {

@@ -1,6 +1,6 @@
 import { pageScroll } from '../partition/scroll_auto'
 
-const initCountdown = (audioarray, abortSignal) => {
+const initCountdown = (audioarray, abortSignal, mediaRecorder) => {
 
   const nums = document.querySelectorAll('.nums span');
   const counter = document.querySelector('.counter');
@@ -27,7 +27,11 @@ const initCountdown = (audioarray, abortSignal) => {
         }
 
         if (num == last){
-          // After the and of the animation, launch auto scroll
+          // After the and of the animation, start recording
+          mediaRecorder.start();
+          console.log(mediaRecorder.state);
+          console.log("recorder started");
+          // launch auto scroll
           try {
             pageScroll(abortSignal);
           } catch {
