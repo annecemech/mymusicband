@@ -126,7 +126,15 @@ const loadAudioRecording = () => {
 
               xhr.open('POST', form.getAttribute('action'), true);
               xhr.send(formData);
-              location.reload();
+
+              // location.reload();
+              xhr.onload = function() {
+                if (xhr.status != 200) { // analyze HTTP status of the response
+                  swal("Oops!", "Something went wrong, try again!", "error"); // e.g. 404: Not Found
+                } else { // show the result
+                  swal("Good job!", "Your recording was saved!", "success"); // response is the server response
+                }
+              };
               return false;
             }
 
