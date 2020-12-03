@@ -1,4 +1,4 @@
-<div class="container rounded py-3">
+<div class="container rounded py-3 ">
   <div class="d-flex align-items-center">
     <h3 class="title-32 text-shadow-orange">Inspirations</h3>
 
@@ -8,42 +8,57 @@
   </div>
 
   <% @track.inspirations.each do |inspiration| %>
-    <div class="resource-card grow-resource">
-      <div class="d-flex align-items-center">
+    <%= link_to "#inspiration-collapse-#{inspiration.id}", class: "track-show-play", 'data-toggle' => 'collapse', 'data-target' => "#inspiration-collapse-#{inspiration.id}" do %>
+      <div class="resource-card grow-resource">
+        <div class="d-flex align-items-center">
 
-        <%# case recording.instrument.name %>
-        <%# when "Guitar" %>
-          <%#= image_tag "icon_acoustic_guitar.svg", class: "resource-card-icon" %>
-        <%# when "Bass" %>
-          <%#= image_tag "icon_electric_bass.svg", class: "resource-card-icon" %>
-        <%# when "Drums" %>
-          <%#= image_tag "icon_drums.svg", class: "resource-card-icon" %>
-        <%# when "Vocals" %>
-          <%#= image_tag "icon_microphone.svg", class: "resource-card-icon" %>
-        <%# else %>
-          <%#= image_tag "icon_music.svg", class: "resource-card-icon" %>
-        <%# end %>
+          <p class="ml-2">
+            <% case inspiration.resource.filename.extension_without_delimiter %>
+            <% when "jpeg" %>
+              <i class="far fa-file-image resource-card-icon"></i>
+            <% when "mp3" %>
+              <i class="far fa-file-audio resource-card-icon"></i>
+            <% else %>
+              <i class="far fa-file resource-card-icon"></i>
+            <% end %>
+          </p>
 
-
-        <p>
-          <%= inspiration.name %>
-        </p>
-      </div>
-
-      <div class="d-flex ml-auto align-items-center">
-        <div class="icon-display-hover">
-          <%= link_to "#inspirationModalUpdate-#{inspiration.id}", "data-toggle" => "modal" do %>
-          <i class="fas fa-pencil-alt mr-2"></i>
-          <% end %>
-          <%= link_to track_inspiration_path(@track, inspiration), method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="far fa-trash-alt mr-3"></i>
-          <% end %>
+          <p>
+            <%= inspiration.name %>
+          </p>
         </div>
 
+        <div class="d-flex ml-auto align-items-center">
+          <div class="icon-display-hover">
+            <%= link_to "#inspirationModalUpdate-#{inspiration.id}", "data-toggle" => "modal" do %>
+            <i class="fas fa-pencil-alt mr-2"></i>
+            <% end %>
+            <%= link_to track_inspiration_path(@track, inspiration), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="far fa-trash-alt mr-3"></i>
+            <% end %>
+          </div>
+
+          <% if inspiration.resource.filename.extension_without_delimiter == 'mp3' %>
+            <%= link_to "#inspiration-collapse-#{inspiration.id}", class: "track-show-play", 'data-toggle' => 'collapse', 'data-target' => "#inspiration-collapse-#{inspiration.id}" do %>
+              <i class="far fa-play-circle btn-plus resource-play ml-auto mr-1"></i>
+            <% end %>
+          <% end %>
+        </div>
       </div>
+    <% end %>
+
+    <div id="inspiration-collapse-<%= inspiration.id %>" class="collapse">
+      <% if inspiration.resource.filename.extension_without_delimiter == 'jpeg' %>
+          <%= image_tag inspiration.resource.variant(resize_to_limit: [500, 500]).processed.url %>
+          <%#= image_tag inspiration.resource %>
+      <% end %>
+      <% if inspiration.resource.filename.extension_without_delimiter == 'mp3' %>
+          <audio src="<%= cloudinary_url(inspiration.resource.key, resource_type: :video)  %>" controls></audio>
+      <% end %>
     </div>
 
-
+      <div id="audio-player-<%= inspiration.id %>" class="collapse">
+      </div>
   <% end %>
 </div>
 

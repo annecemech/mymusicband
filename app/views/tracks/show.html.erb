@@ -34,7 +34,9 @@
     </div>
 
     <div class="tab-pane" id="inspire" role="tabpanel" aria-labelledby="inspire-tab">
-      <%= render 'inspirations/index' %>
+      <div class="col-xs-12 col-md-6 mb-2">
+        <%= render 'inspirations/index' %>
+      </div>
     </div>
   </div>
 
@@ -50,7 +52,7 @@
     <%= render partial:'shared/modal_update_partition', locals: {track: @track, partition: partition}  %>
   <% end %>
   <% @track.inspirations.each do |inspiration| %>
-    <%= render partial:'shared/modal_update_inspiration', locals: {track: @track, partition: inspiration}  %>
+    <%= render partial:'shared/modal_update_inspiration', locals: {track: @track, inspiration: inspiration}  %>
   <% end %>
 
 

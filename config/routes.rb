@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :partitions, only: [:show]
+  resources :inspirations, only: [:show]
 
 end
 
