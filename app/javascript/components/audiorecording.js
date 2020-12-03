@@ -162,7 +162,7 @@ const loadAudioRecording = () => {
                 if (xhr.status != 200) { // analyze HTTP status of the response
                   swal("Oops!", "Something went wrong, try again!", "error"); // e.g. 404: Not Found
                 } else { // show the result
-                  swal("Good job!", "Your recording was saved!", "success") // response is the server response
+                  swal("Good job!", "Your recording has been saved!", "success") // response is the server response
                   .then(function() {
                     redirect: window.location.replace(`/tracks/${mainSection.dataset.trackid}`);
                   });
