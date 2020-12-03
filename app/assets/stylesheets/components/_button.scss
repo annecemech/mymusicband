@@ -17,6 +17,17 @@
   }
 }
 
+.btn-partition {
+  background-color: $blue;
+  color: white;
+  font-size: 12px;
+  border-radius: 5px;
+  &:hover {
+    background-color: #ce0000;
+    color:white;
+  }
+}
+
 .btn-back {
   position: absolute;
   left: 30px;
