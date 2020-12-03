@@ -4,6 +4,7 @@ Member.destroy_all
 Comment.destroy_all
 Recording.destroy_all
 Partition.destroy_all
+Inspiration.destroy_all
 Track.destroy_all
 Band.destroy_all
 User.destroy_all
