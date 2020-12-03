@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <% if user_signed_in? %>
-    <%= link_to my_bands_path, class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <h2><span id="logo">(<i class="fas fa-microphone-alt"></i>)</span> My music band</h2>
     <% end %>
   <% else %>
