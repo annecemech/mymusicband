@@ -1,4 +1,5 @@
 import Crunker from 'crunker';
+import swal from 'sweetalert';
 
 const mixRecordings = () => {
 
@@ -32,18 +33,22 @@ const mixRecordings = () => {
           element.volume = 0.9;
           element.play();
       });
+      event.currentTarget.classList.add("button-inactive");
+      stopRecordings.classList.remove("button-inactive");
     });
 
-    pauseRecordings.addEventListener('click', (event) => {
-      recordingsArray.forEach(element => {
-          element.pause();
-      });
-    });
+    // pauseRecordings.addEventListener('click', (event) => {
+    //   recordingsArray.forEach(element => {
+    //       element.pause();
+    //   });
+    // });
 
     stopRecordings.addEventListener('click', (event) => {
       recordingsArray.forEach(element => {
           element.load();
       });
+      event.currentTarget.classList.add("button-inactive");
+      playRecordings.classList.remove("button-inactive");
     });
 
     downloadButton.addEventListener("click", (e) => {
@@ -56,6 +61,7 @@ const mixRecordings = () => {
         .then(buffers => audio.mergeAudio(buffers))
         .then(merged => audio.export(merged, "audio/mp3"))
         .then(output => audio.download(output.blob))
+        .then(swal("Your recording is downloading!", "...it will be available in a few seconds!"))
         .catch(error => {
           throw new Error(error);
         });
