@@ -1,0 +1,13 @@
+.swal-button {
+  background-color: $blue;
+  color: lightgray;
+  border-radius: 5px;
+  &:hover {
+    background-color: $orange !important;
+    color: lightgray !important;
+  }
+}
+
+.swal-content__input:focus{
+  border-color: $orange !important;
+}
