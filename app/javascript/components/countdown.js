@@ -28,6 +28,7 @@ const initCountdown = (audioarray, abortSignal, mediaRecorder) => {
 
         if (num == last){
           // After the and of the animation, start recording
+          console.log(mediaRecorder.state);
           mediaRecorder.start();
           console.log(mediaRecorder.state);
           console.log("recorder started");
