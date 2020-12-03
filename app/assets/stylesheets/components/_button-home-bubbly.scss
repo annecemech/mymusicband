@@ -1,0 +1,21 @@
+.bubbly-button{
+  display: inline-block;
+  background-color:#382878;
+  font-size: 1em;
+  padding: 1em 2em;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+
+  &:hover{
+    background-color: $green;
+    color: black;
+  }
+}

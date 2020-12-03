@@ -7,6 +7,7 @@
   width: 100%;
   height: 185px;
   text-align: center;
+  padding-top: 100px;
   // display: flex;
   // flex-direction: column;
   // justify-content:center;
@@ -35,7 +36,7 @@
   position: absolute;
   top:0;
   width: 100%;
-  height: 248px;
+  height: 300px;
 
   // background: $orange;
   background: radial-gradient(circle, rgba(249,70,108,1) 0%, rgba(232,56,24,1) 99%);
@@ -64,6 +65,68 @@
   overflow-x: hidden;
   z-index:-1;
 }
+
+.banner-home-page{
+  // z-index: -10;
+  // // position: absolute;
+  // top:0;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle, rgba(249,70,108,1) 0%, rgba(232,56,24,1) 99%);
+  padding: 120px 0px 70px 0px;
+  background-size: cover;
+  background-position: center;
+  margin:auto;
+  h2{
+    color:$gray;
+  }
+  p{
+  color:$gray;
+  }
+
+}
+
+.photo-banner{
+  border-radius: 5px;
+  box-shadow: 9px 9px 0px white;
+}
+
+.guitar{
+  position: absolute;
+  left: 164px;
+  top: 149px;
+}
+
+.banner-testimonial-home-page{
+  margin-top: 50px;
+  width: 100%;
+  height: 441px;
+  background: radial-gradient(circle, rgba(249,70,108,1) 0%, rgba(232,56,24,1) 99%);
+  padding: 86px 0px 70px 0px;
+}
+
+
+.banner-testimonial-slanted {
+  z-index: -10;
+  position: absolute;
+  width: 100%;
+  height: 335px;
+
+  // background: $orange;
+  background: radial-gradient(circle, rgba(249,70,108,1) 0%, rgba(232,56,24,1) 99%);
+
+}
+
+.banner-testimonial-slanted:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background: $light-gray;
+  transform: skew(87deg);
+  z-index: -1000;
 
 
 

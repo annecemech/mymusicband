@@ -1,4 +1,82 @@
-<h1>Pages#home</h1>
-<h2>This is h2</h2>
-<h3>This is h3</h3>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div id="particles-js"></div>
+<div class="banner-home-page d-flex flex-column">
+  <div class="container-home-page d-flex flex-column">
+    <div class="row">
+      <div class="col-lg-6 col-sm-6 col-md-6 mt-5">
+        <h1>You will never play alone</h1>
+        <p>Pleasure above all! Take advantage of your free time to join a music group of your own style. Play remotely and assemble your recordings to release the album of the year!</p>
+        <%= link_to "Play now", my_bands_path, class: "bubbly-button" %>
+      </div>
+      <div class="col-lg-6 col-sm-6 col-md -6text-center">
+        <div><%= cl_image_tag("voice_m0cqki", width: 300, height: 200, crop: :fill, class: "photo-banner") %></div>
+        <div class="guitar"><%= cl_image_tag("guitar_gmvcmd", width: 300, height: 200, crop: :fill, class: "photo-banner") %></div>
+      </div>
+    </div>
+    <div class="text-scroll"><h3 class="text-center">How it works?</h3></div>
+    <div class="d-flex justify-content-center">
+      <div class="container-scroll">
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-home-page">
+  <div class="row section-feature d-flex justify-content-center align-items-center">
+    <div class="col-lg-6 col-sm-6 col-md-6 mt-5">
+      <div><%= cl_image_tag("crew_zjp48v", width: 400, class: "photo-banner") %></div>
+    </div>
+    <div class="col-lg-6 col-sm-6 col-md-6 mt-5">
+      <h2 class="text-shadow-orange title-feature">Create or find your rock team</h2>
+      <p>By joining our community, access to a lot of music groups. Do you want to start a band? No problem! Invite members or friends and let's go!</p>
+    </div>
+  </div>
+  <div class="row section-feature d-flex justify-content-center align-items-center">
+    <div class="col-lg-6 col-sm-6 col-md-6 mt-5">
+      <h2 class="text-shadow-orange title-feature">Choose the tracks you want</h2>
+      <p>With the members of your team, make a library of songs to play. Everyone will have a role to play!</p>
+    </div>
+    <div class="col-lg-6 col-sm-6 col-md-6 mt-5">
+      <div><%= cl_image_tag("tracks_vivusr", width: 400, class: "photo-banner") %></div>
+    </div>
+  </div>
+  <div class="row section-feature d-flex justify-content-center align-items-center">
+    <div class="col-lg-6 col-sm-6 col-md-6 mt-5">
+      <div><%= cl_image_tag("tabs_tgtr2a", width: 400, class: "photo-banner") %></div>
+    </div>
+    <div class="col-lg-5 col-sm-6 col-md-6 mt-5">
+      <h2 class="text-shadow-orange title-feature">Import your own sheets or tabs</h2>
+      <p>Make your mark by adding your own partitions and work on them whenever you want.</p>
+    </div>
+  </div>
+  <div class="row section-feature d-flex justify-content-center align-items-center">
+    <div class="col-lg-6 col-sm-6 col-md-6 mt-5">
+      <h2 class="text-shadow-orange title-feature">Record your own recordings!</h2>
+      <p>The adrenaline starts to rise! Thanks to our system of automatic unwinding of your score, you will be able to give everything to make the best recording of your life.</p>
+    </div>
+    <div class="col-lg-6 col-sm-6 col-md-6 mt-5">
+      <div><%= cl_image_tag("record_n6dt4r", width: 400, class: "photo-banner") %></div>
+    </div>
+  </div>
+  <div class="row section-feature d-flex justify-content-center align-items-center">
+    <div class="col-lg-6 col-sm-6 col-md-6 mt-5">
+      <div><%= cl_image_tag("mix_g9uufn", width: 400, class: "photo-banner") %></div>
+    </div>
+    <div class="col-lg-6 col-sm-6 col-md-6 mt-5">
+      <h2 class="text-shadow-orange title-feature">Mix and share your group's songs</h2>
+      <p>Select your favorite recordings, mix it all and that's it! It's time to show off.</p>
+    </div>
+  </div>
+</div>
+
+<div style="position:relative; height:400px">
+  <div class="banner-testimonial-home-page">
+    <%= image_tag "rocks-inverse.png", alt: "Rock on hand sign" ,id: "rockshome" %>
+    <p class="text-center testimonial">This is the platform of my dreams! I have very little time to join a group physically because of my children. Just playing remotely with a virtual group is incredible. I didn't play anymore but thanks to mymusicband.rocks, I find pleasure in addition to my level.</p>
+    <div class="d-flex justify-content-center"><%= image_tag "emilie.jpg", alt: "emilie", id: "avatar-testimonial" %></div>
+    <p class="text-center">Emilie</p>
+  </div>
+</div>

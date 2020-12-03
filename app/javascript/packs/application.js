@@ -36,6 +36,7 @@ import { initTrackCable } from '../channels/track_channel';
 import { initParticles} from '../plugins/particles.js'
 import { initTrackShowButtons } from '../components/track-show-buttons.js'
 
+
 document.addEventListener('turbolinks:load', () => {
   loadAudioRecording();
   initTrackCable();

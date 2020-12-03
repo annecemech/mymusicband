@@ -1,1 +1,37 @@
 // Specific CSS for your home-page
+.container-home-page{
+  // width: 740px;
+  width: 950px;
+  margin:auto;
+  h2{
+    color:$gray;
+  }
+  p{
+  color:$gray;
+  }
+}
+
+
+.section-feature{
+  margin-top: 150px;
+}
+
+
+#rockshome{
+  position: absolute;
+  width: 240.33px;
+  height: 352.32px;
+  left: -26.5px;
+  top: 47px;
+  transform: rotate(65.65deg);
+}
+
+.testimonial{
+  margin: auto 300px;
+}
+
+#avatar-testimonial{
+  border-radius: 50%;
+  width: 50px;
+  margin-top: 20px;
+}
