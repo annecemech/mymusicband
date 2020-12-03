@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :comments, only:[:create]
     resources :partitions, only:[:create, :show, :destroy, :update]
     resources :recordings, only:[:index, :create, :destroy, :update]
-    resources :inspirations, only:[:create]
+    resources :inspirations, only:[:create, :update, :destroy]
   end
 
   resources :partitions, only: [:show]
