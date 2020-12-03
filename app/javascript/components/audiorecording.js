@@ -4,6 +4,8 @@ import swal from 'sweetalert';
 const deleteClip = () => {
   const cardPillule = document.querySelector('.card-record');
   const clip = cardPillule.querySelector('.clip');
+  const buttonsave = document.querySelector('.btn-save');
+  console.log(clip);
   clip.parentNode.removeChild(clip);
   buttonsave.classList.add("d-none");
   cardPillule.classList.remove("card-record-grow");
@@ -61,6 +63,8 @@ const loadAudioRecording = () => {
           visualize(stream);
 
           record.onclick = function() {
+            console.log(mediaRecorder);
+
             // if one record already done, delete it
             if (cardPillule.querySelector('.clip')){
               deleteClip();
@@ -159,13 +163,7 @@ const loadAudioRecording = () => {
             audio.src = audioURL;
 
             deleteButton.onclick = function(e) {
-              let evtTgt = e.target;
-              console.log(evtTgt.parentNode);
-              console.log(evtTgt.parentNode.parentNode);
-
-              evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
-              buttonsave.classList.add("d-none");
-              cardPillule.classList.remove("card-record-grow");
+              deleteClip();
             }
 
             clipLabel.onclick = function() {
