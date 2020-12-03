@@ -19,35 +19,13 @@ const playcheckbox = () => {
   if (partitionShow) {
 
     checkbox.forEach(element => {
-    element.addEventListener('change', (event) => {
-      if(element.checked) {
-        audioarray.push(new Audio(element.dataset.recordurl));
-      } else {
-        audioarray.splice(new Audio(element.dataset.recordurl), 1)
-      }
-    });
-  });
-
-    buttonRecordPlay.addEventListener('click', (event) => {
-      abortController = new AbortController();
-      initCountdown(audioarray, abortController.signal);
-      // audioarray.forEach(element => {
-      //     element.volume = 0.9;
-      //     element.play();
-      // });
-      event.currentTarget.classList.add("button-inactive");
-      buttonRecordStop.classList.remove("button-inactive");
-    });
-
-    buttonRecordStop.addEventListener('click', (event) => {
-      audioarray.forEach(element => {
-          element.pause();
+      element.addEventListener('change', (event) => {
+        if(element.checked) {
+          audioarray.push(new Audio(element.dataset.recordurl));
+        } else {
+          audioarray.splice(new Audio(element.dataset.recordurl), 1)
+        }
       });
-      event.currentTarget.classList.add("button-inactive");
-      cardRecord.classList.add("card-record-grow");
-      buttonRecordPlay.classList.remove("button-inactive");
-      buttonsave.classList.remove("d-none");
-      console.log(buttonTrash);
     });
 
     buttonPlayCheckbox.addEventListener('click', (event) => {
