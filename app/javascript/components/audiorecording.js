@@ -1,6 +1,15 @@
 import { initCountdown } from '../components/countdown';
 import swal from 'sweetalert';
 
+const deleteClip = () => {
+  const cardPillule = document.querySelector('.card-record');
+  const clip = cardPillule.querySelector('.clip');
+  const buttonsave = document.querySelector('.btn-save');
+  console.log(clip);
+  clip.parentNode.removeChild(clip);
+  buttonsave.classList.add("d-none");
+  cardPillule.classList.remove("card-record-grow");
+}
 
 const loadAudioRecording = () => {
 
@@ -54,6 +63,13 @@ const loadAudioRecording = () => {
           visualize(stream);
 
           record.onclick = function() {
+            console.log(mediaRecorder);
+
+            // if one record already done, delete it
+            if (cardPillule.querySelector('.clip')){
+              deleteClip();
+            }
+
             abortController = new AbortController();
             initCountdown(audioarray, abortController.signal, mediaRecorder);
 
@@ -140,17 +156,26 @@ const loadAudioRecording = () => {
 
               xhr.open('POST', form.getAttribute('action'), true);
               xhr.send(formData);
-              location.reload();
+
+              // location.reload();
+              xhr.onload = function() {
+                if (xhr.status != 200) { // analyze HTTP status of the response
+                  swal("Oops!", "Something went wrong, try again!", "error"); // e.g. 404: Not Found
+                } else { // show the result
+                  swal("Good job!", "Your recording has been saved!", "success") // response is the server response
+                  .then(function() {
+                    redirect: window.location.replace(`/tracks/${mainSection.dataset.trackid}`);
+                  });
+                }
+              };
+              // location.replace("http://website.com/webpage2.html/go/" + $('#column123').text())
               return false;
             }
 
             audio.src = audioURL;
 
             deleteButton.onclick = function(e) {
-              let evtTgt = e.target;
-              evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
-              buttonsave.classList.add("d-none");
-              cardPillule.classList.remove("card-record-grow");
+              deleteClip();
             }
 
             clipLabel.onclick = function() {
@@ -215,11 +240,11 @@ const loadAudioRecording = () => {
 
           analyser.getByteTimeDomainData(dataArray);
 
-          canvasCtx.fillStyle = 'rgb(249, 249, 249)';
+          canvasCtx.fillStyle = 'rgb(236, 240, 241)';
           canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
 
           canvasCtx.lineWidth = 2;
-          canvasCtx.strokeStyle = 'rgb(232, 56, 26)';
+          canvasCtx.strokeStyle = 'rgb(249, 56, 26)';
 
           canvasCtx.beginPath();
 

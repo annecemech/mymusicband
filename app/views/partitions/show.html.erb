@@ -3,9 +3,10 @@
     <%= link_to  track_path(@track), class: "btn btn-back" do %>
       <i class="fas fa-fast-backward"></i>
     <% end %>
-    <div class="banner-title-band">
+
       <h1 class="text-shadow-orange"><%= @partition.track.title %></h1>
-    </div>
+
+      <%= image_tag "plug.png", alt: "Recording cable" ,id: "plug" %>
   </div>
   <div class="counter">
     <div class="nums">
@@ -61,7 +62,13 @@
             <li class="text-center"><button class="btn-checkbox btn-checkbox-play"><i class="fas fa-play"></i></button></li>
             <li class="text-center"><button class="btn-checkbox btn-checkbox-pause button-inactive"><i class="fas fa-pause"></i></button></li>
             <% @track.recordings.each do |record| %>
-              <li class="text-center"><input class="audio checkrecording" type="checkbox" data-recordurl="<%= cloudinary_url(record.resource.key, resource_type: :video) %>" name="recording"/><%= record.name %></input></li>
+              <li class="text-center">
+                <input class="toggle audio checkrecording" type="checkbox" data-recordurl="<%= cloudinary_url(record.resource.key, resource_type: :video) %>" name="recording" id=<%= "recording-#{record.id}" %> >
+                </input>
+                <label class="d-inline" for=<%= "recording-#{record.id}" %> >
+                  <%= record.name %>
+                </label>
+              </li>
             <% end %>
           </ul>
         </div>

@@ -4,7 +4,9 @@
   <%= image_tag "rocks.png", alt: "Rock on hand sign" ,id: "rocks" %>
 
   <h1><%= @track.title %></h1>
-  <%= link_to "Mix Records", track_recordings_path(@track), class: "btn btn-blue" %>
+  <%= link_to track_recordings_path(@track), class: "btn btn-blue" do %>
+    <i class="fas fa-sliders-h"></i> Mix Song
+  <% end %>
   <%= render "shared/button_back_to_band"%>
 </div>
 <br>

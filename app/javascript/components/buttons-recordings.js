@@ -1,4 +1,5 @@
 import Crunker from 'crunker';
+import swal from 'sweetalert';
 
 const mixRecordings = () => {
 
@@ -7,38 +8,47 @@ const mixRecordings = () => {
   const playRecordings = document.querySelector('.play-recordings');
   const pauseRecordings = document.querySelector('.pause-recordings');
   const stopRecordings = document.querySelector('.stop-recordings');
-  const recordingsArray = [];
+  let recordingsArray = [];
 
-  if (playRecordings)
+  if (downloadButton)
   {
 
     checkRecordings.forEach(element => {
       element.addEventListener('change', (event) => {
-        if (element.checked) {
-          recordingsArray.push(new Audio(element.dataset.recordurl));
-        } else {
-          recordingsArray.splice(new Audio(element.dataset.recordurl), 1)
-        }
+        recordingsArray = [];
+        buildArray();
       });
     });
+
+    const buildArray = () => {
+      checkRecordings.forEach(element => {
+        if (element.checked) {
+          recordingsArray.push(new Audio(element.dataset.recordurl));
+        }
+      });
+    };
 
     playRecordings.addEventListener('click', (event) => {
       recordingsArray.forEach(element => {
           element.volume = 0.9;
           element.play();
       });
+      event.currentTarget.classList.add("button-inactive");
+      stopRecordings.classList.remove("button-inactive");
     });
 
-    pauseRecordings.addEventListener('click', (event) => {
-      recordingsArray.forEach(element => {
-          element.pause();
-      });
-    });
+    // pauseRecordings.addEventListener('click', (event) => {
+    //   recordingsArray.forEach(element => {
+    //       element.pause();
+    //   });
+    // });
 
     stopRecordings.addEventListener('click', (event) => {
       recordingsArray.forEach(element => {
           element.load();
       });
+      event.currentTarget.classList.add("button-inactive");
+      playRecordings.classList.remove("button-inactive");
     });
 
     downloadButton.addEventListener("click", (e) => {
@@ -51,6 +61,7 @@ const mixRecordings = () => {
         .then(buffers => audio.mergeAudio(buffers))
         .then(merged => audio.export(merged, "audio/mp3"))
         .then(output => audio.download(output.blob))
+        .then(swal("Your recording is downloading!", "...it will be available in a few seconds!"))
         .catch(error => {
           throw new Error(error);
         });
@@ -62,4 +73,3 @@ const mixRecordings = () => {
 }
 
 export { mixRecordings };
-
