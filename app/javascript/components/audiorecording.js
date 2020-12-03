@@ -1,3 +1,11 @@
+const deleteClip = () => {
+  const cardPillule = document.querySelector('.card-record');
+  const clip = cardPillule.querySelector('.clip');
+  clip.parentNode.removeChild(clip);
+  buttonsave.classList.add("d-none");
+  cardPillule.classList.remove("card-record-grow");
+}
+
 const loadAudioRecording = () => {
 
   const record = document.querySelector('.btn-record');
@@ -40,6 +48,11 @@ const loadAudioRecording = () => {
           visualize(stream);
 
           record.onclick = function() {
+            // if one record already done, delete it
+            if (cardPillule.querySelector('.clip')){
+              deleteClip();
+            }
+
             mediaRecorder.start();
             console.log(mediaRecorder.state);
             console.log("recorder started");
@@ -116,11 +129,12 @@ const loadAudioRecording = () => {
 
             deleteButton.onclick = function(e) {
               let evtTgt = e.target;
+              console.log(evtTgt.parentNode);
+              console.log(evtTgt.parentNode.parentNode);
+
               evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
               buttonsave.classList.add("d-none");
-              console.log(cardPillule);
               cardPillule.classList.remove("card-record-grow");
-              console.log(cardPillule);
             }
 
             clipLabel.onclick = function() {
