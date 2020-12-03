@@ -1,5 +1,8 @@
 // Specific CSS for your home-page
 .container-home-page{
+  // width: 740px;
+  width: 950px;
+  margin:auto;
   h2{
     color:$gray;
   }
@@ -7,6 +10,7 @@
   color:$gray;
   }
 }
+
 
 .section-feature{
   margin-top: 150px;

@@ -22,7 +22,7 @@
   top: 0;
   height: 100%;
   width: 51%;
-  background: #fff;
+  background: $green;
 }
 
 .chevron:before {
@@ -63,10 +63,10 @@
 }
 
 .text-scroll{
-  color:white;
+  color:$green;
   text-transform: uppercase;
   font-weight: bolder;
-  margin-top: 150px;
+  margin-top: 110px;
 }
 
 .container-scroll{

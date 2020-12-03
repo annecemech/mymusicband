@@ -35,7 +35,6 @@ import { mixRecordings } from '../components/buttons-recordings.js'
 import { initTrackCable } from '../channels/track_channel';
 import { initParticles} from '../plugins/particles.js'
 import { initTrackShowButtons } from '../components/track-show-buttons.js'
-import { playbutton } from '../components/button-home.js'
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -45,5 +44,4 @@ document.addEventListener('turbolinks:load', () => {
   mixRecordings();
   initParticles();
   initTrackShowButtons();
-  playbutton();
 });
