@@ -14,19 +14,24 @@ const playcheckbox = () => {
   const cardPlayer = document.querySelector('.card-player');
   const partitionShow = document.querySelector(".partition-show");
   let abortController = null;
-  const audioarray = [];
+  let audioarray = [];
 
   if (partitionShow) {
 
     checkbox.forEach(element => {
       element.addEventListener('change', (event) => {
-        if(element.checked) {
-          audioarray.push(new Audio(element.dataset.recordurl));
-        } else {
-          audioarray.splice(new Audio(element.dataset.recordurl), 1)
-        }
+        audioarray = [];
+        buildArray();
       });
     });
+
+    const buildArray = () => {
+      checkbox.forEach(element => {
+        if (element.checked) {
+          audioarray.push(new Audio(element.dataset.recordurl));
+        }
+      });
+    };
 
     buttonPlayCheckbox.addEventListener('click', (event) => {
       audioarray.forEach(element => {
