@@ -1,5 +1,5 @@
 <div class="banner-slanted"></div>
-<div class="wrap-login">
+<div class="wrap-signup">
 
   <h2 class="text-center mb-3">Sign up</h2>
 
@@ -7,6 +7,23 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
+
+      <div class="d-flex flex-fill justify-content-between">
+        <%= f.input :first_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "given-name" },
+                    wrapper_html: { class: "flex-fill mr-1"}%>
+        <%= f.input :last_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "family-name" },
+                    wrapper_html: { class: "flex-fill ml-1"}%>
+      </div>
+      <%= f.association :instrument,
+                  collection: Instrument.all,
+                  label: "What is your main instrument?" %>
+      <%= f.input :avatar, as: :file %>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
