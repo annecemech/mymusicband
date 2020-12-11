@@ -7,7 +7,4 @@ class Track < ApplicationRecord
   has_one_attached :photo
 
   validates :title, presence: true
-  validates :tempo, presence: true
-  validates :duration, presence: true
-  validates :pattern, presence: true
 end

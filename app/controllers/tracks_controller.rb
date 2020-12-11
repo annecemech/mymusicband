@@ -11,11 +11,14 @@ class TracksController < ApplicationController
   end
 
   def create
-
     @track = Track.new(track_params)
 
     @band = Band.find(params[:band_id])
     @track.band = @band
+
+    # default values
+    @track.duration = 180 unless @track.duration
+    @track.tempo = 120 unless @track.tempo
 
     if @track.save
       redirect_to track_path(@track)
