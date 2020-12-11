@@ -6,34 +6,41 @@
   <h1>Welcome back, <%= current_user.first_name %></h1>
   <br>
   <h3>Here are your bands!</h3>
-</div>
-<div class="container" style="margin-top:143px">
 
-<div class="cards">
-
-  <% @bands.each do |band| %>
-    <%= link_to band_path(band) do %>
-      <div class="card-band shadow-orange">
-        <div class="card-band-image" style="background-image: url('<%= cl_image_path band.photo.key, height: 300, width: 400 %>')">
-          <span class="badge badge-primary ml-3 mt-2">Since <%= band.creation_year %></span>
-        </div>
-        <div class="card-band-infos">
-          <div>
-            <h2><%= band.name %></h2>
-            <p><%= band.description %></p>
-          </div>
-          <ul class="avatars">
-            <% band.users.each do |user| %>
-              <li class="avatars_item">
-                <%= cl_image_tag user.avatar.key, crop: :thumb, gravity: :face, :effect=>"grayscale", class: "avatar-bordered" %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-   <% end %>
+  <%= link_to "#newBandModal", class: "btn btn-plus ml-3", "data-toggle" => "modal" do %>
+    <h3><i class="fas fa-plus-circle"></i></h3>
   <% end %>
 
 </div>
+<div class="container" style="margin-top:143px">
+
+  <div class="cards">
+
+    <% @bands.each do |band| %>
+      <%= link_to band_path(band) do %>
+        <div class="card-band shadow-orange">
+          <div class="card-band-image" style="background-image: url('<%= cl_image_path band.photo.key, height: 300, width: 400 %>')">
+            <span class="badge badge-primary ml-3 mt-2">Since <%= band.creation_year %></span>
+          </div>
+          <div class="card-band-infos">
+            <div>
+              <h2><%= band.name %></h2>
+              <p><%= band.description %></p>
+            </div>
+            <ul class="avatars">
+              <% band.users.each do |user| %>
+                <li class="avatars_item">
+                  <%= cl_image_tag user.avatar.key, crop: :thumb, gravity: :face, :effect=>"grayscale", class: "avatar-bordered" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+     <% end %>
+    <% end %>
+
+  </div>
 
 </div>
+
+<%= render 'bands/modal_new_band' %>
