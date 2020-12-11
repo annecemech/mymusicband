@@ -19,9 +19,17 @@
     <% @bands.each do |band| %>
       <%= link_to band_path(band) do %>
         <div class="card-band shadow-orange">
+
+          <% if band.photo.attached? %>
           <div class="card-band-image" style="background-image: url('<%= cl_image_path band.photo.key, height: 300, width: 400 %>')">
             <span class="badge badge-primary ml-3 mt-2">Since <%= band.creation_year %></span>
           </div>
+          <% else %>
+            <div class="card-band-image card-band-image-default" >
+              <span class="badge badge-primary ml-3 mt-2">Since <%= band.creation_year %></span>
+            </div>
+          <% end %>
+
           <div class="card-band-infos">
             <div>
               <h2><%= band.name %></h2>

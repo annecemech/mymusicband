@@ -5,8 +5,9 @@ class BandsController < ApplicationController
   end
 
   def create
-    @band = Band.new(band_params)
 
+    @band = Band.new(band_params)
+    @band.creation_year = Date.today.year unless @band.creation_year != ""
     member = Member.new(user: current_user, band: @band)
 
     if @band.save && member.save
