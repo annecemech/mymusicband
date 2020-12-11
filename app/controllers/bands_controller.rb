@@ -1,11 +1,9 @@
 class BandsController < ApplicationController
-
   def show
     @band = Band.find(params[:id])
   end
 
   def create
-
     @band = Band.new(band_params)
     @band.creation_year = Date.today.year unless @band.creation_year != ""
     member = Member.new(user: current_user, band: @band)
