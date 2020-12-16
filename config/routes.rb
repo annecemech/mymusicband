@@ -7,9 +7,11 @@ Rails.application.routes.draw do
     resources :bands, only:[:index]
   end
 
-  resources :bands, only: [:show, :create]
+  resources :bands, only: [:show, :create] do
+    resources :tracks, only:[:create]
+  end
 
-  resources :tracks, only:[:index, :show, :create] do
+  resources :tracks, only:[:index, :show] do
     resources :comments, only:[:create]
     resources :partitions, only:[:create, :show, :destroy, :update]
     resources :recordings, only:[:index, :create, :destroy, :update]

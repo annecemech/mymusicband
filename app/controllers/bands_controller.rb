@@ -1,6 +1,8 @@
 class BandsController < ApplicationController
   def show
     @band = Band.find(params[:id])
+    @track = Track.new
+    @member = Member.new
   end
 
   def create
