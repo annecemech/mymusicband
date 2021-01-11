@@ -20,7 +20,9 @@
   </div>
   <div class="container container-partition">
     <div class="text-center">
+      <% if @partition.resource.attached? %>
       <%= cl_image_tag @partition.resource.key, width: 800 %>
+      <% end %>
     </div>
   </div>
   <div class= "card-player fixed-bottom d-flex flex-column">
