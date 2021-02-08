@@ -30,9 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  never_alone: "You will never play alone"
+
   pages:
     home:
-      never_alone: "You will never play alone"
       explanation: "Pleasure above all! Take advantage of your free time to join a music group of your own style. Play remotely and assemble your recordings to release the album of the year!"
       play_now: "Play now"
       how_it_works: "How it works?"

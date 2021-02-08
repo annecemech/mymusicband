@@ -1,7 +1,8 @@
 fr:
+  never_alone: "Vous ne jouerez jamais plus seul"
+
   pages:
     home:
-      never_alone: "Vous ne jouerez jamais plus seul"
       explanation: "Le plaisir avant tout! Profitez votre temps libre pour rejoindre un groupe de musique de votre style. Jouez à distance et assemblez vos enregistrements pour sortir l'album de l'année!"
       play_now: "Commencez à jouer"
       how_it_works: "Comment ça marche?"
