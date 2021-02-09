@@ -15,7 +15,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li>
+<!--       <li>
         <div class="lang dropdown">
           <div class="dropdown-toggle" id="langDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
             <% case I18n.locale %>
@@ -30,7 +30,7 @@
             <%= link_to 'English', root_path(locale: :en), class: "dropdown-item" %>
           </div>
         </div>
-      </li>
+      </li> -->
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.avatar.key, crop: :thumb, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
