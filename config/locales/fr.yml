@@ -1,0 +1,20 @@
+fr:
+  never_alone: "Vous ne jouerez jamais plus seul"
+
+  pages:
+    home:
+      explanation: "Le plaisir avant tout! Profitez votre temps libre pour rejoindre un groupe de musique de votre style. Jouez à distance et assemblez vos enregistrements pour sortir l'album de l'année!"
+      play_now: "Commencez à jouer"
+      how_it_works: "Comment ça marche?"
+      create_team: "Créez ou rejoignez un groupe"
+      create_team_expl: "Accédez à de nombreux groupes de musique en rejoignant notre communauté. Vous voulez créer le votre? Pas de problème! Invitez les membres ou des amis, et c'est parti!"
+      choose_tracks: "Choisissez les morceaux que vous voulez"
+      choose_tracks_expl: "Créez un répertoire de morceaux à jouer avec les membres de votre équipe. Chacun aura un rôle à jouer!"
+      import_sheets: "Importer vos partitions ou tablatures"
+      import_sheets_expl: "Faites votre marque en ajoutant vos propres partitions, et travaillez dessus quand vous voulez."
+      record: "Enregistrez vous!"
+      record_expl: "L'adrénaline commence à monter! Grâce à notre système de défilement automatique de votre partition, vous allez pouvoir donner tout ce que vous avez pour réussir le meilleur enregistrement de votre vie."
+      mix_share: "Mixez et partagez les morceaux de votre groupe"
+      mix_share_expl: "Sélectionnez vos enregistrements préférés, mixez les ensemble et c'est fait! C'est l'heure de frimer."
+      feedback_1: "C'est la plateforme de mes rêves! Je n'ai pas vraiment le temps de faire partie d'un groupe physiquement à cause de mes enfants. Mais jouer à distance avec un groupe \"virtuel\" est incroyable. Je ne jouais presque plus, mais grâce à mymusicband.rocks, je retrouve du plaisir à jouer et j'améliore mon niveau."
+

@@ -30,4 +30,21 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  never_alone: "You will never play alone"
+
+  pages:
+    home:
+      explanation: "Pleasure above all! Take advantage of your free time to join a music group of your own style. Play remotely and assemble your recordings to release the album of the year!"
+      play_now: "Play now"
+      how_it_works: "How it works?"
+      create_team: "Create or find your rock team"
+      create_team_expl: "By joining our community, access to a lot of music groups. Do you want to start a band? No problem! Invite members or friends and let's go!"
+      choose_tracks: "Choose the tracks you want"
+      choose_tracks_expl: "With the members of your team, make a library of songs to play. Everyone will have a role to play!"
+      import_sheets: "Import your own sheets or tabs"
+      import_sheets_expl: "Make your mark by adding your own partitions and work on them whenever you want."
+      record: "Record your own recordings!"
+      record_expl: "The adrenaline starts to rise! Thanks to our system of automatic scrolling of your score, you will be able to give everything to make the best recording of your life."
+      mix_share: "Mix and share your group's songs"
+      mix_share_expl: "Select your favorite recordings, mix it all and that's it! It's time to show off."
+      feedback_1: "This is the platform of my dreams! I have very little time to join a group physically because of my children. Just playing remotely with a virtual group is incredible. I didn't play anymore but thanks to mymusicband.rocks, I find pleasure in addition to my level."
