@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     #   I18n.locale = current_user.language
     # else
     # end
-    I18n.locale = params[:lang] || locale_from_header || I18n.default_locale
+    I18n.locale = params[:locale] || locale_from_header || I18n.default_locale
   end
 
   def locale_from_header
